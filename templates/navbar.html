@@ -1,546 +1,867 @@
-{% load static %} 
-<header id="haru-mobile-header" class="haru-mobile-header header-mobile-3 header-mobile-sticky">
+{% load static %}
+<header
+  id="haru-mobile-header"
+  class="haru-mobile-header header-mobile-3 header-mobile-sticky"
+>
   <div class="haru-mobile-header-wrap menu-mobile-fly">
-  <div class="container haru-mobile-header-container">
+    <div class="container haru-mobile-header-container">
       <div class="haru-mobile-header-inner">
-                              <div class="toggle-icon-wrap toggle-mobile-menu" data-ref="haru-nav-mobile-menu" data-drop-type="fly">
-                  <div class="toggle-icon"> <span></span></div>
-              </div>
-          
-          <!-- Header mobile customize -->
-          <div class="header-elements" style="font-size: inherit;">
-                                      <div class="header-elements-item">
-<div class="video-search-shortcode style-button ">
-  <a href="javascript:;" class="video-search-button" data-effect="search-zoom-in"><i class="haru-icon haru-search"></i></a>
-<div id="video-search-popup-0" class="video-search-popup white-popup mfp-hide mfp-with-anim">
-  <form role="search" method="get" class="haru-video-search search-form" action="https://demo.harutheme.com/cr8iveshare/">
-      <label for="haru-video-search-field-0">
-          <span class="screen-reader-text">Search for:</span>
-          <input type="search" id="haru-video-search-field-0" class="search-field" placeholder="Search videos&hellip;" value="" name="s" />
-      </label>
-      <button type="submit" class="search-submit" value="Search">
-          <span>Search</span>
-      </button>
-      <input type="hidden" name="post_type" value="haru_video" />
-  </form>
-</div>
-</div>
-</div>                    
-                                      <div class="header-elements-item">
-<div class="user-menu-shortcode default ">
-<div class="user-account-wrap">
-          <div class="user-account-content logged-out">
-        <a href="{% url 'login' %}" class="user-menu-login"><i class="haru-icon haru-user"></i></a>
-    </div>
-  </div>
-</div>
-</div>                                        
-                                  <div class="header-elements-item">
-<div class="watch-later-element">
-  <a href="javascript:;" class="watch-later-page-link">
-  <span class="watch-later-icon">
-      <i class="haru-icon haru-clock-o"></i>
-      <span class="watch-later-status "></span>
-  </span>
-</a>
-  <ul class="haru-watch-later-list">
-  <li class="haru-watch-later-videos empty-video"></li>
-  <li class="haru-watch-later-empty-video">
-      <i class="haru-icon haru-file-video"></i>
-      <div class="watch-later-empty-message">
-          An empty videos list!                  
-      </div>
-  </li>
-  <li class="haru-watch-later-view-all">
-                  <a href="../watch-later/index.html" class="haru-button haru-button-default">View all videos</a>
-  </li>
-</ul>
-</div>
-</div>                    
-                              </div>
-          <!-- End Header mobile customize -->
-                              <div class="header-logo-mobile">
-                  <a href="../index.html" class="logo-mobile-retina" title="SplitUnity">
-                      <img src="{% static 'wp-content/themes/vidio/framework/admin-assets/images/theme-options/logo%402x.png' %}" alt="SplitUnity" />
-                  </a>
-              </div>
-                      </div>
-      <div id="haru-nav-mobile-menu" class="haru-mobile-header-nav menu-mobile-fly">
-          <div class="mobile-menu-header">Menu<span class="mobile-menu-close"></span></div>
+        <div
+          class="toggle-icon-wrap toggle-mobile-menu"
+          data-ref="haru-nav-mobile-menu"
+          data-drop-type="fly"
+        >
+          <div class="toggle-icon"><span></span></div>
+        </div>
 
-                                              <ul id="menu-mobile-menu" class="haru-nav-mobile-menu"><li id="menu-item-mobile-626" class="haru-menu menu_style_dropdown   menu-item menu-item-type-post_type menu-item-object-page level-0 "><a href="../home-1-old/index.html">Home</a></li>
-<li id="menu-item-mobile-627" class="haru-menu menu_style_dropdown   menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children level-0 "><a href="#">Videos</a><b class="menu-caret"></b>
-<ul class="sub-menu" >
-<li id="menu-item-mobile-628" class="haru-menu menu_style_dropdown   menu-item menu-item-type-post_type menu-item-object-haru_video level-1 "><a href="/templates/video/haru-video-wordpress-theme/index.html">Youtube</a></li>
-<li id="menu-item-mobile-629" class="haru-menu menu_style_dropdown   menu-item menu-item-type-post_type menu-item-object-haru_video level-1 "><a href="/templates/video/haru-filmmaker-wordpress-theme/index.html">Vimeo</a></li>
-<li id="menu-item-mobile-630" class="haru-menu menu_style_dropdown   menu-item menu-item-type-post_type menu-item-object-haru_video level-1 "><a href="/templates/video/google-video-wordpress-theme/index.html">Google</a></li>
-<li id="menu-item-mobile-631" class="haru-menu menu_style_dropdown   menu-item menu-item-type-post_type menu-item-object-haru_video level-1 "><a href="/templates/video/self-hosted-video-wordpress-theme/index.html">Self Hosted</a></li>
-</ul>
-</li>
-<li id="menu-item-mobile-632" class="haru-menu menu_style_dropdown   menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children level-0 "><a href="#">Features</a><b class="menu-caret"></b>
-<ul class="sub-menu" >
-<li id="menu-item-mobile-633" class="haru-menu menu_style_dropdown   menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children level-1 "><a href="#">Videos</a><b class="menu-caret"></b>
-<ul class="sub-menu" >
-<li id="menu-item-mobile-634" class="haru-menu menu_style_dropdown   menu-item menu-item-type-post_type_archive menu-item-object-haru_video level-2 "><a href="/templates/video/index.html">Archive Videos</a></li>
-<li id="menu-item-mobile-635" class="haru-menu menu_style_dropdown   menu-item menu-item-type-post_type menu-item-object-haru_video level-2 "><a href="/templates/video/haru-filmmaker-wordpress-theme/index.html">Single Video</a></li>
-</ul>
-</li>
-<li id="menu-item-mobile-636" class="haru-menu menu_style_dropdown   menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children level-1 "><a href="#">Playlist</a><b class="menu-caret"></b>
-<ul class="sub-menu" >
-<li id="menu-item-mobile-637" class="haru-menu menu_style_dropdown   menu-item menu-item-type-post_type_archive menu-item-object-haru_playlist level-2 "><a href="../playlist/index.html">Archive Playlist</a></li>
-<li id="menu-item-mobile-638" class="haru-menu menu_style_dropdown   menu-item menu-item-type-post_type menu-item-object-haru_playlist level-2 "><a href="../playlist/video-wordpress-theme-playlist/index.html">Single Playlist</a></li>
-<li id="menu-item-mobile-639" class="haru-menu menu_style_dropdown   menu-item menu-item-type-custom menu-item-object-custom level-2 "><a href="/templates/video/haru-filmmaker-wordpress-theme/index065f.html?playlist=124">Single Video in Playlist</a></li>
-</ul>
-</li>
-<li id="menu-item-mobile-640" class="haru-menu menu_style_dropdown   menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children level-1 "><a href="#">Series</a><b class="menu-caret"></b>
-<ul class="sub-menu" >
-<li id="menu-item-mobile-641" class="haru-menu menu_style_dropdown   menu-item menu-item-type-post_type_archive menu-item-object-haru_series level-2 "><a href="../series/index.html">Archive Series</a></li>
-<li id="menu-item-mobile-642" class="haru-menu menu_style_dropdown   menu-item menu-item-type-post_type menu-item-object-haru_series level-2 "><a href="../series/running-road/index.html">Single Series</a></li>
-<li id="menu-item-mobile-643" class="haru-menu menu_style_dropdown   menu-item menu-item-type-custom menu-item-object-custom level-2 "><a href="/templates/video/haru-filmmaker-wordpress-theme/index2d22.html?series=128">Single Video in Series</a></li>
-</ul>
-</li>
-<li id="menu-item-mobile-644" class="haru-menu menu_style_dropdown   menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children level-1 "><a href="#">Channel</a><b class="menu-caret"></b>
-<ul class="sub-menu" >
-<li id="menu-item-mobile-645" class="haru-menu menu_style_dropdown   menu-item menu-item-type-post_type_archive menu-item-object-haru_channel level-2 "><a href="../channel/index.html">Archive Channel</a></li>
-<li id="menu-item-mobile-646" class="haru-menu menu_style_dropdown   menu-item menu-item-type-post_type menu-item-object-haru_channel level-2 "><a href="../channel/technology-channel/index.html">Single Channel</a></li>
-</ul>
-</li>
-<li id="menu-item-mobile-647" class="haru-menu menu_style_dropdown   menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children level-1 "><a href="#">Actor</a><b class="menu-caret"></b>
-<ul class="sub-menu" >
-<li id="menu-item-mobile-648" class="haru-menu menu_style_dropdown   menu-item menu-item-type-post_type_archive menu-item-object-haru_actor level-2 "><a href="../actor/index.html">Archive Actor</a></li>
-<li id="menu-item-mobile-649" class="haru-menu menu_style_dropdown   menu-item menu-item-type-post_type menu-item-object-haru_actor level-2 "><a href="../actor/ammy-poehler/index.html">Single Actor</a></li>
-</ul>
-</li>
-<li id="menu-item-mobile-650" class="haru-menu menu_style_dropdown   menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children level-1 "><a href="#">Director</a><b class="menu-caret"></b>
-<ul class="sub-menu" >
-<li id="menu-item-mobile-651" class="haru-menu menu_style_dropdown   menu-item menu-item-type-post_type_archive menu-item-object-haru_director level-2 "><a href="../director/index.html">Archive Director</a></li>
-<li id="menu-item-mobile-652" class="haru-menu menu_style_dropdown   menu-item menu-item-type-post_type menu-item-object-haru_director level-2 "><a href="../director/felicity-fisher/index.html">Single Director</a></li>
-</ul>
-</li>
-<li id="menu-item-mobile-653" class="haru-menu menu_style_dropdown   menu-item menu-item-type-custom menu-item-object-custom level-1 "><a href="../author/admin/index.html">Author page</a></li>
-<li id="menu-item-mobile-654" class="haru-menu menu_style_dropdown   menu-item menu-item-type-custom menu-item-object-custom level-1 "><a href="../members/admin/index.html">BuddyPress Member</a></li>
-</ul>
-</li>
-<li id="menu-item-mobile-655" class="haru-menu menu_style_dropdown   menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children level-0 "><a href="#">Shortcodes</a><b class="menu-caret"></b>
-<ul class="sub-menu" >
-<li id="menu-item-mobile-657" class="haru-menu menu_style_dropdown   menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children level-1 "><a href="../watch-later/index.html">Watch Later</a><b class="menu-caret"></b>
-<ul class="sub-menu" >
-<li id="menu-item-mobile-656" class="haru-menu menu_style_dropdown   menu-item menu-item-type-post_type menu-item-object-page level-2 "><a href="../watch-later-element/index.html">Watch Later Element</a></li>
-</ul>
-</li>
-<li id="menu-item-mobile-661" class="haru-menu menu_style_dropdown   menu-item menu-item-type-post_type menu-item-object-haru_shortcode level-1 "><a href="../generate-shortcode/video-grid-isotope/index.html">Video Grid Isotope</a></li>
-<li id="menu-item-mobile-658" class="haru-menu menu_style_dropdown   menu-item menu-item-type-post_type menu-item-object-haru_shortcode level-1 "><a href="../generate-shortcode/video-category/index.html">Video Category Default</a></li>
-<li id="menu-item-mobile-659" class="haru-menu menu_style_dropdown   menu-item menu-item-type-post_type menu-item-object-haru_shortcode level-1 "><a href="../generate-shortcode/video-category-single/index.html">Video Category Single Default</a></li>
-<li id="menu-item-mobile-660" class="haru-menu menu_style_dropdown   menu-item menu-item-type-post_type menu-item-object-haru_shortcode level-1 "><a href="../generate-shortcode/video-featured/index.html">Video Featured Default</a></li>
-<li id="menu-item-mobile-664" class="haru-menu menu_style_dropdown   menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children level-1 "><a href="#">Video Slideshow</a><b class="menu-caret"></b>
-<ul class="sub-menu" >
-<li id="menu-item-mobile-662" class="haru-menu menu_style_dropdown   menu-item menu-item-type-post_type menu-item-object-haru_shortcode level-2 "><a href="../generate-shortcode/video-slideshow/index.html">Video Slideshow Default</a></li>
-<li id="menu-item-mobile-663" class="haru-menu menu_style_dropdown   menu-item menu-item-type-post_type menu-item-object-haru_shortcode level-2 "><a href="../generate-shortcode/video-slideshow-featured/index.html">Video Slideshow Featured</a></li>
-<li id="menu-item-mobile-665" class="haru-menu menu_style_dropdown   menu-item menu-item-type-post_type menu-item-object-haru_shortcode level-2 "><a href="../generate-shortcode/video-slideshow-nav-thumb/index.html">Video Slideshow Nav Thumb</a></li>
-</ul>
-</li>
-<li id="menu-item-mobile-666" class="haru-menu menu_style_dropdown   menu-item menu-item-type-post_type menu-item-object-haru_shortcode level-1 "><a href="../generate-shortcode/video-order/index.html">Video Order Default</a></li>
-<li id="menu-item-mobile-667" class="haru-menu menu_style_dropdown   menu-item menu-item-type-post_type menu-item-object-haru_shortcode menu-item-has-children level-1 "><a href="../generate-shortcode/channel-category/index.html">Channel Category</a><b class="menu-caret"></b>
-<ul class="sub-menu" >
-<li id="menu-item-mobile-668" class="haru-menu menu_style_dropdown   menu-item menu-item-type-post_type menu-item-object-haru_shortcode level-2 "><a href="../generate-shortcode/channel-slideshow/index.html">Channel Slideshow</a></li>
-</ul>
-</li>
-<li id="menu-item-mobile-669" class="haru-menu menu_style_dropdown   menu-item menu-item-type-post_type menu-item-object-haru_shortcode menu-item-has-children level-1 "><a href="../generate-shortcode/playlist-category/index.html">Playlist Category</a><b class="menu-caret"></b>
-<ul class="sub-menu" >
-<li id="menu-item-mobile-670" class="haru-menu menu_style_dropdown   menu-item menu-item-type-post_type menu-item-object-haru_shortcode level-2 "><a href="../generate-shortcode/playlist-slideshow/index.html">Playlist Slideshow</a></li>
-</ul>
-</li>
-<li id="menu-item-mobile-671" class="haru-menu menu_style_dropdown   menu-item menu-item-type-post_type menu-item-object-haru_shortcode menu-item-has-children level-1 "><a href="../generate-shortcode/series-category/index.html">Series Category</a><b class="menu-caret"></b>
-<ul class="sub-menu" >
-<li id="menu-item-mobile-672" class="haru-menu menu_style_dropdown   menu-item menu-item-type-post_type menu-item-object-haru_shortcode level-2 "><a href="../generate-shortcode/series-slideshow/index.html">Series Slideshow</a></li>
-</ul>
-</li>
-</ul>
-</li>
-<li id="menu-item-mobile-673" class="haru-menu menu_style_dropdown   menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children level-0 "><a href="#">Submit</a><b class="menu-caret"></b>
-<ul class="sub-menu" >
-<li id="menu-item-mobile-674" class="haru-menu menu_style_dropdown   menu-item menu-item-type-post_type menu-item-object-page level-1 "><a href="../submit-video/index.html">Submit Video</a></li>
-<li id="menu-item-mobile-1279" class="haru-menu menu_style_dropdown   menu-item menu-item-type-post_type menu-item-object-page level-1 "><a href="../submit-channel/index.html">Submit Channel</a></li>
-<li id="menu-item-mobile-1276" class="haru-menu menu_style_dropdown   menu-item menu-item-type-post_type menu-item-object-page level-1 "><a href="../submit-series/index.html">Submit Series</a></li>
-<li id="menu-item-mobile-1277" class="haru-menu menu_style_dropdown   menu-item menu-item-type-post_type menu-item-object-page level-1 "><a href="../submit-playlist/index.html">Submit Playlist</a></li>
-</ul>
-</li>
-<li id="menu-item-mobile-2423" class="haru-menu menu_style_dropdown   menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children level-0 "><a href="#">Pages</a><b class="menu-caret"></b>
-<ul class="sub-menu" >
-<li id="menu-item-mobile-2428" class="haru-menu menu_style_dropdown   menu-item menu-item-type-post_type menu-item-object-page level-1 "><a href="../shop/index.html">Shop</a></li>
-<li id="menu-item-mobile-2430" class="haru-menu menu_style_dropdown   menu-item menu-item-type-post_type menu-item-object-page level-1 "><a href="../blog/index.html">Blog</a></li>
-<li id="menu-item-mobile-2424" class="haru-menu menu_style_dropdown   menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children level-1 "><a href="../about-us/index.html">About Us</a><b class="menu-caret"></b>
-<ul class="sub-menu" >
-<li id="menu-item-mobile-2425" class="haru-menu menu_style_dropdown   menu-item menu-item-type-post_type menu-item-object-page level-2 "><a href="../about-us-2/index.html">About Us 2</a></li>
-</ul>
-</li>
-<li id="menu-item-mobile-2426" class="haru-menu menu_style_dropdown   menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children level-1 "><a href="../contact-us/index.html">Contact Us</a><b class="menu-caret"></b>
-<ul class="sub-menu" >
-<li id="menu-item-mobile-2427" class="haru-menu menu_style_dropdown   menu-item menu-item-type-post_type menu-item-object-page level-2 "><a href="../contact-us-2/index.html">Contact Us 2</a></li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>                                
-                              <div class="mobile-header-social">
-                  <ul class="header-elements-item header-social-network-wrap">
-<li><a href="#" target="_blank"><i class="header-icon fa fa-twitter"></i></a></li>
-<li><a href="#" target="_blank"><i class="header-icon fa fa-facebook"></i></a></li>
-<li><a href="#" target="_blank"><i class="header-icon fa fa-youtube"></i></a></li>
-<li><a href="#" target="_blank"><i class="header-icon fa fa-instagram"></i></a></li>
-</ul>                    </div>
-                      </div>
-                      <div class="haru-mobile-menu-overlay"></div>
+        <!-- Header mobile customize -->
+        <div class="header-elements" style="font-size: inherit">
+          <div class="header-elements-item">
+            <div class="video-search-shortcode style-button">
+              <a
+                href="javascript:;"
+                class="video-search-button"
+                data-effect="search-zoom-in"
+                ><i class="haru-icon haru-search"></i
+              ></a>
+              <div
+                id="video-search-popup-0"
+                class="video-search-popup white-popup mfp-hide mfp-with-anim"
+              >
+                <form
+                  role="search"
+                  method="get"
+                  class="haru-video-search search-form"
+                  action="https://demo.harutheme.com/cr8iveshare/"
+                >
+                  <label for="haru-video-search-field-0">
+                    <span class="screen-reader-text">Search for:</span>
+                    <input
+                      type="search"
+                      id="haru-video-search-field-0"
+                      class="search-field"
+                      placeholder="Search videos&hellip;"
+                      value=""
+                      name="s"
+                    />
+                  </label>
+                  <button type="submit" class="search-submit" value="Search">
+                    <span>Search</span>
+                  </button>
+                  <input type="hidden" name="post_type" value="haru_video" />
+                </form>
               </div>
-</div>
-</header>    
-<header id="haru-header" class="haru-main-header header-10 header-sticky sticky_light">
-<div class="haru-header-nav-above-wrap">
-  <div class="container">
-      <div class="header-nav-above d-flex justify-content-between">
-          <div class="header-left align-self-center">
-                      <div class="header-elements header-elements-left">
-  
-  <ul class="header-elements-item header-social-network-wrap">
-    {% if page_contents.social_icon_1 %}
-    <li><a href="#" target="_blank"><i class="header-icon fa fa-{{page_contents.social_icon_1}}"></i></a></li>
-    {% else %}
-    <li><a href="#" target="_blank"><i class="header-icon fa fa-twitter"></i></a></li>
-    {% endif %} 
-    {% if page_contents.social_icon_2 %}
-    <li><a href="#" target="_blank"><i class="header-icon fa fa-{{page_contents.social_icon_2}}"></i></a></li>
-    {% else %}
-    <li><a href="#" target="_blank"><i class="header-icon fa fa-facebook"></i></a></li>
-    {% endif %} 
-    {% if page_contents.social_icon_3 %}
-    <li><a href="#" target="_blank"><i class="header-icon fa fa-{{page_contents.social_icon_3}}"></i></a></li>
-    {% else %}
-    <li><a href="#" target="_blank"><i class="header-icon fa fa-youtube"></i></a></li>
-    {% endif %} 
-    {% if page_contents.social_icon_4 %}
-    <li><a href="#" target="_blank"><i class="header-icon fa fa-{{page_contents.social_icon_4}}"></i></a></li>
-    {% else %}
-    <li><a href="#" target="_blank"><i class="header-icon fa fa-instagram"></i></a></li>
-    {% endif %}
-  </ul> 
-    
-  </div>
-              </div>
-          <div class="align-self-center">
-              
-<div class="header-logo has-logo-sticky">
-<a href="../index.html" class="logo-retina" title="SplitUnity">
-  <img src="{% static 'wp-content/themes/vidio/framework/admin-assets/images/theme-options/logo%402x.png' %} " alt="SplitUnity" style="max-height: 24px" />
-</a>
-</div>                </div>
-          <div class="header-right align-self-center">
-                      <div class="header-elements header-elements-right">
-  <div class="header-elements-item">
-<div class="video-search-shortcode style-button ">
-  <a href="javascript:;" class="video-search-button" data-effect="search-zoom-in"><i class="haru-icon haru-search"></i></a>
-<div id="video-search-popup-1" class="video-search-popup white-popup mfp-hide mfp-with-anim">
-  <form role="search" method="get" class="haru-video-search search-form" action="https://demo.harutheme.com/cr8iveshare/">
-      <label for="haru-video-search-field-1">
-          <span class="screen-reader-text">Search for:</span>
-          <input type="search" id="haru-video-search-field-1" class="search-field" placeholder="Search videos&hellip;" value="" name="s" />
-      </label>
-      <button type="submit" class="search-submit" value="Search">
-          <span>Search</span>
-      </button>
-      <input type="hidden" name="post_type" value="haru_video" />
-  </form>
-</div>
-</div>
-</div><div class="header-elements-item">
-<div class="user-menu-shortcode default ">
-<div class="user-account-wrap">
-          <div class="user-account-content logged-out">
-            {% if request.user.is_authenticated %}
-            <a href="{% url 'logout_user' %}" class="user-menu-login"><i class="fa fa-sign-out"></i></a>
-            {% else %}
-            <a href="{% url 'login' %}" class="user-menu-login"><i class="haru-icon haru-user"></i></a>
-            {% endif %}
-    </div>
-  </div>
-</div>
-</div><div class="header-elements-item">
-<div class="watch-later-element">
-  <a href="javascript:;" class="watch-later-page-link">
-  <span class="watch-later-icon">
-      <i class="haru-icon haru-clock-o"></i>
-      <span class="watch-later-status "></span>
-  </span>
-</a>
-  <ul class="haru-watch-later-list">
-  <li class="haru-watch-later-videos empty-video"></li>
-  <li class="haru-watch-later-empty-video">
-      <i class="haru-icon haru-file-video"></i>
-      <div class="watch-later-empty-message">
-          An empty videos list!                  
-      </div>
-  </li>
-  <li class="haru-watch-later-view-all">
-                  <a href="../watch-later/index.html" class="haru-button haru-button-default">View all videos</a>
-  </li>
-</ul>
-</div>
-</div>    </div>
-              </div>
-      </div>
-  </div>
-</div>
-<div class="haru-header-nav-wrap">
-  <div class="container">
-      <div class="header-navigation navbar navbar-toggleable-md" role="navigation">
-          <div class="d-flex justify-content-between mx-auto">
-              <div class="header-primary-menu">
-                  <div id="primary-menu" class="menu-wrap">
-                      <ul id="main-menu" class="haru-main-menu nav-collapse navbar-nav"><li id="menu-item-841" class="haru-menu menu_style_dropdown   menu-item menu-item-type-post_type menu-item-object-page menu-item-home current-menu-ancestor current-menu-parent current_page_parent current_page_ancestor menu-item-has-children level-0 "><a href="{% url 'core:index' %}">Home</a>
-
-</li>
-<li id="menu-item-76" class="haru-menu menu_style_dropdown   menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children level-0 "><a href="#">Video</a><b class="menu-caret"></b>
-<ul class="sub-menu animated menu_fadeInDown" >
-<li id="menu-item-77" class="haru-menu menu_style_dropdown   menu-item menu-item-type-post_type menu-item-object-haru_video level-1 "><a href="/templates/video/haru-video-wordpress-theme/index.html">Youtube</a></li>
-<li id="menu-item-85" class="haru-menu menu_style_dropdown   menu-item menu-item-type-post_type menu-item-object-haru_video level-1 "><a href="/templates/video/haru-filmmaker-wordpress-theme/index.html">Vimeo</a></li>
-<li id="menu-item-95" class="haru-menu menu_style_dropdown   menu-item menu-item-type-post_type menu-item-object-haru_video level-1 "><a href="/templates/video/google-video-wordpress-theme/index.html">Google</a></li>
-<li id="menu-item-98" class="haru-menu menu_style_dropdown   menu-item menu-item-type-post_type menu-item-object-haru_video level-1 "><a href="/templates/video/self-hosted-video-wordpress-theme/index.html">Self Hosted</a></li>
-<li id="menu-item-2574" class="haru-menu menu_style_dropdown   menu-item menu-item-type-post_type menu-item-object-haru_video level-1 "><a href="/templates/video/facebook-video-wordpress-theme/index.html">Facebook</a></li>
-<li id="menu-item-2578" class="haru-menu menu_style_dropdown   menu-item menu-item-type-post_type menu-item-object-haru_video level-1 "><a href="/templates/video/best-filmmaker-wordpress-theme/index.html">Dailymotion</a></li>
-<li id="menu-item-2579" class="haru-menu menu_style_dropdown   menu-item menu-item-type-post_type menu-item-object-haru_video level-1 "><a href="/templates/video/best-video-wordpress-theme/index.html">Twitch</a></li>
-<li id="menu-item-2575" class="haru-menu menu_style_dropdown   menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children level-1 "><a href="#">Embed</a><b class="menu-caret"></b>
-<ul class="sub-menu animated menu_fadeInDown" >
-<li id="menu-item-2576" class="haru-menu menu_style_dropdown   menu-item menu-item-type-post_type menu-item-object-haru_video level-2 "><a href="/templates/video/embed-youtube-video/index.html">Youtube</a></li>
-<li id="menu-item-2577" class="haru-menu menu_style_dropdown   menu-item menu-item-type-post_type menu-item-object-haru_video level-2 "><a href="/templates/video/facebook-embed-video-wordpress-theme/index.html">Facebook</a></li>
-</ul>
-</li>
-</ul>
-</li>
-<li id="menu-item-131" class="haru-menu menu_style_dropdown   menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children level-0 "><a href="#">Features</a><b class="menu-caret"></b>
-<ul class="sub-menu animated menu_fadeInDown" >
-<li id="menu-item-133" class="haru-menu menu_style_dropdown   menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children level-1 "><a href="#">Video</a><b class="menu-caret"></b>
-<ul class="sub-menu animated menu_fadeInDown" >
-<li id="menu-item-134" class="haru-menu menu_style_dropdown   menu-item menu-item-type-post_type_archive menu-item-object-haru_video level-2 "><a href="/templates/video/index.html">Archive Videos</a></li>
-<li id="menu-item-132" class="haru-menu menu_style_dropdown   menu-item menu-item-type-post_type menu-item-object-haru_video level-2 "><a href="/templates/video/haru-filmmaker-wordpress-theme/index.html">Single Video</a></li>
-</ul>
-</li>
-<li id="menu-item-135" class="haru-menu menu_style_dropdown   menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children level-1 "><a href="#">Playlist</a><b class="menu-caret"></b>
-<ul class="sub-menu animated menu_fadeInDown" >
-<li id="menu-item-137" class="haru-menu menu_style_dropdown   menu-item menu-item-type-post_type_archive menu-item-object-haru_playlist level-2 "><a href="../playlist/index.html">Archive Playlists</a></li>
-<li id="menu-item-136" class="haru-menu menu_style_dropdown   menu-item menu-item-type-post_type menu-item-object-haru_playlist level-2 "><a href="../playlist/video-wordpress-theme-playlist/index.html">Single Playlist</a></li>
-<li id="menu-item-138" class="haru-menu menu_style_dropdown   menu-item menu-item-type-custom menu-item-object-custom level-2 "><a href="/templates/video/haru-filmmaker-wordpress-theme/index065f.html?playlist=124">Single Video in Playlist</a></li>
-</ul>
-</li>
-<li id="menu-item-142" class="haru-menu menu_style_dropdown   menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children level-1 "><a href="#">Series</a><b class="menu-caret"></b>
-<ul class="sub-menu animated menu_fadeInDown" >
-<li id="menu-item-141" class="haru-menu menu_style_dropdown   menu-item menu-item-type-post_type_archive menu-item-object-haru_series level-2 "><a href="../series/index.html">Archive Seriess</a></li>
-<li id="menu-item-143" class="haru-menu menu_style_dropdown   menu-item menu-item-type-post_type menu-item-object-haru_series level-2 "><a href="../series/running-road/index.html">Single Series</a></li>
-<li id="menu-item-675" class="haru-menu menu_style_dropdown   menu-item menu-item-type-custom menu-item-object-custom level-2 "><a href="/templates/video/haru-filmmaker-wordpress-theme/index2d22.html?series=128">Single Video In Series</a></li>
-</ul>
-</li>
-<li id="menu-item-149" class="haru-menu menu_style_dropdown   menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children level-1 "><a href="#">Channel</a><b class="menu-caret"></b>
-<ul class="sub-menu animated menu_fadeInDown" >
-<li id="menu-item-150" class="haru-menu menu_style_dropdown   menu-item menu-item-type-post_type_archive menu-item-object-haru_channel level-2 "><a href="../channel/index.html">Archive Channels</a></li>
-<li id="menu-item-151" class="haru-menu menu_style_dropdown   menu-item menu-item-type-post_type menu-item-object-haru_channel level-2 "><a href="../channel/technology-channel/index.html">Single Channel</a></li>
-</ul>
-</li>
-<li id="menu-item-454" class="haru-menu menu_style_dropdown   menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children level-1 "><a href="#">Actor</a><b class="menu-caret"></b>
-<ul class="sub-menu animated menu_fadeInDown" >
-<li id="menu-item-455" class="haru-menu menu_style_dropdown   menu-item menu-item-type-post_type_archive menu-item-object-haru_actor level-2 "><a href="../actor/index.html">Archive Director</a></li>
-<li id="menu-item-456" class="haru-menu menu_style_dropdown   menu-item menu-item-type-post_type menu-item-object-haru_actor level-2 "><a href="../actor/ammy-poehler/index.html">Single Actor</a></li>
-</ul>
-</li>
-<li id="menu-item-457" class="haru-menu menu_style_dropdown   menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children level-1 "><a href="#">Director</a><b class="menu-caret"></b>
-<ul class="sub-menu animated menu_fadeInDown" >
-<li id="menu-item-458" class="haru-menu menu_style_dropdown   menu-item menu-item-type-post_type_archive menu-item-object-haru_director level-2 "><a href="../director/index.html">Archive Director</a></li>
-<li id="menu-item-459" class="haru-menu menu_style_dropdown   menu-item menu-item-type-post_type menu-item-object-haru_director level-2 "><a href="../director/felicity-fisher/index.html">Single Director</a></li>
-</ul>
-</li>
-<li id="menu-item-282" class="haru-menu menu_style_dropdown   menu-item menu-item-type-custom menu-item-object-custom level-1 "><a href="../author/admin/index.html">Author Page</a></li>
-<li id="menu-item-283" class="haru-menu menu_style_dropdown   menu-item menu-item-type-custom menu-item-object-custom level-1 "><a href="../members/admin/index.html">BuddyPress Member</a></li>
-</ul>
-</li>
-<li id="menu-item-159" class="haru-menu menu_style_dropdown   menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children level-0 "><a href="#">Shortcodes</a><b class="menu-caret"></b>
-<ul class="sub-menu animated menu_fadeInDown" >
-<li id="menu-item-155" class="haru-menu menu_style_dropdown   menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children level-1 "><a href="../watch-later/index.html">Watch Later</a><b class="menu-caret"></b>
-<ul class="sub-menu animated menu_fadeInDown" >
-<li id="menu-item-158" class="haru-menu menu_style_dropdown   menu-item menu-item-type-post_type menu-item-object-page level-2 "><a href="../watch-later-element/index.html">Watch Later Element</a></li>
-</ul>
-</li>
-<li id="menu-item-962" class="haru-menu menu_style_dropdown   menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children level-1 "><a href="#">Video</a><b class="menu-caret"></b>
-<ul class="sub-menu animated menu_fadeInDown" >
-<li id="menu-item-255" class="haru-menu menu_style_dropdown   menu-item menu-item-type-post_type menu-item-object-haru_shortcode level-2 "><a href="../generate-shortcode/video-grid-isotope/index.html">Video Grid Isotope</a></li>
-<li id="menu-item-968" class="haru-menu menu_style_dropdown   menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children level-2 "><a href="#">Video Category</a><b class="menu-caret"></b>
-<ul class="sub-menu animated menu_fadeInDown" >
-<li id="menu-item-252" class="haru-menu menu_style_dropdown   menu-item menu-item-type-post_type menu-item-object-haru_shortcode level-3 "><a href="../generate-shortcode/video-category/index.html">Video Category Default</a></li>
-<li id="menu-item-973" class="haru-menu menu_style_dropdown   menu-item menu-item-type-post_type menu-item-object-haru_shortcode level-3 "><a href="../generate-shortcode/video-category-style-2/index.html">Video Category Style 2</a></li>
-<li id="menu-item-972" class="haru-menu menu_style_dropdown   menu-item menu-item-type-post_type menu-item-object-haru_shortcode level-3 "><a href="../generate-shortcode/video-category-style-3/index.html">Video Category Style 3</a></li>
-<li id="menu-item-971" class="haru-menu menu_style_dropdown   menu-item menu-item-type-post_type menu-item-object-haru_shortcode level-3 "><a href="../generate-shortcode/video-category-style-4/index.html">Video Category Style 4</a></li>
-<li id="menu-item-970" class="haru-menu menu_style_dropdown   menu-item menu-item-type-post_type menu-item-object-haru_shortcode level-3 "><a href="../generate-shortcode/video-category-style-5/index.html">Video Category Style 5</a></li>
-<li id="menu-item-969" class="haru-menu menu_style_dropdown   menu-item menu-item-type-post_type menu-item-object-haru_shortcode level-3 "><a href="../generate-shortcode/video-category-style-6/index.html">Video Category Style 6</a></li>
-</ul>
-</li>
-<li id="menu-item-975" class="haru-menu menu_style_dropdown   menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children level-2 "><a href="#">Video Category Single</a><b class="menu-caret"></b>
-<ul class="sub-menu animated menu_fadeInDown" >
-<li id="menu-item-253" class="haru-menu menu_style_dropdown   menu-item menu-item-type-post_type menu-item-object-haru_shortcode level-3 "><a href="../generate-shortcode/video-category-single/index.html">Video Category Single</a></li>
-<li id="menu-item-976" class="haru-menu menu_style_dropdown   menu-item menu-item-type-post_type menu-item-object-haru_shortcode level-3 "><a href="../generate-shortcode/video-category-single-style-2/index.html">Video Category Single Style 2</a></li>
-</ul>
-</li>
-<li id="menu-item-978" class="haru-menu menu_style_dropdown   menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children level-2 "><a href="#">Video Featured</a><b class="menu-caret"></b>
-<ul class="sub-menu animated menu_fadeInDown" >
-<li id="menu-item-254" class="haru-menu menu_style_dropdown   menu-item menu-item-type-post_type menu-item-object-haru_shortcode level-3 "><a href="../generate-shortcode/video-featured/index.html">Video Featured</a></li>
-<li id="menu-item-979" class="haru-menu menu_style_dropdown   menu-item menu-item-type-post_type menu-item-object-haru_shortcode level-3 "><a href="../generate-shortcode/video-featured-no-padding/index.html">Video Featured No Padding</a></li>
-</ul>
-</li>
-<li id="menu-item-604" class="haru-menu menu_style_dropdown   menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children level-2 "><a href="#">Video Slideshow</a><b class="menu-caret"></b>
-<ul class="sub-menu animated menu_fadeInDown" >
-<li id="menu-item-258" class="haru-menu menu_style_dropdown   menu-item menu-item-type-post_type menu-item-object-haru_shortcode level-3 "><a href="../generate-shortcode/video-slideshow/index.html">Video Slideshow Default</a></li>
-<li id="menu-item-737" class="haru-menu menu_style_dropdown   menu-item menu-item-type-post_type menu-item-object-haru_shortcode level-3 "><a href="../generate-shortcode/video-slideshow-carousel-one/index.html">Video Slideshow Carousel One</a></li>
-<li id="menu-item-603" class="haru-menu menu_style_dropdown   menu-item menu-item-type-post_type menu-item-object-haru_shortcode level-3 "><a href="../generate-shortcode/video-slideshow-featured/index.html">Video Slideshow Featured</a></li>
-<li id="menu-item-602" class="haru-menu menu_style_dropdown   menu-item menu-item-type-post_type menu-item-object-haru_shortcode level-3 "><a href="../generate-shortcode/video-slideshow-nav-thumb/index.html">Video Slideshow Nav Thumb</a></li>
-<li id="menu-item-989" class="haru-menu menu_style_dropdown   menu-item menu-item-type-post_type menu-item-object-haru_shortcode level-3 "><a href="../generate-shortcode/video-slideshow-list-small/index.html">Video Slideshow List Small</a></li>
-<li id="menu-item-987" class="haru-menu menu_style_dropdown   menu-item menu-item-type-post_type menu-item-object-haru_shortcode level-3 "><a href="../generate-shortcode/video-slideshow-carousel-list-full/index.html">Video Slideshow Carousel List Full</a></li>
-<li id="menu-item-988" class="haru-menu menu_style_dropdown   menu-item menu-item-type-post_type menu-item-object-haru_shortcode level-3 "><a href="../generate-shortcode/video-slideshow-carousel-info-left/index.html">Video Slideshow Carousel Info Left</a></li>
-<li id="menu-item-986" class="haru-menu menu_style_dropdown   menu-item menu-item-type-post_type menu-item-object-haru_shortcode level-3 "><a href="../generate-shortcode/video-slideshow-carousel-no-padding/index.html">Video Slideshow Carousel No Padding</a></li>
-</ul>
-</li>
-<li id="menu-item-769" class="haru-menu menu_style_dropdown   menu-item menu-item-type-post_type menu-item-object-haru_shortcode level-2 "><a href="../generate-shortcode/video-list-category/index.html">Video List Category</a></li>
-<li id="menu-item-994" class="haru-menu menu_style_dropdown   menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children level-2 "><a href="#">Video Order</a><b class="menu-caret"></b>
-<ul class="sub-menu animated menu_fadeInDown" >
-<li id="menu-item-256" class="haru-menu menu_style_dropdown   menu-item menu-item-type-post_type menu-item-object-haru_shortcode level-3 "><a href="../generate-shortcode/video-order/index.html">Video Order Default</a></li>
-<li id="menu-item-999" class="haru-menu menu_style_dropdown   menu-item menu-item-type-post_type menu-item-object-haru_shortcode level-3 "><a href="../generate-shortcode/video-order-style-2/index.html">Video Order Style 2</a></li>
-<li id="menu-item-998" class="haru-menu menu_style_dropdown   menu-item menu-item-type-post_type menu-item-object-haru_shortcode level-3 "><a href="../generate-shortcode/video-order-style-3/index.html">Video Order Style 3</a></li>
-<li id="menu-item-997" class="haru-menu menu_style_dropdown   menu-item menu-item-type-post_type menu-item-object-haru_shortcode level-3 "><a href="../generate-shortcode/video-order-style-4/index.html">Video Order Style 4</a></li>
-<li id="menu-item-996" class="haru-menu menu_style_dropdown   menu-item menu-item-type-post_type menu-item-object-haru_shortcode level-3 "><a href="../generate-shortcode/video-order-style-5/index.html">Video Order Style 5</a></li>
-<li id="menu-item-1010" class="haru-menu menu_style_dropdown   menu-item menu-item-type-post_type menu-item-object-haru_shortcode level-3 "><a href="../generate-shortcode/video-order-style-6/index.html">Video Order Style 6</a></li>
-</ul>
-</li>
-<li id="menu-item-995" class="haru-menu menu_style_dropdown   menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children level-2 "><a href="#">Video Order Single</a><b class="menu-caret"></b>
-<ul class="sub-menu animated menu_fadeInDown" >
-<li id="menu-item-747" class="haru-menu menu_style_dropdown   menu-item menu-item-type-post_type menu-item-object-haru_shortcode level-3 "><a href="../generate-shortcode/video-order-single/index.html">Video Order Single Default</a></li>
-<li id="menu-item-1001" class="haru-menu menu_style_dropdown   menu-item menu-item-type-post_type menu-item-object-haru_shortcode level-3 "><a href="../generate-shortcode/video-order-single-style-2/index.html">Video Order Single Style 2</a></li>
-<li id="menu-item-1007" class="haru-menu menu_style_dropdown   menu-item menu-item-type-post_type menu-item-object-haru_shortcode level-3 "><a href="../generate-shortcode/video-order-single-style-3/index.html">Video Order Single Style 3</a></li>
-<li id="menu-item-1006" class="haru-menu menu_style_dropdown   menu-item menu-item-type-post_type menu-item-object-haru_shortcode level-3 "><a href="../generate-shortcode/video-order-single-style-4/index.html">Video Order Single Style 4</a></li>
-<li id="menu-item-1005" class="haru-menu menu_style_dropdown   menu-item menu-item-type-post_type menu-item-object-haru_shortcode level-3 "><a href="../generate-shortcode/video-order-single-style-5/index.html">Video Order Single Style 5</a></li>
-<li id="menu-item-1013" class="haru-menu menu_style_dropdown   menu-item menu-item-type-post_type menu-item-object-haru_shortcode level-3 "><a href="../generate-shortcode/video-order-single-style-6/index.html">Video Order Single Style 6</a></li>
-</ul>
-</li>
-<li id="menu-item-740" class="haru-menu menu_style_dropdown   menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children level-2 "><a href="#">Videos Top</a><b class="menu-caret"></b>
-<ul class="sub-menu animated menu_fadeInDown" >
-<li id="menu-item-739" class="haru-menu menu_style_dropdown   menu-item menu-item-type-post_type menu-item-object-haru_shortcode level-3 "><a href="../generate-shortcode/video-top-list-small/index.html">Video TOP List Small</a></li>
-<li id="menu-item-738" class="haru-menu menu_style_dropdown   menu-item menu-item-type-post_type menu-item-object-haru_shortcode level-3 "><a href="../generate-shortcode/video-top-list-full/index.html">Video TOP List Full</a></li>
-<li id="menu-item-748" class="haru-menu menu_style_dropdown   menu-item menu-item-type-post_type menu-item-object-haru_shortcode level-3 "><a href="../generate-shortcode/video-top-carousel/index.html">Video TOP Carousel</a></li>
-<li id="menu-item-790" class="haru-menu menu_style_dropdown   menu-item menu-item-type-post_type menu-item-object-haru_shortcode level-3 "><a href="../generate-shortcode/video-top-grid-2-columns/index.html">Video Top Grid 2 Columns</a></li>
-</ul>
-</li>
-<li id="menu-item-1086" class="haru-menu menu_style_dropdown   menu-item menu-item-type-post_type menu-item-object-page level-2 "><a href="../my-videos/index.html">My Videos</a></li>
-</ul>
-</li>
-<li id="menu-item-947" class="haru-menu menu_style_dropdown   menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children level-1 "><a href="#">Channel</a><b class="menu-caret"></b>
-<ul class="sub-menu animated menu_fadeInDown" >
-<li id="menu-item-249" class="haru-menu menu_style_dropdown   menu-item menu-item-type-post_type menu-item-object-haru_shortcode level-2 "><a href="../generate-shortcode/channel-category/index.html">Channel Category</a></li>
-<li id="menu-item-284" class="haru-menu menu_style_dropdown   menu-item menu-item-type-post_type menu-item-object-haru_shortcode level-2 "><a href="../generate-shortcode/channel-slideshow/index.html">Channel Slideshow</a></li>
-<li id="menu-item-954" class="haru-menu menu_style_dropdown   menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children level-2 "><a href="#">Channel TOP</a><b class="menu-caret"></b>
-<ul class="sub-menu animated menu_fadeInDown" >
-<li id="menu-item-958" class="haru-menu menu_style_dropdown   menu-item menu-item-type-post_type menu-item-object-haru_shortcode level-3 "><a href="../generate-shortcode/channel-top-list-small/index.html">Channel Top List Small</a></li>
-<li id="menu-item-956" class="haru-menu menu_style_dropdown   menu-item menu-item-type-post_type menu-item-object-haru_shortcode level-3 "><a href="../generate-shortcode/channel-top-list-full/index.html">Channel Top List Full</a></li>
-<li id="menu-item-955" class="haru-menu menu_style_dropdown   menu-item menu-item-type-post_type menu-item-object-haru_shortcode level-3 "><a href="../generate-shortcode/channel-top-list-carousel/index.html">Channel Top List Carousel</a></li>
-<li id="menu-item-957" class="haru-menu menu_style_dropdown   menu-item menu-item-type-post_type menu-item-object-haru_shortcode level-3 "><a href="../generate-shortcode/channel-top-list-grid-3-columns/index.html">Channel Top List Grid 3 Columns</a></li>
-<li id="menu-item-959" class="haru-menu menu_style_dropdown   menu-item menu-item-type-post_type menu-item-object-haru_shortcode level-3 "><a href="../generate-shortcode/channel-top-list-small-thumb-left-round/index.html">Channel Top List Small Thumb Left Round</a></li>
-<li id="menu-item-960" class="haru-menu menu_style_dropdown   menu-item menu-item-type-post_type menu-item-object-haru_shortcode level-3 "><a href="../generate-shortcode/channel-top-list-thumb-round/index.html">Channel Top List Thumb Round</a></li>
-</ul>
-</li>
-</ul>
-</li>
-<li id="menu-item-942" class="haru-menu menu_style_dropdown   menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children level-1 "><a href="#">Playlist</a><b class="menu-caret"></b>
-<ul class="sub-menu animated menu_fadeInDown" >
-<li id="menu-item-250" class="haru-menu menu_style_dropdown   menu-item menu-item-type-post_type menu-item-object-haru_shortcode level-2 "><a href="../generate-shortcode/playlist-category/index.html">Playlist Category</a></li>
-<li id="menu-item-285" class="haru-menu menu_style_dropdown   menu-item menu-item-type-post_type menu-item-object-haru_shortcode level-2 "><a href="../generate-shortcode/playlist-slideshow/index.html">Playlist Slideshow</a></li>
-<li id="menu-item-943" class="haru-menu menu_style_dropdown   menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children level-2 "><a href="#">Playlist Top</a><b class="menu-caret"></b>
-<ul class="sub-menu animated menu_fadeInDown" >
-<li id="menu-item-752" class="haru-menu menu_style_dropdown   menu-item menu-item-type-post_type menu-item-object-haru_shortcode level-3 "><a href="../generate-shortcode/playlist-top-small/index.html">Playlist TOP Small</a></li>
-<li id="menu-item-946" class="haru-menu menu_style_dropdown   menu-item menu-item-type-post_type menu-item-object-haru_shortcode level-3 "><a href="../generate-shortcode/playlist-top-full/index.html">Playlist TOP Full</a></li>
-<li id="menu-item-945" class="haru-menu menu_style_dropdown   menu-item menu-item-type-post_type menu-item-object-haru_shortcode level-3 "><a href="../generate-shortcode/playlist-top-carousel/index.html">Playlist TOP Carousel</a></li>
-<li id="menu-item-944" class="haru-menu menu_style_dropdown   menu-item menu-item-type-post_type menu-item-object-haru_shortcode level-3 "><a href="../generate-shortcode/playlist-top-grid-3-columns/index.html">Playlist TOP Grid 3 Columns</a></li>
-</ul>
-</li>
-</ul>
-</li>
-<li id="menu-item-934" class="haru-menu menu_style_dropdown   menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children level-1 "><a href="#">Series</a><b class="menu-caret"></b>
-<ul class="sub-menu animated menu_fadeInDown" >
-<li id="menu-item-251" class="haru-menu menu_style_dropdown   menu-item menu-item-type-post_type menu-item-object-haru_shortcode level-2 "><a href="../generate-shortcode/series-category/index.html">Series Category</a></li>
-<li id="menu-item-286" class="haru-menu menu_style_dropdown   menu-item menu-item-type-post_type menu-item-object-haru_shortcode level-2 "><a href="../generate-shortcode/series-slideshow/index.html">Series Slideshow</a></li>
-<li id="menu-item-935" class="haru-menu menu_style_dropdown   menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children level-2 "><a href="#">Series TOP</a><b class="menu-caret"></b>
-<ul class="sub-menu animated menu_fadeInDown" >
-<li id="menu-item-938" class="haru-menu menu_style_dropdown   menu-item menu-item-type-post_type menu-item-object-haru_shortcode level-3 "><a href="../generate-shortcode/series-top-list-small/index.html">Series Top List Small</a></li>
-<li id="menu-item-937" class="haru-menu menu_style_dropdown   menu-item menu-item-type-post_type menu-item-object-haru_shortcode level-3 "><a href="../generate-shortcode/series-top-list-full/index.html">Series Top List Full</a></li>
-<li id="menu-item-936" class="haru-menu menu_style_dropdown   menu-item menu-item-type-post_type menu-item-object-haru_shortcode level-3 "><a href="../generate-shortcode/series-top-carousel/index.html">Series Top Carousel</a></li>
-<li id="menu-item-751" class="haru-menu menu_style_dropdown   menu-item menu-item-type-post_type menu-item-object-haru_shortcode level-3 "><a href="../generate-shortcode/series-top-grid/index.html">Series Top Grid 3 Colums</a></li>
-</ul>
-</li>
-</ul>
-</li>
-<li id="menu-item-1021" class="haru-menu menu_style_dropdown   menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children level-1 "><a href="#">Author</a><b class="menu-caret"></b>
-<ul class="sub-menu animated menu_fadeInDown" >
-<li id="menu-item-1022" class="haru-menu menu_style_dropdown   menu-item menu-item-type-post_type menu-item-object-haru_shortcode level-2 "><a href="../generate-shortcode/author-top-created/index.html">Author Top Created</a></li>
-</ul>
-</li>
-<li id="menu-item-1234" class="haru-menu menu_style_dropdown   menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children level-1 "><a href="#">Other Shortcodes</a><b class="menu-caret"></b>
-<ul class="sub-menu animated menu_fadeInDown" >
-<li id="menu-item-1157" class="haru-menu menu_style_dropdown   menu-item menu-item-type-post_type menu-item-object-page level-2 "><a href="../user-menu-element/index.html">User Menu Element</a></li>
-<li id="menu-item-1235" class="haru-menu menu_style_dropdown   menu-item menu-item-type-post_type menu-item-object-page level-2 "><a href="/templates/video-search-box/index.html">Search Video</a></li>
-</ul>
-</li>
-</ul>
-</li>
-<li id="menu-item-295" class="haru-menu menu_style_dropdown   menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children level-0 "><a href="#">Submit</a><b class="menu-caret"></b>
-<ul class="sub-menu animated menu_fadeInDown" >
-<li id="menu-item-294" class="haru-menu menu_style_dropdown   menu-item menu-item-type-post_type menu-item-object-page level-1 "><a href="../submit-video/index.html">Submit Video</a></li>
-<li id="menu-item-1133" class="haru-menu menu_style_dropdown   menu-item menu-item-type-post_type menu-item-object-page level-1 "><a href="../submit-channel/index.html">Submit Channel</a></li>
-<li id="menu-item-1132" class="haru-menu menu_style_dropdown   menu-item menu-item-type-post_type menu-item-object-page level-1 "><a href="../submit-playlist/index.html">Submit Playlist</a></li>
-<li id="menu-item-1131" class="haru-menu menu_style_dropdown   menu-item menu-item-type-post_type menu-item-object-page level-1 "><a href="../submit-series/index.html">Submit Series</a></li>
-</ul>
-</li>
-<li id="menu-item-1152" class="haru-menu menu_style_dropdown   menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children level-0 "><a href="{% url 'core:contact' %}">Contact Us</a>
-</li>
-<li id="menu-item-1152" class="haru-menu menu_style_dropdown   menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children level-0 "><a href="{% url 'core:about' %}">About Us</a>
-</li>
-<li id="menu-item-2489" class="haru-menu menu_style_dropdown   menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children level-0 "><a href="#">Membership</a><b class="menu-caret"></b>
-<ul class="sub-menu animated menu_fadeInDown" >
-<li id="menu-item-2490" class="haru-menu menu_style_dropdown   menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children level-1 "><a href="#">PaidMembershipPro</a><b class="menu-caret"></b>
-<ul class="sub-menu animated menu_fadeInDown" >
-<li id="menu-item-2503" class="haru-menu menu_style_dropdown   menu-item menu-item-type-post_type menu-item-object-haru_video level-2 "><a href="/templates/video/a-record-breaking-world-championship/index.html">Video Protected Content</a></li>
-<li id="menu-item-2495" class="haru-menu menu_style_dropdown   menu-item menu-item-type-post_type menu-item-object-page level-2 "><a href="../membership-account/membership-levels/index.html">Membership Levels</a></li>
-<li id="menu-item-2496" class="haru-menu menu_style_dropdown   menu-item menu-item-type-post_type menu-item-object-page level-2 "><a href="../membership-account/your-profile/index.html">Your Profile</a></li>
-<li id="menu-item-2491" class="haru-menu menu_style_dropdown   menu-item menu-item-type-post_type menu-item-object-page level-2 "><a href="../membership-account/index.html">Membership Account</a></li>
-<li id="menu-item-2492" class="haru-menu menu_style_dropdown   menu-item menu-item-type-post_type menu-item-object-page level-2 "><a href="../membership-account/membership-billing/index.html">Membership Billing</a></li>
-<li id="menu-item-2493" class="haru-menu menu_style_dropdown   menu-item menu-item-type-post_type menu-item-object-page level-2 "><a href="../membership-account/membership-cancel/index.html">Membership Cancel</a></li>
-<li id="menu-item-2494" class="haru-menu menu_style_dropdown   menu-item menu-item-type-post_type menu-item-object-page level-2 "><a href="../membership-account/membership-invoice/index.html">Membership Invoice</a></li>
-<li id="menu-item-2497" class="haru-menu menu_style_dropdown   menu-item menu-item-type-custom menu-item-object-custom level-2 "><a href="../login-2/index.html">Log In</a></li>
-</ul>
-</li>
-{% if request.user.is_authenticated %}
-<li id="menu-item-2500" class="haru-menu menu_style_dropdown   menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children level-1 "><a href="#">Welcome {{ user.email|truncatechars:10}}</a>
-  </li>
-{% else %}
-<li id="menu-item-2500" class="haru-menu menu_style_dropdown   menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children level-1 "><a href="#">Youzer</a><b class="menu-caret"></b>
-  <ul class="sub-menu animated menu_fadeInDown" >
-  <li id="menu-item-2501" class="haru-menu menu_style_dropdown   menu-item menu-item-type-post_type menu-item-object-page level-2 "><a href="{% url 'login' %}">Login</a></li>
-  <li id="menu-item-2502" class="haru-menu menu_style_dropdown   menu-item menu-item-type-post_type menu-item-object-page level-2 "><a href="{% url 'register' %}">Register</a></li>
-  </ul>
-  </li>
-{% endif %}
-</ul>
-</li>
-</ul>                        </div>
-              </div>
-              <div class="header-elements d-flex align-self-center">
-                          <div class="header-elements header-elements-nav">
-      <div class="header-elements-item custom-text-wrap">
-  <a href="../submit-video/index.html" class="button-background button-background--primary button-background--medium">Upload Video</a>    </div>
-</div>
-                  </div>
+            </div>
           </div>
+          <div class="header-elements-item">
+            <div class="user-menu-shortcode default">
+              <div class="user-account-wrap">
+                <div class="user-account-content logged-out">
+                  <a href="{% url 'login' %}" class="user-menu-login"
+                    ><i class="haru-icon haru-user"></i
+                  ></a>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="header-elements-item">
+            <div class="watch-later-element">
+              <a href="javascript:;" class="watch-later-page-link">
+                <span class="watch-later-icon">
+                  <i class="haru-icon haru-clock-o"></i>
+                  <span class="watch-later-status"></span>
+                </span>
+              </a>
+              <ul class="haru-watch-later-list">
+                <li class="haru-watch-later-videos empty-video"></li>
+                <li class="haru-watch-later-empty-video">
+                  <i class="haru-icon haru-file-video"></i>
+                  <div class="watch-later-empty-message">
+                    An empty videos list!
+                  </div>
+                </li>
+                <li class="haru-watch-later-view-all">
+                  <a
+                    href="../watch-later/index.html"
+                    class="haru-button haru-button-default"
+                    >View all videos</a
+                  >
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+        <!-- End Header mobile customize -->
+        <div class="header-logo-mobile">
+          <a href="../index.html" class="logo-mobile-retina" title="SplitUnity">
+            <img
+              src="{% static 'wp-content/themes/vidio/framework/admin-assets/images/theme-options/logo%402x.png' %}"
+              alt="SplitUnity"
+            />
+          </a>
+        </div>
       </div>
+      <div
+        id="haru-nav-mobile-menu"
+        class="haru-mobile-header-nav menu-mobile-fly"
+      >
+        <div class="mobile-menu-header">
+          Menu<span class="mobile-menu-close"></span>
+        </div>
+
+        <ul id="menu-mobile-menu" class="haru-nav-mobile-menu">
+          <li
+            id="menu-item-mobile-626"
+            class="haru-menu menu_style_dropdown menu-item menu-item-type-post_type menu-item-object-page level-0"
+          >
+            <a href="../home-1-old/index.html">Home</a>
+          </li>
+          <li
+            id="menu-item-mobile-627"
+            class="haru-menu menu_style_dropdown menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children level-0"
+          >
+            <a href="#">Videos</a><b class="menu-caret"></b>
+            <ul class="sub-menu">
+              <li
+                id="menu-item-mobile-628"
+                class="haru-menu menu_style_dropdown menu-item menu-item-type-post_type menu-item-object-haru_video level-1"
+              >
+                <a href="/templates/video/haru-video-wordpress-theme/index.html"
+                  >Youtube</a
+                >
+              </li>
+              <li
+                id="menu-item-mobile-629"
+                class="haru-menu menu_style_dropdown menu-item menu-item-type-post_type menu-item-object-haru_video level-1"
+              >
+                <a
+                  href="/templates/video/haru-filmmaker-wordpress-theme/index.html"
+                  >Vimeo</a
+                >
+              </li>
+              <li
+                id="menu-item-mobile-630"
+                class="haru-menu menu_style_dropdown menu-item menu-item-type-post_type menu-item-object-haru_video level-1"
+              >
+                <a
+                  href="/templates/video/google-video-wordpress-theme/index.html"
+                  >Google</a
+                >
+              </li>
+              <li
+                id="menu-item-mobile-631"
+                class="haru-menu menu_style_dropdown menu-item menu-item-type-post_type menu-item-object-haru_video level-1"
+              >
+                <a
+                  href="/templates/video/self-hosted-video-wordpress-theme/index.html"
+                  >Self Hosted</a
+                >
+              </li>
+            </ul>
+          </li>
+          <li
+            id="menu-item-mobile-632"
+            class="haru-menu menu_style_dropdown menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children level-0"
+          >
+            <a href="#">Features</a><b class="menu-caret"></b>
+            <ul class="sub-menu">
+              <li
+                id="menu-item-mobile-633"
+                class="haru-menu menu_style_dropdown menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children level-1"
+              >
+                <a href="#">Videos</a><b class="menu-caret"></b>
+                <ul class="sub-menu">
+                  <li
+                    id="menu-item-mobile-634"
+                    class="haru-menu menu_style_dropdown menu-item menu-item-type-post_type_archive menu-item-object-haru_video level-2"
+                  >
+                    <a href="/templates/video/index.html">Archive Videos</a>
+                  </li>
+                  <li
+                    id="menu-item-mobile-635"
+                    class="haru-menu menu_style_dropdown menu-item menu-item-type-post_type menu-item-object-haru_video level-2"
+                  >
+                    <a
+                      href="/templates/video/haru-filmmaker-wordpress-theme/index.html"
+                      >Single Video</a
+                    >
+                  </li>
+                </ul>
+              </li>
+              <li
+                id="menu-item-mobile-636"
+                class="haru-menu menu_style_dropdown menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children level-1"
+              >
+                <a href="#">Playlist</a><b class="menu-caret"></b>
+                <ul class="sub-menu">
+                  <li
+                    id="menu-item-mobile-637"
+                    class="haru-menu menu_style_dropdown menu-item menu-item-type-post_type_archive menu-item-object-haru_playlist level-2"
+                  >
+                    <a href="../playlist/index.html">Archive Playlist</a>
+                  </li>
+                  <li
+                    id="menu-item-mobile-638"
+                    class="haru-menu menu_style_dropdown menu-item menu-item-type-post_type menu-item-object-haru_playlist level-2"
+                  >
+                    <a
+                      href="../playlist/video-wordpress-theme-playlist/index.html"
+                      >Single Playlist</a
+                    >
+                  </li>
+                  <li
+                    id="menu-item-mobile-639"
+                    class="haru-menu menu_style_dropdown menu-item menu-item-type-custom menu-item-object-custom level-2"
+                  >
+                    <a
+                      href="/templates/video/haru-filmmaker-wordpress-theme/index065f.html?playlist=124"
+                      >Single Video in Playlist</a
+                    >
+                  </li>
+                </ul>
+              </li>
+              <li
+                id="menu-item-mobile-640"
+                class="haru-menu menu_style_dropdown menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children level-1"
+              >
+                <a href="#">Series</a><b class="menu-caret"></b>
+                <ul class="sub-menu">
+                  <li
+                    id="menu-item-mobile-641"
+                    class="haru-menu menu_style_dropdown menu-item menu-item-type-post_type_archive menu-item-object-haru_series level-2"
+                  >
+                    <a href="../series/index.html">Archive Series</a>
+                  </li>
+                  <li
+                    id="menu-item-mobile-642"
+                    class="haru-menu menu_style_dropdown menu-item menu-item-type-post_type menu-item-object-haru_series level-2"
+                  >
+                    <a href="../series/running-road/index.html"
+                      >Single Series</a
+                    >
+                  </li>
+                  <li
+                    id="menu-item-mobile-643"
+                    class="haru-menu menu_style_dropdown menu-item menu-item-type-custom menu-item-object-custom level-2"
+                  >
+                    <a
+                      href="/templates/video/haru-filmmaker-wordpress-theme/index2d22.html?series=128"
+                      >Single Video in Series</a
+                    >
+                  </li>
+                </ul>
+              </li>
+              <li
+                id="menu-item-mobile-644"
+                class="haru-menu menu_style_dropdown menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children level-1"
+              >
+                <a href="#">Channel</a><b class="menu-caret"></b>
+                <ul class="sub-menu">
+                  <li
+                    id="menu-item-mobile-645"
+                    class="haru-menu menu_style_dropdown menu-item menu-item-type-post_type_archive menu-item-object-haru_channel level-2"
+                  >
+                    <a href="../channel/index.html">Archive Channel</a>
+                  </li>
+                  <li
+                    id="menu-item-mobile-646"
+                    class="haru-menu menu_style_dropdown menu-item menu-item-type-post_type menu-item-object-haru_channel level-2"
+                  >
+                    <a href="../channel/technology-channel/index.html"
+                      >Single Channel</a
+                    >
+                  </li>
+                </ul>
+              </li>
+              <li
+                id="menu-item-mobile-647"
+                class="haru-menu menu_style_dropdown menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children level-1"
+              >
+                <a href="#">Actor</a><b class="menu-caret"></b>
+                <ul class="sub-menu">
+                  <li
+                    id="menu-item-mobile-648"
+                    class="haru-menu menu_style_dropdown menu-item menu-item-type-post_type_archive menu-item-object-haru_actor level-2"
+                  >
+                    <a href="../actor/index.html">Archive Actor</a>
+                  </li>
+                  <li
+                    id="menu-item-mobile-649"
+                    class="haru-menu menu_style_dropdown menu-item menu-item-type-post_type menu-item-object-haru_actor level-2"
+                  >
+                    <a href="../actor/ammy-poehler/index.html">Single Actor</a>
+                  </li>
+                </ul>
+              </li>
+              <li
+                id="menu-item-mobile-650"
+                class="haru-menu menu_style_dropdown menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children level-1"
+              >
+                <a href="#">Director</a><b class="menu-caret"></b>
+                <ul class="sub-menu">
+                  <li
+                    id="menu-item-mobile-651"
+                    class="haru-menu menu_style_dropdown menu-item menu-item-type-post_type_archive menu-item-object-haru_director level-2"
+                  >
+                    <a href="../director/index.html">Archive Director</a>
+                  </li>
+                  <li
+                    id="menu-item-mobile-652"
+                    class="haru-menu menu_style_dropdown menu-item menu-item-type-post_type menu-item-object-haru_director level-2"
+                  >
+                    <a href="../director/felicity-fisher/index.html"
+                      >Single Director</a
+                    >
+                  </li>
+                </ul>
+              </li>
+              <li
+                id="menu-item-mobile-653"
+                class="haru-menu menu_style_dropdown menu-item menu-item-type-custom menu-item-object-custom level-1"
+              >
+                <a href="../author/admin/index.html">Author page</a>
+              </li>
+              <li
+                id="menu-item-mobile-654"
+                class="haru-menu menu_style_dropdown menu-item menu-item-type-custom menu-item-object-custom level-1"
+              >
+                <a href="../members/admin/index.html">BuddyPress Member</a>
+              </li>
+            </ul>
+          </li>
+          <li
+            id="menu-item-mobile-655"
+            class="haru-menu menu_style_dropdown menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children level-0"
+          >
+            <a href="#">Shortcodes</a><b class="menu-caret"></b>
+            <ul class="sub-menu">
+              <li
+                id="menu-item-mobile-657"
+                class="haru-menu menu_style_dropdown menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children level-1"
+              >
+                <a href="../watch-later/index.html">Watch Later</a
+                ><b class="menu-caret"></b>
+                <ul class="sub-menu">
+                  <li
+                    id="menu-item-mobile-656"
+                    class="haru-menu menu_style_dropdown menu-item menu-item-type-post_type menu-item-object-page level-2"
+                  >
+                    <a href="../watch-later-element/index.html"
+                      >Watch Later Element</a
+                    >
+                  </li>
+                </ul>
+              </li>
+              <li
+                id="menu-item-mobile-661"
+                class="haru-menu menu_style_dropdown menu-item menu-item-type-post_type menu-item-object-haru_shortcode level-1"
+              >
+                <a href="../generate-shortcode/video-grid-isotope/index.html"
+                  >Video Grid Isotope</a
+                >
+              </li>
+              <li
+                id="menu-item-mobile-658"
+                class="haru-menu menu_style_dropdown menu-item menu-item-type-post_type menu-item-object-haru_shortcode level-1"
+              >
+                <a href="../generate-shortcode/video-category/index.html"
+                  >Video Category Default</a
+                >
+              </li>
+              <li
+                id="menu-item-mobile-659"
+                class="haru-menu menu_style_dropdown menu-item menu-item-type-post_type menu-item-object-haru_shortcode level-1"
+              >
+                <a href="../generate-shortcode/video-category-single/index.html"
+                  >Video Category Single Default</a
+                >
+              </li>
+              <li
+                id="menu-item-mobile-660"
+                class="haru-menu menu_style_dropdown menu-item menu-item-type-post_type menu-item-object-haru_shortcode level-1"
+              >
+                <a href="../generate-shortcode/video-featured/index.html"
+                  >Video Featured Default</a
+                >
+              </li>
+              <li
+                id="menu-item-mobile-664"
+                class="haru-menu menu_style_dropdown menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children level-1"
+              >
+                <a href="#">Video Slideshow</a><b class="menu-caret"></b>
+                <ul class="sub-menu">
+                  <li
+                    id="menu-item-mobile-662"
+                    class="haru-menu menu_style_dropdown menu-item menu-item-type-post_type menu-item-object-haru_shortcode level-2"
+                  >
+                    <a href="../generate-shortcode/video-slideshow/index.html"
+                      >Video Slideshow Default</a
+                    >
+                  </li>
+                  <li
+                    id="menu-item-mobile-663"
+                    class="haru-menu menu_style_dropdown menu-item menu-item-type-post_type menu-item-object-haru_shortcode level-2"
+                  >
+                    <a
+                      href="../generate-shortcode/video-slideshow-featured/index.html"
+                      >Video Slideshow Featured</a
+                    >
+                  </li>
+                  <li
+                    id="menu-item-mobile-665"
+                    class="haru-menu menu_style_dropdown menu-item menu-item-type-post_type menu-item-object-haru_shortcode level-2"
+                  >
+                    <a
+                      href="../generate-shortcode/video-slideshow-nav-thumb/index.html"
+                      >Video Slideshow Nav Thumb</a
+                    >
+                  </li>
+                </ul>
+              </li>
+              <li
+                id="menu-item-mobile-666"
+                class="haru-menu menu_style_dropdown menu-item menu-item-type-post_type menu-item-object-haru_shortcode level-1"
+              >
+                <a href="../generate-shortcode/video-order/index.html"
+                  >Video Order Default</a
+                >
+              </li>
+              <li
+                id="menu-item-mobile-667"
+                class="haru-menu menu_style_dropdown menu-item menu-item-type-post_type menu-item-object-haru_shortcode menu-item-has-children level-1"
+              >
+                <a href="../generate-shortcode/channel-category/index.html"
+                  >Channel Category</a
+                ><b class="menu-caret"></b>
+                <ul class="sub-menu">
+                  <li
+                    id="menu-item-mobile-668"
+                    class="haru-menu menu_style_dropdown menu-item menu-item-type-post_type menu-item-object-haru_shortcode level-2"
+                  >
+                    <a href="../generate-shortcode/channel-slideshow/index.html"
+                      >Channel Slideshow</a
+                    >
+                  </li>
+                </ul>
+              </li>
+              <li
+                id="menu-item-mobile-669"
+                class="haru-menu menu_style_dropdown menu-item menu-item-type-post_type menu-item-object-haru_shortcode menu-item-has-children level-1"
+              >
+                <a href="../generate-shortcode/playlist-category/index.html"
+                  >Playlist Category</a
+                ><b class="menu-caret"></b>
+                <ul class="sub-menu">
+                  <li
+                    id="menu-item-mobile-670"
+                    class="haru-menu menu_style_dropdown menu-item menu-item-type-post_type menu-item-object-haru_shortcode level-2"
+                  >
+                    <a
+                      href="../generate-shortcode/playlist-slideshow/index.html"
+                      >Playlist Slideshow</a
+                    >
+                  </li>
+                </ul>
+              </li>
+              <li
+                id="menu-item-mobile-671"
+                class="haru-menu menu_style_dropdown menu-item menu-item-type-post_type menu-item-object-haru_shortcode menu-item-has-children level-1"
+              >
+                <a href="../generate-shortcode/series-category/index.html"
+                  >Series Category</a
+                ><b class="menu-caret"></b>
+                <ul class="sub-menu">
+                  <li
+                    id="menu-item-mobile-672"
+                    class="haru-menu menu_style_dropdown menu-item menu-item-type-post_type menu-item-object-haru_shortcode level-2"
+                  >
+                    <a href="../generate-shortcode/series-slideshow/index.html"
+                      >Series Slideshow</a
+                    >
+                  </li>
+                </ul>
+              </li>
+            </ul>
+          </li>
+          <li
+            id="menu-item-mobile-673"
+            class="haru-menu menu_style_dropdown menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children level-0"
+          >
+            <a href="#">Submit</a><b class="menu-caret"></b>
+            <ul class="sub-menu">
+              <li
+                id="menu-item-mobile-674"
+                class="haru-menu menu_style_dropdown menu-item menu-item-type-post_type menu-item-object-page level-1"
+              >
+                <a href="../submit-video/index.html">Submit Video</a>
+              </li>
+              <li
+                id="menu-item-mobile-1279"
+                class="haru-menu menu_style_dropdown menu-item menu-item-type-post_type menu-item-object-page level-1"
+              >
+                <a href="../submit-channel/index.html">Submit Channel</a>
+              </li>
+              <li
+                id="menu-item-mobile-1276"
+                class="haru-menu menu_style_dropdown menu-item menu-item-type-post_type menu-item-object-page level-1"
+              >
+                <a href="../submit-series/index.html">Submit Series</a>
+              </li>
+              <li
+                id="menu-item-mobile-1277"
+                class="haru-menu menu_style_dropdown menu-item menu-item-type-post_type menu-item-object-page level-1"
+              >
+                <a href="../submit-playlist/index.html">Submit Playlist</a>
+              </li>
+            </ul>
+          </li>
+          <li
+            id="menu-item-mobile-2423"
+            class="haru-menu menu_style_dropdown menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children level-0"
+          >
+            <a href="#">Pages</a><b class="menu-caret"></b>
+            <ul class="sub-menu">
+              <li
+                id="menu-item-mobile-2428"
+                class="haru-menu menu_style_dropdown menu-item menu-item-type-post_type menu-item-object-page level-1"
+              >
+                <a href="../shop/index.html">Shop</a>
+              </li>
+              <li
+                id="menu-item-mobile-2430"
+                class="haru-menu menu_style_dropdown menu-item menu-item-type-post_type menu-item-object-page level-1"
+              >
+                <a href="../blog/index.html">Blog</a>
+              </li>
+              <li
+                id="menu-item-mobile-2424"
+                class="haru-menu menu_style_dropdown menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children level-1"
+              >
+                <a href="../about-us/index.html">About Us</a
+                ><b class="menu-caret"></b>
+                <ul class="sub-menu">
+                  <li
+                    id="menu-item-mobile-2425"
+                    class="haru-menu menu_style_dropdown menu-item menu-item-type-post_type menu-item-object-page level-2"
+                  >
+                    <a href="../about-us-2/index.html">About Us 2</a>
+                  </li>
+                </ul>
+              </li>
+              <li
+                id="menu-item-mobile-2426"
+                class="haru-menu menu_style_dropdown menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children level-1"
+              >
+                <a href="../contact-us/index.html">Contact Us</a
+                ><b class="menu-caret"></b>
+                <ul class="sub-menu">
+                  <li
+                    id="menu-item-mobile-2427"
+                    class="haru-menu menu_style_dropdown menu-item menu-item-type-post_type menu-item-object-page level-2"
+                  >
+                    <a href="../contact-us-2/index.html">Contact Us 2</a>
+                  </li>
+                </ul>
+              </li>
+            </ul>
+          </li>
+        </ul>
+        <div class="mobile-header-social">
+          <ul class="header-elements-item header-social-network-wrap">
+            <li>
+              <a href="#" target="_blank"
+                ><i class="header-icon fa fa-twitter"></i
+              ></a>
+            </li>
+            <li>
+              <a href="#" target="_blank"
+                ><i class="header-icon fa fa-facebook"></i
+              ></a>
+            </li>
+            <li>
+              <a href="#" target="_blank"
+                ><i class="header-icon fa fa-youtube"></i
+              ></a>
+            </li>
+            <li>
+              <a href="#" target="_blank"
+                ><i class="header-icon fa fa-instagram"></i
+              ></a>
+            </li>
+          </ul>
+        </div>
+      </div>
+      <div class="haru-mobile-menu-overlay"></div>
+    </div>
   </div>
-</div>
-</header> 
+</header>
+<header
+  id="haru-header"
+  class="haru-main-header header-10 header-sticky sticky_light"
+>
+  <div class="haru-header-nav-above-wrap">
+    <div class="container">
+      <div class="header-nav-above d-flex justify-content-between">
+        <div class="header-left align-self-center">
+          <div class="header-elements header-elements-left">
+            <ul class="header-elements-item header-social-network-wrap">
+              {% if page_contents.social_icon_1 %}
+              <li>
+                <a href="#" target="_blank"
+                  ><i
+                    class="header-icon fa fa-{{page_contents.social_icon_1}}"
+                  ></i
+                ></a>
+              </li>
+              {% else %}
+              <li>
+                <a href="#" target="_blank"
+                  ><i class="header-icon fa fa-twitter"></i
+                ></a>
+              </li>
+              {% endif %} {% if page_contents.social_icon_2 %}
+              <li>
+                <a href="#" target="_blank"
+                  ><i
+                    class="header-icon fa fa-{{page_contents.social_icon_2}}"
+                  ></i
+                ></a>
+              </li>
+              {% else %}
+              <li>
+                <a href="#" target="_blank"
+                  ><i class="header-icon fa fa-facebook"></i
+                ></a>
+              </li>
+              {% endif %} {% if page_contents.social_icon_3 %}
+              <li>
+                <a href="#" target="_blank"
+                  ><i
+                    class="header-icon fa fa-{{page_contents.social_icon_3}}"
+                  ></i
+                ></a>
+              </li>
+              {% else %}
+              <li>
+                <a href="#" target="_blank"
+                  ><i class="header-icon fa fa-youtube"></i
+                ></a>
+              </li>
+              {% endif %} {% if page_contents.social_icon_4 %}
+              <li>
+                <a href="#" target="_blank"
+                  ><i
+                    class="header-icon fa fa-{{page_contents.social_icon_4}}"
+                  ></i
+                ></a>
+              </li>
+              {% else %}
+              <li>
+                <a href="#" target="_blank"
+                  ><i class="header-icon fa fa-instagram"></i
+                ></a>
+              </li>
+              {% endif %}
+            </ul>
+          </div>
+        </div>
+        <div class="align-self-center">
+          <div class="header-logo has-logo-sticky">
+            <a href="../index.html" class="logo-retina" title="SplitUnity">
+              <img
+                src="{% static 'wp-content/themes/cr8iveshare/framework/admin-assets/images/theme-options/logo%402x.png' %} "
+                alt="SplitUnity"
+                style="max-height: 24px"
+              />
+            </a>
+          </div>
+        </div>
+        <div class="header-right align-self-center">
+          <div class="header-elements header-elements-right">
+            <div class="header-elements-item">
+              <div class="video-search-shortcode style-button">
+                <a
+                  href="javascript:;"
+                  class="video-search-button"
+                  data-effect="search-zoom-in"
+                  ><i class="haru-icon haru-search"></i
+                ></a>
+                <div
+                  id="video-search-popup-1"
+                  class="video-search-popup white-popup mfp-hide mfp-with-anim"
+                >
+                  <form
+                    role="search"
+                    method="get"
+                    class="haru-video-search search-form"
+                    action="https://demo.harutheme.com/cr8iveshare/"
+                  >
+                    <label for="haru-video-search-field-1">
+                      <span class="screen-reader-text">Search for:</span>
+                      <input
+                        type="search"
+                        id="haru-video-search-field-1"
+                        class="search-field"
+                        placeholder="Search videos&hellip;"
+                        value=""
+                        name="s"
+                      />
+                    </label>
+                    <button type="submit" class="search-submit" value="Search">
+                      <span>Search</span>
+                    </button>
+                    <input type="hidden" name="post_type" value="haru_video" />
+                  </form>
+                </div>
+              </div>
+            </div>
+            <div class="header-elements-item">
+              <div class="user-menu-shortcode default">
+                <div class="user-account-wrap">
+                  <div class="user-account-content logged-out">
+                    {% if user.is_authenticated %}
+                    <a href="{% url 'logout_user' %}" class="user-menu-login"
+                      ><i class="fa fa-sign-out"></i
+                    ></a>
+                    {% else %}
+                    <a href="{% url 'login' %}" class="user-menu-login"
+                      ><i class="haru-icon haru-user"></i
+                    ></a>
+                    {% endif %}
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="header-elements-item">
+              <div class="watch-later-element">
+                <a href="javascript:;" class="watch-later-page-link">
+                  <span class="watch-later-icon">
+                    <i class="haru-icon haru-clock-o"></i>
+                    <span class="watch-later-status"></span>
+                  </span>
+                </a>
+                <ul class="haru-watch-later-list">
+                  <li class="haru-watch-later-videos empty-video"></li>
+                  <li class="haru-watch-later-empty-video">
+                    <i class="haru-icon haru-file-video"></i>
+                    <div class="watch-later-empty-message">
+                      An empty videos list!
+                    </div>
+                  </li>
+                  <li class="haru-watch-later-view-all">
+                    <a
+                      href="../watch-later/index.html"
+                      class="haru-button haru-button-default"
+                      >View all videos</a
+                    >
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="haru-header-nav-wrap">
+    <div class="container">
+      <div
+        class="header-navigation navbar navbar-toggleable-md"
+        role="navigation"
+      >
+        <div class="d-flex justify-content-between mx-auto">
+          <div class="header-primary-menu">
+            <div id="primary-menu" class="menu-wrap">
+              <ul id="main-menu" class="haru-main-menu nav-collapse navbar-nav">
+                <li
+                  id="menu-item-841"
+                  class="haru-menu menu_style_dropdown menu-item menu-item-type-post_type menu-item-object-page menu-item-home current-menu-ancestor current-menu-parent current_page_parent current_page_ancestor menu-item-has-children level-0"
+                >
+                  <a href="{% url 'core:index' %}">Home</a>
+                </li>
+                <li
+                  id="menu-item-76"
+                  class="haru-menu menu_style_dropdown menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children level-0"
+                >
+                  <a href="#">Videos</a>
+                </li>
+                <li
+                  id="menu-item-131"
+                  class="haru-menu menu_style_dropdown menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children level-0"
+                >
+                  <a href="#">Features</a>
+                </li>
+                <li
+                  id="menu-item-159"
+                  class="haru-menu menu_style_dropdown menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children level-0"
+                >
+                  <a href="#">Shortcodes</a>
+                </li>
+                <li
+                  id="menu-item-295"
+                  class="haru-menu menu_style_dropdown menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children level-0"
+                >
+                  <a href="#">Submit</a>
+                </li>
+                <li
+                  id="menu-item-1152"
+                  class="haru-menu menu_style_dropdown menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children level-0"
+                >
+                  <a href="{% url 'core:contact' %}">Contact Us</a>
+                </li>
+                <li
+                  id="menu-item-1152"
+                  class="haru-menu menu_style_dropdown menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children level-0"
+                >
+                  <a href="{% url 'core:about' %}">About Us</a>
+                </li>
+                {% if user.is_authenticated %}
+                 {% if channel %}
+                <li
+                  id="menu-item-2489"
+                  class="haru-menu menu_style_dropdown menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children level-0"
+                >
+                  <a
+                    href="/{{ user }}/channel"
+                    style="font-size: larger; font-weight: 800"
+                    >Welcome {{ user }}</a
+                  >
+                  {% else %}
+                   {% endif %} 
+                   {% endif %}
+                </li>
+              </ul>
+            </div>
+          </div>
+          {% if user.is_authenticated %}
+           {% if channel %}
+          <div class="header-elements d-flex align-self-center">
+            <div class="header-elements header-elements-nav">
+              <div class="header-elements-item custom-text-wrap">
+                <a
+                  href="/new_video"
+                  class="button-background button-background--primary button-background--medium"
+                  >Upload Video</a
+                >
+              </div>
+            </div>
+          </div>
+          {% else %}
+          <div class="header-elements d-flex align-self-center">
+            <div class="header-elements header-elements-nav">
+              <div class="header-elements-item custom-text-wrap">
+                <a
+                  href="/createchannel"
+                  class="button-background button-background--primary button-background--medium"
+                  >Create Channel</a
+                >
+              </div>
+            </div>
+          </div>
+          {% endif %} 
+          {% endif %}
+        </div>
+      </div>
+    </div>
+  </div>
+</header>

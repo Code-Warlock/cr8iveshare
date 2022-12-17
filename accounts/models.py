@@ -89,7 +89,7 @@ class Profile(models.Model):
     id_user = models.IntegerField()
     bio = models.TextField(blank=True)
     profile_image = models.ImageField(
-        upload_to='profile_images', default="")
+        upload_to='profile_images', default="https://dummyimage.com/99x24")
     location = models.CharField(max_length=100, blank=True)
 
     def __str__(self):

@@ -27,6 +27,7 @@ INSTALLED_APPS = [
     'accounts',
     'widget_tweaks',
 ]
+EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
 
 AUTH_USER_MODEL = 'accounts.Account'
 
@@ -58,6 +59,8 @@ TEMPLATES = [
         },
     },
 ]
+
+INTERNAL_IPS = ['127.0.0.1', 'localhost']
 
 LANGUAGE_CODE = 'en-us'
 TIME_ZONE = 'UTC'

@@ -5,11 +5,12 @@ from django.shortcuts import redirect, render, get_object_or_404
 
 
 def post_renderer(request):
-    page_contents = PageContents.objects.latest('updated') if PageContents.objects.all().count() > 0 else None
+    page_contents = PageContents.objects.latest(
+        'updated') if PageContents.objects.all().count() > 0 else None
     category = Category.objects.all()
     counts = []
     for c in category:
-        category_count = Post.objects.filter(category=c).count()
+        category_count = Video.objects.filter(category=c).count()
         counts.append(category_count)
 
     category_count = zip(category, counts)
@@ -26,5 +27,6 @@ def post_renderer(request):
 
     return {
         'page_contents': page_contents,
+        'category_count': category_count,
         # 'posts': post,
     }

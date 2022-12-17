@@ -1,12 +1,6 @@
 from django.contrib import admin
-from core.models import Post, LikePost, FollowersCount, DisLikePost, ViewsCount, Comment, Category, PageContents
-
+from .models import Video, Comment, Channel, Like, Dislike, Video_View, Channel_Subscription
 # Register your models here.
-admin.site.register(PageContents)
-admin.site.register(Post)
-admin.site.register(LikePost)
-admin.site.register(FollowersCount)
-admin.site.register(DisLikePost)
-admin.site.register(Comment)
-admin.site.register(ViewsCount)
-admin.site.register(Category)
+
+admin.site.register([Video, Comment, Channel, Like,
+                     Dislike, Video_View, Channel_Subscription])

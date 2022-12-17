@@ -4,9 +4,8 @@ from django.utils.text import slugify
 from django.conf import settings
 from django.urls import reverse
 import uuid
-from django.contrib.auth.models import (
-    BaseUserManager, AbstractBaseUser
-)
+from django.utils import timezone
+
 
 from accounts.models import Account
 
@@ -21,8 +20,10 @@ class PageContents(models.Model):
         max_length=500, null=True, blank=True, default="Lorem ipsum dolor sit amet consectetur adipiscing elit platea convallis tortor, et laoreet posuere nisi suspendisse mollis gravida facilisi fusce cras, augue dictumst tempor imperdiet lacus risus neque elementum nisl.")
     footer_address = models.CharField(
         max_length=100, null=True, blank=True, default="Lorem ipsum dolor sit amet consectetur, adipiscing elit platea nec.")
-    footer_phone = models.CharField(max_length=20, null=True, blank=True, default="+123456789")
-    footer_email = models.CharField(max_length=50, null=True, blank=True, default="lorem@lorem.com")
+    footer_phone = models.CharField(
+        max_length=20, null=True, blank=True, default="+123456789")
+    footer_email = models.CharField(
+        max_length=50, null=True, blank=True, default="lorem@lorem.com")
     social_icon_1 = models.CharField(
         max_length=30, null=True, blank=True, default="twitter")
     social_icon_url_1 = models.URLField(
@@ -59,47 +60,46 @@ class PageContents(models.Model):
     updated = models.DateTimeField(auto_now=True)
 
 
-class Post(models.Model):
-    id = models.UUIDField(primary_key=True, default=uuid.uuid4)
-    user = models.CharField(max_length=100)
-    image = models.ImageField(upload_to='post_images')
-    tag = models.CharField(max_length=100, blank=True)
-    caption = models.TextField()
-    created_at = models.DateTimeField(
-        verbose_name='date created', auto_now_add=True)
-    no_of_likes = models.IntegerField(default=0)
+class Video(models.Model):
+    title = models.CharField(max_length=30)
+    description = models.TextField(max_length=300)
+    path = models.CharField(max_length=60)
+    datetime = models.DateTimeField(auto_now_add=True,
+                                    blank=False, null=False)
+    user = models.ForeignKey(Account, on_delete=models.CASCADE)
+    number_of_views = models.IntegerField(blank=True, default=0)
 
     class Meta:
-        verbose_name = ("Post")
-        verbose_name_plural = ("Posts")
+        verbose_name = ("Video")
+        verbose_name_plural = ("Videos")
 
     def __str__(self):
         return self.user
 
     def save(self, *args, **kwargs):
-        slug = self.caption
+        slug = self.description
         if not self.slug:
             self.slug = slugify(slug, allow_unicode=True)
         super().save(*args, **kwargs)
 
     def get_absolute_url(self):
-        return reverse("Post_detail", kwargs={"pk": self.pk})
+        return reverse("Video_detail", kwargs={"pk": self.pk})
 
 
-class LikePost(models.Model):
-    post_id = models.CharField(max_length=500)
-    username = models.CharField(max_length=100)
-
-    def __str__(self):
-        return self.username
-
-
-class DisLikePost(models.Model):
-    post_id = models.CharField(max_length=500)
-    username = models.CharField(max_length=100)
+class Like(models.Model):
+    user = models.ForeignKey(Account, on_delete=models.CASCADE)
+    video = models.ForeignKey(Video, on_delete=models.CASCADE)
 
     def __str__(self):
-        return self.username
+        return self.user
+
+
+class Dislike(models.Model):
+    user = models.ForeignKey(Account, on_delete=models.CASCADE)
+    video = models.ForeignKey(Video, on_delete=models.CASCADE)
+
+    def __str__(self):
+        return self.user
 
 
 class FollowersCount(models.Model):
@@ -110,19 +110,11 @@ class FollowersCount(models.Model):
         return self.user
 
 
-class ViewsCount(models.Model):
-    followers = models.CharField(max_length=100)
-    user = models.CharField(max_length=100)
-
-    def __str__(self):
-        return self.user
-
-
 class Comment(models.Model):
-    post = models.ForeignKey(Post, on_delete=models.CASCADE)
-    user = models.ForeignKey(Account, on_delete=models.CASCADE, blank=True)
-    comment = models.TextField()
-    created_at = models.DateTimeField(auto_now_add=True)
+    user = models.ForeignKey(Account, on_delete=models.CASCADE)
+    comment = models.TextField(max_length=300)
+    datetime = models.DateTimeField(auto_now_add=True)
+    video = models.ForeignKey(Video, on_delete=models.CASCADE)
 
     class Meta:
         verbose_name = ("Comment")
@@ -133,6 +125,23 @@ class Comment(models.Model):
 
     def get_absolute_url(self):
         return reverse("Comment_detail", kwargs={"pk": self.pk})
+
+
+class Channel(models.Model):
+    channel_name = models.CharField(max_length=50, blank=False, null=False)
+    subscribers = models.IntegerField(default=0, blank=False, null=False)
+    user = models.ForeignKey(Account, on_delete=models.CASCADE)
+
+
+class Video_View(models.Model):
+    user = models.ForeignKey(Account, on_delete=models.CASCADE)
+    video = models.ForeignKey(Video, on_delete=models.CASCADE)
+    datetime = models.DateTimeField(default=timezone.now)
+
+
+class Channel_Subscription(models.Model):
+    user = models.ForeignKey(Account, on_delete=models.CASCADE)
+    channel = models.ForeignKey(Channel, on_delete=models.CASCADE)
 
 
 class Category(models.Model):

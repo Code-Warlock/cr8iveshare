@@ -43,7 +43,7 @@
                                       <h6
                                         class="channel-top-title haru-shortcode-title"
                                       >
-                                        <span>Top Creators </span>
+                                        <span>Top Channels </span>
                                       </h6>
 
                                       <div class="channel-ajax-content style-5">
@@ -51,7 +51,8 @@
                                           <div class="loading-bar"></div>
                                         </div>
                                         <div class="channel-top-content">
-                                          {% for suggestion in suggestions_username_profile_list %}
+                                          {% if most_recent_channels %}
+                                          {% for channels in most_recent_channels %}
                                           <article
                                             class="grid-item channel-item channel-style-7"
                                           >
@@ -82,11 +83,11 @@
                                             <div class="channel-item__content">
                                               <h6 class="channel-item__title">
                                                 <a
-                                                  href="#"
-                                                  >{{suggestion.user}}</a
+                                                  href="/{{ channels.user.username }}/channel"
+                                                  >{{ channels.channel_name }}</a
                                                 >
                                               </h6>
-                                              <!-- <div class="channel-item__meta">
+                                              <div class="channel-item__meta">
                                                 
                                                
                                                 <div
@@ -105,7 +106,7 @@
                                                     subscribers</span
                                                   >
                                                 </div>
-                                              </div> -->
+                                              </div>
                                             </div>
 
                                             <div
@@ -140,6 +141,10 @@
                                             </div>
                                           </article>
                                           {% endfor %}
+                                          {% else %}
+                                            <p>No Top Channels Available</p>
+                                          {% endif %}
+                                          
                                         </div>
                                       </div>
 
@@ -1243,7 +1248,7 @@
                                             </a>
                                           </h6>
                                         </li>
-                                        <li class="tab-item view">
+                                        <!-- <li class="tab-item view">
                                           <h6 class="tab-item-heading">
                                             <a
                                               class="filter-item"
@@ -1272,7 +1277,7 @@
                                               >Random
                                             </a>
                                           </h6>
-                                        </li>
+                                        </li> -->
                                       </ul>
 
                                       <div class="video-ajax-content default">
@@ -1283,6 +1288,8 @@
                                           <div
                                             class="video-list grid-columns grid-columns__4 animated fadeIn haru-clear"
                                           >
+                                          {% if most_recent_videos %}
+                                          {% for video in most_recent_videos %}
                                             <article
                                               class="grid-item video-item video-1019 vidio default"
                                             >
@@ -1290,7 +1297,7 @@
                                                 class="video-item__thumbnail"
                                               >
                                                 <a
-                                                  href="../video/video-created-by-vidio/index.html"
+                                                  href="/video/{{ video.id }}/{{ 1 }}/"
                                                 >
                                                   <div
                                                     class="video-thumbnail image default"
@@ -1298,13 +1305,13 @@
                                                   >
                                                     <img
                                                       src="{% static 'wp-content/uploads/2020/01/technology-17.jpg' %}"
-                                                      alt="Video Created by Vidio"
+                                                      alt="{{ video.title }}"
                                                     />
                                                   </div>
                                                 </a>
                                                 <div class="video-item__icon">
                                                   <a
-                                                    href="../video/video-created-by-vidio/index.html"
+                                                    href="/video/{{ video.id }}/{{ 1 }}/"
                                                     class="video-item-player-direct"
                                                   >
                                                     <i
@@ -1315,7 +1322,7 @@
                                                 <div
                                                   class="toolbar-action toolbar-action--background video-watch-later"
                                                   data-id="1019"
-                                                  data-title="Video Created by Vidio"
+                                                  data-title="{{ video.title }}"
                                                   data-permalink="../video/video-created-by-vidio/index.html"
                                                   data-thumb="{% static 'wp-content/uploads/2020/01/technology-17.jpg' %}"
                                                 >
@@ -1344,7 +1351,7 @@
                                                 <h6 class="video-item__title">
                                                   <a
                                                     href="../video/video-created-by-vidio/index.html"
-                                                    >Video Created by Vidio</a
+                                                    >{{ video.title }}</a
                                                   >
                                                 </h6>
                                                 <div class="video-item__meta">
@@ -1354,14 +1361,14 @@
                                                     <i class="fa fa-user"></i>
                                                     <a
                                                       href="../members/demo/index.html"
-                                                      >Marc Campbell</a
+                                                      >{{ video.user }} </a
                                                     >
                                                   </div>
                                                   <div class="video-item__date">
                                                     <i
                                                       class="fa fa-calendar"
                                                     ></i
-                                                    >April 21, 2020
+                                                    >{{ video.datetime }}
                                                   </div>
                                                   <div class="video-item__like">
                                                     <div class="post-like">
@@ -1435,1106 +1442,10 @@
                                                 </div>
                                               </div>
                                             </article>
-                                            <article
-                                              class="grid-item video-item video-509 game vidio default"
-                                            >
-                                              <div
-                                                class="video-item__thumbnail"
-                                              >
-                                                <a
-                                                  href="../video/a-record-breaking-world-championship/index.html"
-                                                >
-                                                  <div
-                                                    class="video-thumbnail image default"
-                                                    data-speed="1000"
-                                                  >
-                                                    <img
-                                                      src="{% static 'wp-content/uploads/2020/01/technology-1.jpg' %}"
-                                                      alt="A Record Breaking World Championship"
-                                                    />
-                                                  </div>
-                                                </a>
-                                                <div class="video-item__icon">
-                                                  <a
-                                                    href="../video/a-record-breaking-world-championship/index.html"
-                                                    class="video-item-player-direct"
-                                                  >
-                                                    <i
-                                                      class="haru-icon haru-play"
-                                                    ></i>
-                                                  </a>
-                                                </div>
-                                                <div
-                                                  class="toolbar-action toolbar-action--background video-watch-later"
-                                                  data-id="509"
-                                                  data-title="A Record Breaking World Championship"
-                                                  data-permalink="../video/a-record-breaking-world-championship/index.html"
-                                                  data-thumb="{% static 'wp-content/uploads/2020/01/technology-1.jpg' %}"
-                                                >
-                                                  <i
-                                                    class="haru-icon haru-clock"
-                                                  ></i>
-                                                  Watch Later
-                                                </div>
-
-                                                <div
-                                                  class="video-item__duration"
-                                                >
-                                                  9:15
-                                                </div>
-                                              </div>
-                                              <div class="video-item__content">
-                                                <div
-                                                  class="video-item__category"
-                                                >
-                                                  <a
-                                                    href="../video-category/game/index.html"
-                                                    rel="tag"
-                                                    >Game</a
-                                                  >,
-                                                  <a
-                                                    href="../video-category/vidio/index.html"
-                                                    rel="tag"
-                                                    >Vidio</a
-                                                  >
-                                                </div>
-                                                <h6 class="video-item__title">
-                                                  <a
-                                                    href="../video/a-record-breaking-world-championship/index.html"
-                                                    >A Record Breaking World
-                                                    Championship</a
-                                                  >
-                                                </h6>
-                                                <div class="video-item__meta">
-                                                  <div
-                                                    class="video-item__author"
-                                                  >
-                                                    <i class="fa fa-user"></i>
-                                                    <a
-                                                      href="../members/admin/index.html"
-                                                      >admin</a
-                                                    >
-                                                  </div>
-                                                  <div class="video-item__date">
-                                                    <i
-                                                      class="fa fa-calendar"
-                                                    ></i
-                                                    >January 14, 2020
-                                                  </div>
-                                                  <div class="video-item__like">
-                                                    <div class="post-like">
-                                                      <span
-                                                        class="post-vote-label"
-                                                        >like</span
-                                                      >
-                                                      <i
-                                                        class="haru-icon haru-like"
-                                                      ></i>
-                                                      <span
-                                                        class="post-like-count"
-                                                        >2.153K</span
-                                                      >
-                                                      <span
-                                                        class="post-like-unit"
-                                                      >
-                                                        likes</span
-                                                      >
-                                                    </div>
-                                                  </div>
-                                                  <div
-                                                    class="video-item__dislike"
-                                                  >
-                                                    <div class="post-dislike">
-                                                      <span
-                                                        class="post-vote-label"
-                                                        >dislike</span
-                                                      >
-                                                      <i
-                                                        class="haru-icon haru-dislike"
-                                                      ></i>
-                                                      <span
-                                                        class="post-dislike-count"
-                                                        >151</span
-                                                      >
-                                                      <span
-                                                        class="post-dislike-unit"
-                                                      >
-                                                        dislikes</span
-                                                      >
-                                                    </div>
-                                                  </div>
-                                                  <div class="video-item__view">
-                                                    <div
-                                                      class="post-views-count"
-                                                    >
-                                                      <span
-                                                        class="post-views-label"
-                                                        >views</span
-                                                      >
-                                                      <i class="fa fa-eye"></i>
-                                                      <span
-                                                        class="post-view-count"
-                                                        >1.373M</span
-                                                      >
-                                                      <span
-                                                        class="post-view-unit"
-                                                      >
-                                                        views</span
-                                                      >
-                                                    </div>
-                                                  </div>
-                                                </div>
-                                                <div class="video-item__desc">
-                                                  Nullam imperdiet, sem at
-                                                  fringilla lobortis, sem nibh
-                                                  fringilla nibh, id gravidrus
-                                                  sit amet erat. Aenean nec nisi
-                                                  quis nisi...
-                                                </div>
-                                              </div>
-                                            </article>
-                                            <article
-                                              class="grid-item video-item video-508 game vidio default"
-                                            >
-                                              <div
-                                                class="video-item__thumbnail"
-                                              >
-                                                <a
-                                                  href="../video/academy-rush-week-1-lcs-academy-spring-split/index.html"
-                                                >
-                                                  <div
-                                                    class="video-thumbnail image default"
-                                                    data-speed="1000"
-                                                  >
-                                                    <img
-                                                      src="{% static 'wp-content/uploads/2020/01/technology-10.jpg' %}"
-                                                      alt="Academy Rush Week 1 &#8211; LCS Academy Spring Split"
-                                                    />
-                                                  </div>
-                                                </a>
-                                                <div class="video-item__icon">
-                                                  <a
-                                                    href="../video/academy-rush-week-1-lcs-academy-spring-split/index.html"
-                                                    class="video-item-player-direct"
-                                                  >
-                                                    <i
-                                                      class="haru-icon haru-play"
-                                                    ></i>
-                                                  </a>
-                                                </div>
-                                                <div
-                                                  class="toolbar-action toolbar-action--background video-watch-later"
-                                                  data-id="508"
-                                                  data-title="Academy Rush Week 1 &#8211; LCS Academy Spring Split"
-                                                  data-permalink="../video/academy-rush-week-1-lcs-academy-spring-split/index.html"
-                                                  data-thumb="{% static 'wp-content/uploads/2020/01/technology-10.jpg' %}"
-                                                >
-                                                  <i
-                                                    class="haru-icon haru-clock"
-                                                  ></i>
-                                                  Watch Later
-                                                </div>
-
-                                                <div
-                                                  class="video-item__duration"
-                                                >
-                                                  9:15
-                                                </div>
-                                              </div>
-                                              <div class="video-item__content">
-                                                <div
-                                                  class="video-item__category"
-                                                >
-                                                  <a
-                                                    href="../video-category/game/index.html"
-                                                    rel="tag"
-                                                    >Game</a
-                                                  >,
-                                                  <a
-                                                    href="../video-category/vidio/index.html"
-                                                    rel="tag"
-                                                    >Vidio</a
-                                                  >
-                                                </div>
-                                                <h6 class="video-item__title">
-                                                  <a
-                                                    href="../video/academy-rush-week-1-lcs-academy-spring-split/index.html"
-                                                    >Academy Rush Week 1 &#8211;
-                                                    LCS Academy Spring Split</a
-                                                  >
-                                                </h6>
-                                                <div class="video-item__meta">
-                                                  <div
-                                                    class="video-item__author"
-                                                  >
-                                                    <i class="fa fa-user"></i>
-                                                    <a
-                                                      href="../members/admin/index.html"
-                                                      >admin</a
-                                                    >
-                                                  </div>
-                                                  <div class="video-item__date">
-                                                    <i
-                                                      class="fa fa-calendar"
-                                                    ></i
-                                                    >January 14, 2020
-                                                  </div>
-                                                  <div class="video-item__like">
-                                                    <div class="post-like">
-                                                      <span
-                                                        class="post-vote-label"
-                                                        >like</span
-                                                      >
-                                                      <i
-                                                        class="haru-icon haru-like"
-                                                      ></i>
-                                                      <span
-                                                        class="post-like-count"
-                                                        >2.150K</span
-                                                      >
-                                                      <span
-                                                        class="post-like-unit"
-                                                      >
-                                                        likes</span
-                                                      >
-                                                    </div>
-                                                  </div>
-                                                  <div
-                                                    class="video-item__dislike"
-                                                  >
-                                                    <div class="post-dislike">
-                                                      <span
-                                                        class="post-vote-label"
-                                                        >dislike</span
-                                                      >
-                                                      <i
-                                                        class="haru-icon haru-dislike"
-                                                      ></i>
-                                                      <span
-                                                        class="post-dislike-count"
-                                                        >151</span
-                                                      >
-                                                      <span
-                                                        class="post-dislike-unit"
-                                                      >
-                                                        dislikes</span
-                                                      >
-                                                    </div>
-                                                  </div>
-                                                  <div class="video-item__view">
-                                                    <div
-                                                      class="post-views-count"
-                                                    >
-                                                      <span
-                                                        class="post-views-label"
-                                                        >views</span
-                                                      >
-                                                      <i class="fa fa-eye"></i>
-                                                      <span
-                                                        class="post-view-count"
-                                                        >1.371M</span
-                                                      >
-                                                      <span
-                                                        class="post-view-unit"
-                                                      >
-                                                        views</span
-                                                      >
-                                                    </div>
-                                                  </div>
-                                                </div>
-                                                <div class="video-item__desc">
-                                                  Nullam imperdiet, sem at
-                                                  fringilla lobortis, sem nibh
-                                                  fringilla nibh, id gravidrus
-                                                  sit amet erat. Aenean nec nisi
-                                                  quis nisi...
-                                                </div>
-                                              </div>
-                                            </article>
-                                            <article
-                                              class="grid-item video-item video-507 game vidio default"
-                                            >
-                                              <div
-                                                class="video-item__thumbnail"
-                                              >
-                                                <a
-                                                  href="../video/pubg-new-lobby-music-preview/index.html"
-                                                >
-                                                  <div
-                                                    class="video-thumbnail image default"
-                                                    data-speed="1000"
-                                                  >
-                                                    <img
-                                                      src="{% static 'wp-content/uploads/2020/04/technology-9.jpg' %}"
-                                                      alt="PUBG &#8211; New Lobby Music Preview"
-                                                    />
-                                                  </div>
-                                                </a>
-                                                <div class="video-item__icon">
-                                                  <a
-                                                    href="../video/pubg-new-lobby-music-preview/index.html"
-                                                    class="video-item-player-direct"
-                                                  >
-                                                    <i
-                                                      class="haru-icon haru-play"
-                                                    ></i>
-                                                  </a>
-                                                </div>
-                                                <div
-                                                  class="toolbar-action toolbar-action--background video-watch-later"
-                                                  data-id="507"
-                                                  data-title="PUBG &#8211; New Lobby Music Preview"
-                                                  data-permalink="../video/pubg-new-lobby-music-preview/index.html"
-                                                  data-thumb="{% static 'wp-content/uploads/2020/04/technology-9.jpg' %}"
-                                                >
-                                                  <i
-                                                    class="haru-icon haru-clock"
-                                                  ></i>
-                                                  Watch Later
-                                                </div>
-
-                                                <div
-                                                  class="video-item__duration"
-                                                >
-                                                  9:15
-                                                </div>
-                                              </div>
-                                              <div class="video-item__content">
-                                                <div
-                                                  class="video-item__category"
-                                                >
-                                                  <a
-                                                    href="../video-category/game/index.html"
-                                                    rel="tag"
-                                                    >Game</a
-                                                  >,
-                                                  <a
-                                                    href="../video-category/vidio/index.html"
-                                                    rel="tag"
-                                                    >Vidio</a
-                                                  >
-                                                </div>
-                                                <h6 class="video-item__title">
-                                                  <a
-                                                    href="../video/pubg-new-lobby-music-preview/index.html"
-                                                    >PUBG &#8211; New Lobby
-                                                    Music Preview</a
-                                                  >
-                                                </h6>
-                                                <div class="video-item__meta">
-                                                  <div
-                                                    class="video-item__author"
-                                                  >
-                                                    <i class="fa fa-user"></i>
-                                                    <a
-                                                      href="../members/admin/index.html"
-                                                      >admin</a
-                                                    >
-                                                  </div>
-                                                  <div class="video-item__date">
-                                                    <i
-                                                      class="fa fa-calendar"
-                                                    ></i
-                                                    >January 14, 2020
-                                                  </div>
-                                                  <div class="video-item__like">
-                                                    <div class="post-like">
-                                                      <span
-                                                        class="post-vote-label"
-                                                        >like</span
-                                                      >
-                                                      <i
-                                                        class="haru-icon haru-like"
-                                                      ></i>
-                                                      <span
-                                                        class="post-like-count"
-                                                        >2.151K</span
-                                                      >
-                                                      <span
-                                                        class="post-like-unit"
-                                                      >
-                                                        likes</span
-                                                      >
-                                                    </div>
-                                                  </div>
-                                                  <div
-                                                    class="video-item__dislike"
-                                                  >
-                                                    <div class="post-dislike">
-                                                      <span
-                                                        class="post-vote-label"
-                                                        >dislike</span
-                                                      >
-                                                      <i
-                                                        class="haru-icon haru-dislike"
-                                                      ></i>
-                                                      <span
-                                                        class="post-dislike-count"
-                                                        >150</span
-                                                      >
-                                                      <span
-                                                        class="post-dislike-unit"
-                                                      >
-                                                        dislikes</span
-                                                      >
-                                                    </div>
-                                                  </div>
-                                                  <div class="video-item__view">
-                                                    <div
-                                                      class="post-views-count"
-                                                    >
-                                                      <span
-                                                        class="post-views-label"
-                                                        >views</span
-                                                      >
-                                                      <i class="fa fa-eye"></i>
-                                                      <span
-                                                        class="post-view-count"
-                                                        >1.371M</span
-                                                      >
-                                                      <span
-                                                        class="post-view-unit"
-                                                      >
-                                                        views</span
-                                                      >
-                                                    </div>
-                                                  </div>
-                                                </div>
-                                                <div class="video-item__desc">
-                                                  Nullam imperdiet, sem at
-                                                  fringilla lobortis, sem nibh
-                                                  fringilla nibh, id gravidrus
-                                                  sit amet erat. Aenean nec nisi
-                                                  quis nisi...
-                                                </div>
-                                              </div>
-                                            </article>
-                                            <article
-                                              class="grid-item video-item video-506 game harutheme vidio default"
-                                            >
-                                              <div
-                                                class="video-item__thumbnail"
-                                              >
-                                                <a
-                                                  href="../video/pubg-early-days-retrospective/index.html"
-                                                >
-                                                  <div
-                                                    class="video-thumbnail image default"
-                                                    data-speed="1000"
-                                                  >
-                                                    <img
-                                                      src="{% static 'wp-content/uploads/2020/01/technology-8.jpg' %}"
-                                                      alt="PUBG &#8211; Early Days Retrospective"
-                                                    />
-                                                  </div>
-                                                </a>
-                                                <div class="video-item__icon">
-                                                  <a
-                                                    href="../video/pubg-early-days-retrospective/index.html"
-                                                    class="video-item-player-direct"
-                                                  >
-                                                    <i
-                                                      class="haru-icon haru-play"
-                                                    ></i>
-                                                  </a>
-                                                </div>
-                                                <div
-                                                  class="toolbar-action toolbar-action--background video-watch-later"
-                                                  data-id="506"
-                                                  data-title="PUBG &#8211; Early Days Retrospective"
-                                                  data-permalink="../video/pubg-early-days-retrospective/index.html"
-                                                  data-thumb="{% static 'wp-content/uploads/2020/01/technology-8.jpg' %}"
-                                                >
-                                                  <i
-                                                    class="haru-icon haru-clock"
-                                                  ></i>
-                                                  Watch Later
-                                                </div>
-
-                                                <div
-                                                  class="video-item__duration"
-                                                >
-                                                  9:15
-                                                </div>
-                                              </div>
-                                              <div class="video-item__content">
-                                                <div
-                                                  class="video-item__category"
-                                                >
-                                                  <a
-                                                    href="../video-category/game/index.html"
-                                                    rel="tag"
-                                                    >Game</a
-                                                  >,
-                                                  <a
-                                                    href="../video-category/harutheme/index.html"
-                                                    rel="tag"
-                                                    >HaruTheme</a
-                                                  >,
-                                                  <a
-                                                    href="../video-category/vidio/index.html"
-                                                    rel="tag"
-                                                    >Vidio</a
-                                                  >
-                                                </div>
-                                                <h6 class="video-item__title">
-                                                  <a
-                                                    href="../video/pubg-early-days-retrospective/index.html"
-                                                    >PUBG &#8211; Early Days
-                                                    Retrospective</a
-                                                  >
-                                                </h6>
-                                                <div class="video-item__meta">
-                                                  <div
-                                                    class="video-item__author"
-                                                  >
-                                                    <i class="fa fa-user"></i>
-                                                    <a
-                                                      href="../members/admin/index.html"
-                                                      >admin</a
-                                                    >
-                                                  </div>
-                                                  <div class="video-item__date">
-                                                    <i
-                                                      class="fa fa-calendar"
-                                                    ></i
-                                                    >January 14, 2020
-                                                  </div>
-                                                  <div class="video-item__like">
-                                                    <div class="post-like">
-                                                      <span
-                                                        class="post-vote-label"
-                                                        >like</span
-                                                      >
-                                                      <i
-                                                        class="haru-icon haru-like"
-                                                      ></i>
-                                                      <span
-                                                        class="post-like-count"
-                                                        >2.150K</span
-                                                      >
-                                                      <span
-                                                        class="post-like-unit"
-                                                      >
-                                                        likes</span
-                                                      >
-                                                    </div>
-                                                  </div>
-                                                  <div
-                                                    class="video-item__dislike"
-                                                  >
-                                                    <div class="post-dislike">
-                                                      <span
-                                                        class="post-vote-label"
-                                                        >dislike</span
-                                                      >
-                                                      <i
-                                                        class="haru-icon haru-dislike"
-                                                      ></i>
-                                                      <span
-                                                        class="post-dislike-count"
-                                                        >151</span
-                                                      >
-                                                      <span
-                                                        class="post-dislike-unit"
-                                                      >
-                                                        dislikes</span
-                                                      >
-                                                    </div>
-                                                  </div>
-                                                  <div class="video-item__view">
-                                                    <div
-                                                      class="post-views-count"
-                                                    >
-                                                      <span
-                                                        class="post-views-label"
-                                                        >views</span
-                                                      >
-                                                      <i class="fa fa-eye"></i>
-                                                      <span
-                                                        class="post-view-count"
-                                                        >1.370M</span
-                                                      >
-                                                      <span
-                                                        class="post-view-unit"
-                                                      >
-                                                        views</span
-                                                      >
-                                                    </div>
-                                                  </div>
-                                                </div>
-                                                <div class="video-item__desc">
-                                                  Nullam imperdiet, sem at
-                                                  fringilla lobortis, sem nibh
-                                                  fringilla nibh, id gravidrus
-                                                  sit amet erat. Aenean nec nisi
-                                                  quis nisi...
-                                                </div>
-                                              </div>
-                                            </article>
-                                            <article
-                                              class="grid-item video-item video-504 game vidio default"
-                                            >
-                                              <div
-                                                class="video-item__thumbnail"
-                                              >
-                                                <a
-                                                  href="../video/stand-united-pgc-2019-official-theme-song/index.html"
-                                                >
-                                                  <div
-                                                    class="video-thumbnail image default"
-                                                    data-speed="1000"
-                                                  >
-                                                    <img
-                                                      src="{% static 'wp-content/uploads/2020/01/technology-7.jpg' %}"
-                                                      alt="Stand United &#8211; PGC 2019 Official Theme Song"
-                                                    />
-                                                  </div>
-                                                </a>
-                                                <div class="video-item__icon">
-                                                  <a
-                                                    href="../video/stand-united-pgc-2019-official-theme-song/index.html"
-                                                    class="video-item-player-direct"
-                                                  >
-                                                    <i
-                                                      class="haru-icon haru-play"
-                                                    ></i>
-                                                  </a>
-                                                </div>
-                                                <div
-                                                  class="toolbar-action toolbar-action--background video-watch-later"
-                                                  data-id="504"
-                                                  data-title="Stand United &#8211; PGC 2019 Official Theme Song"
-                                                  data-permalink="../video/stand-united-pgc-2019-official-theme-song/index.html"
-                                                  data-thumb="{% static 'wp-content/uploads/2020/01/technology-7.jpg' %}"
-                                                >
-                                                  <i
-                                                    class="haru-icon haru-clock"
-                                                  ></i>
-                                                  Watch Later
-                                                </div>
-
-                                                <div
-                                                  class="video-item__duration"
-                                                >
-                                                  9:15
-                                                </div>
-                                              </div>
-                                              <div class="video-item__content">
-                                                <div
-                                                  class="video-item__category"
-                                                >
-                                                  <a
-                                                    href="../video-category/game/index.html"
-                                                    rel="tag"
-                                                    >Game</a
-                                                  >,
-                                                  <a
-                                                    href="../video-category/vidio/index.html"
-                                                    rel="tag"
-                                                    >Vidio</a
-                                                  >
-                                                </div>
-                                                <h6 class="video-item__title">
-                                                  <a
-                                                    href="../video/stand-united-pgc-2019-official-theme-song/index.html"
-                                                    >Stand United &#8211; PGC
-                                                    2019 Official Theme Song</a
-                                                  >
-                                                </h6>
-                                                <div class="video-item__meta">
-                                                  <div
-                                                    class="video-item__author"
-                                                  >
-                                                    <i class="fa fa-user"></i>
-                                                    <a
-                                                      href="../members/admin/index.html"
-                                                      >admin</a
-                                                    >
-                                                  </div>
-                                                  <div class="video-item__date">
-                                                    <i
-                                                      class="fa fa-calendar"
-                                                    ></i
-                                                    >January 14, 2020
-                                                  </div>
-                                                  <div class="video-item__like">
-                                                    <div class="post-like">
-                                                      <span
-                                                        class="post-vote-label"
-                                                        >like</span
-                                                      >
-                                                      <i
-                                                        class="haru-icon haru-like"
-                                                      ></i>
-                                                      <span
-                                                        class="post-like-count"
-                                                        >2.150K</span
-                                                      >
-                                                      <span
-                                                        class="post-like-unit"
-                                                      >
-                                                        likes</span
-                                                      >
-                                                    </div>
-                                                  </div>
-                                                  <div
-                                                    class="video-item__dislike"
-                                                  >
-                                                    <div class="post-dislike">
-                                                      <span
-                                                        class="post-vote-label"
-                                                        >dislike</span
-                                                      >
-                                                      <i
-                                                        class="haru-icon haru-dislike"
-                                                      ></i>
-                                                      <span
-                                                        class="post-dislike-count"
-                                                        >151</span
-                                                      >
-                                                      <span
-                                                        class="post-dislike-unit"
-                                                      >
-                                                        dislikes</span
-                                                      >
-                                                    </div>
-                                                  </div>
-                                                  <div class="video-item__view">
-                                                    <div
-                                                      class="post-views-count"
-                                                    >
-                                                      <span
-                                                        class="post-views-label"
-                                                        >views</span
-                                                      >
-                                                      <i class="fa fa-eye"></i>
-                                                      <span
-                                                        class="post-view-count"
-                                                        >1.370M</span
-                                                      >
-                                                      <span
-                                                        class="post-view-unit"
-                                                      >
-                                                        views</span
-                                                      >
-                                                    </div>
-                                                  </div>
-                                                </div>
-                                                <div class="video-item__desc">
-                                                  Nullam imperdiet, sem at
-                                                  fringilla lobortis, sem nibh
-                                                  fringilla nibh, id gravidrus
-                                                  sit amet erat. Aenean nec nisi
-                                                  quis nisi...
-                                                </div>
-                                              </div>
-                                            </article>
-                                            <article
-                                              class="grid-item video-item video-503 travel default"
-                                            >
-                                              <div
-                                                class="video-item__thumbnail"
-                                              >
-                                                <a
-                                                  href="../video/how-to-holiday-in-london/index.html"
-                                                >
-                                                  <div
-                                                    class="video-thumbnail image default"
-                                                    data-speed="1000"
-                                                  >
-                                                    <img
-                                                      src="{% static 'wp-content/uploads/2020/01/travel-2-1.jpg' %}"
-                                                      alt="How to Holiday in London"
-                                                    />
-                                                  </div>
-                                                </a>
-                                                <div class="video-item__icon">
-                                                  <a
-                                                    href="../video/how-to-holiday-in-london/index.html"
-                                                    class="video-item-player-direct"
-                                                  >
-                                                    <i
-                                                      class="haru-icon haru-play"
-                                                    ></i>
-                                                  </a>
-                                                </div>
-                                                <div
-                                                  class="toolbar-action toolbar-action--background video-watch-later"
-                                                  data-id="503"
-                                                  data-title="How to Holiday in London"
-                                                  data-permalink="../video/how-to-holiday-in-london/index.html"
-                                                  data-thumb="{% static 'wp-content/uploads/2020/01/travel-2-1.jpg' %}"
-                                                >
-                                                  <i
-                                                    class="haru-icon haru-clock"
-                                                  ></i>
-                                                  Watch Later
-                                                </div>
-
-                                                <div
-                                                  class="video-item__duration"
-                                                >
-                                                  9:15
-                                                </div>
-                                              </div>
-                                              <div class="video-item__content">
-                                                <div
-                                                  class="video-item__category"
-                                                >
-                                                  <a
-                                                    href="../video-category/travel/index.html"
-                                                    rel="tag"
-                                                    >Travel</a
-                                                  >
-                                                </div>
-                                                <h6 class="video-item__title">
-                                                  <a
-                                                    href="../video/how-to-holiday-in-london/index.html"
-                                                    >How to Holiday in London</a
-                                                  >
-                                                </h6>
-                                                <div class="video-item__meta">
-                                                  <div
-                                                    class="video-item__author"
-                                                  >
-                                                    <i class="fa fa-user"></i>
-                                                    <a
-                                                      href="../members/admin/index.html"
-                                                      >admin</a
-                                                    >
-                                                  </div>
-                                                  <div class="video-item__date">
-                                                    <i
-                                                      class="fa fa-calendar"
-                                                    ></i
-                                                    >January 14, 2020
-                                                  </div>
-                                                  <div class="video-item__like">
-                                                    <div class="post-like">
-                                                      <span
-                                                        class="post-vote-label"
-                                                        >like</span
-                                                      >
-                                                      <i
-                                                        class="haru-icon haru-like"
-                                                      ></i>
-                                                      <span
-                                                        class="post-like-count"
-                                                        >2.150K</span
-                                                      >
-                                                      <span
-                                                        class="post-like-unit"
-                                                      >
-                                                        likes</span
-                                                      >
-                                                    </div>
-                                                  </div>
-                                                  <div
-                                                    class="video-item__dislike"
-                                                  >
-                                                    <div class="post-dislike">
-                                                      <span
-                                                        class="post-vote-label"
-                                                        >dislike</span
-                                                      >
-                                                      <i
-                                                        class="haru-icon haru-dislike"
-                                                      ></i>
-                                                      <span
-                                                        class="post-dislike-count"
-                                                        >151</span
-                                                      >
-                                                      <span
-                                                        class="post-dislike-unit"
-                                                      >
-                                                        dislikes</span
-                                                      >
-                                                    </div>
-                                                  </div>
-                                                  <div class="video-item__view">
-                                                    <div
-                                                      class="post-views-count"
-                                                    >
-                                                      <span
-                                                        class="post-views-label"
-                                                        >views</span
-                                                      >
-                                                      <i class="fa fa-eye"></i>
-                                                      <span
-                                                        class="post-view-count"
-                                                        >1.370M</span
-                                                      >
-                                                      <span
-                                                        class="post-view-unit"
-                                                      >
-                                                        views</span
-                                                      >
-                                                    </div>
-                                                  </div>
-                                                </div>
-                                                <div class="video-item__desc">
-                                                  Nullam imperdiet, sem at
-                                                  fringilla lobortis, sem nibh
-                                                  fringilla nibh, id gravidrus
-                                                  sit amet erat. Aenean nec nisi
-                                                  quis nisi...
-                                                </div>
-                                              </div>
-                                            </article>
-                                            <article
-                                              class="grid-item video-item video-502 travel default"
-                                            >
-                                              <div
-                                                class="video-item__thumbnail"
-                                              >
-                                                <a
-                                                  href="../video/north-wales-feisty-and-poetic/index.html"
-                                                >
-                                                  <div
-                                                    class="video-thumbnail image default"
-                                                    data-speed="1000"
-                                                  >
-                                                    <img
-                                                      src="{% static 'wp-content/uploads/2020/01/travel-3-1.jpg' %}"
-                                                      alt="North Wales: Feisty and Poetic"
-                                                    />
-                                                  </div>
-                                                </a>
-                                                <div class="video-item__icon">
-                                                  <a
-                                                    href="../video/north-wales-feisty-and-poetic/index.html"
-                                                    class="video-item-player-direct"
-                                                  >
-                                                    <i
-                                                      class="haru-icon haru-play"
-                                                    ></i>
-                                                  </a>
-                                                </div>
-                                                <div
-                                                  class="toolbar-action toolbar-action--background video-watch-later"
-                                                  data-id="502"
-                                                  data-title="North Wales: Feisty and Poetic"
-                                                  data-permalink="../video/north-wales-feisty-and-poetic/index.html"
-                                                  data-thumb="{% static 'wp-content/uploads/2020/01/travel-3-1.jpg' %}"
-                                                >
-                                                  <i
-                                                    class="haru-icon haru-clock"
-                                                  ></i>
-                                                  Watch Later
-                                                </div>
-
-                                                <div
-                                                  class="video-item__duration"
-                                                >
-                                                  9:15
-                                                </div>
-                                              </div>
-                                              <div class="video-item__content">
-                                                <div
-                                                  class="video-item__category"
-                                                >
-                                                  <a
-                                                    href="../video-category/travel/index.html"
-                                                    rel="tag"
-                                                    >Travel</a
-                                                  >
-                                                </div>
-                                                <h6 class="video-item__title">
-                                                  <a
-                                                    href="../video/north-wales-feisty-and-poetic/index.html"
-                                                    >North Wales: Feisty and
-                                                    Poetic</a
-                                                  >
-                                                </h6>
-                                                <div class="video-item__meta">
-                                                  <div
-                                                    class="video-item__author"
-                                                  >
-                                                    <i class="fa fa-user"></i>
-                                                    <a
-                                                      href="../members/admin/index.html"
-                                                      >admin</a
-                                                    >
-                                                  </div>
-                                                  <div class="video-item__date">
-                                                    <i
-                                                      class="fa fa-calendar"
-                                                    ></i
-                                                    >January 14, 2020
-                                                  </div>
-                                                  <div class="video-item__like">
-                                                    <div class="post-like">
-                                                      <span
-                                                        class="post-vote-label"
-                                                        >like</span
-                                                      >
-                                                      <i
-                                                        class="haru-icon haru-like"
-                                                      ></i>
-                                                      <span
-                                                        class="post-like-count"
-                                                        >2.150K</span
-                                                      >
-                                                      <span
-                                                        class="post-like-unit"
-                                                      >
-                                                        likes</span
-                                                      >
-                                                    </div>
-                                                  </div>
-                                                  <div
-                                                    class="video-item__dislike"
-                                                  >
-                                                    <div class="post-dislike">
-                                                      <span
-                                                        class="post-vote-label"
-                                                        >dislike</span
-                                                      >
-                                                      <i
-                                                        class="haru-icon haru-dislike"
-                                                      ></i>
-                                                      <span
-                                                        class="post-dislike-count"
-                                                        >151</span
-                                                      >
-                                                      <span
-                                                        class="post-dislike-unit"
-                                                      >
-                                                        dislikes</span
-                                                      >
-                                                    </div>
-                                                  </div>
-                                                  <div class="video-item__view">
-                                                    <div
-                                                      class="post-views-count"
-                                                    >
-                                                      <span
-                                                        class="post-views-label"
-                                                        >views</span
-                                                      >
-                                                      <i class="fa fa-eye"></i>
-                                                      <span
-                                                        class="post-view-count"
-                                                        >1.370M</span
-                                                      >
-                                                      <span
-                                                        class="post-view-unit"
-                                                      >
-                                                        views</span
-                                                      >
-                                                    </div>
-                                                  </div>
-                                                </div>
-                                                <div class="video-item__desc">
-                                                  Nullam imperdiet, sem at
-                                                  fringilla lobortis, sem nibh
-                                                  fringilla nibh, id gravidrus
-                                                  sit amet erat. Aenean nec nisi
-                                                  quis nisi...
-                                                </div>
-                                              </div>
-                                            </article>
+                                            {% endfor %}
+                                            {% else %}
+                                            <p style="text-align: center;">No Videos for now</p>
+                                            {% endif %}
                                           </div>
                                         </div>
                                       </div>
