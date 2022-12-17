@@ -1,22 +1,59 @@
-from django.shortcuts import render, redirect
-from django.contrib.auth.models import User, auth
-from django.contrib import messages
-from django.contrib.auth.decorators import login_required
+from django.shortcuts import render, redirect, get_object_or_404
+from accounts.models import Account, Profile
+from core.models import FollowersCount, Post
+import random
+from itertools import chain
 # from .models import Profile
 # Create your views here.
 
 
 def index(request):
+    # user_object = Account.objects.get(username=request.user.username)
+    # print(user_object)
+    # user_profile = Profile.objects.get(user=user_object)
+    user_following_list = []
+    feed = []
+    user_following = FollowersCount.objects.filter(
+        followers=request.user.username)
+    for users in user_following:
+        user_following_list.append(users.user)
+
+    # content creator suggestion
+    all_users = Account.objects.all()
+    user_following_all = []
+
+    new_suggestions_list = [x for x in list(
+        all_users) if (x not in list(user_following_all))]
+    current_user = Account.objects.filter(username=request.user.username)
+    final_suggestions_list = [x for x in list(
+        new_suggestions_list) if (x not in list(current_user))]
+    random.shuffle(final_suggestions_list)
+
+    username_profile = []
+    username_profile_list = []
+
+    for users in final_suggestions_list:
+        username_profile.append(users.id)
+
+    for ids in username_profile:
+        profile_lists = Profile.objects.filter(id_user=ids)
+        username_profile_list.append(profile_lists)
+
+    suggestions_username_profile_list = list(chain(*username_profile_list))
+
+    feed = Post.objects.all()
+    context = {
+        # 'user_profile': user_profile,
+        'posts': feed,
+        'suggestions_username_profile_list': suggestions_username_profile_list[:8],
+    }
+
     template_name = "index.html"
-    return render(request, template_name)
+    return render(request, template_name, context)
 
 
 def about(request):
     template_name = "about.html"
-    return render(request, template_name)
-
-def register(request):
-    template_name = "register.html"
     return render(request, template_name)
 
 

@@ -5,6 +5,7 @@ from django.urls import reverse
 from django.shortcuts import render, redirect
 
 from accounts.forms import AccountAuthenticationForm, AccountUpdateForm, RegistrationForm
+from accounts.models import Account, Profile
 # from django.utils.http import is_safe_url
 
 
@@ -20,6 +21,11 @@ def register(request):
             username = form.cleaned_data.get('username')
             raw_password = form.cleaned_data.get('password1')
             account = authenticate(username=username, password=raw_password)
+            # create a profile object for the new user
+            user_model = Account.objects.get(username=username)
+            new_profile = Profile.objects.create(
+                user=user_model, id_user=user_model.id)
+            new_profile.save()
             messages.success(request, 'User registered successfully.')
             return redirect('login')
         else:

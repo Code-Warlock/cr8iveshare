@@ -2,46 +2,48 @@ from django.db import models
 # from django.core.validators import FileExtensionValidator
 from django.utils.text import slugify
 from django.urls import reverse
+import uuid
 from django.core.validators import FileExtensionValidator
 from django.contrib.auth.models import (
     BaseUserManager, AbstractBaseUser
 )
 
 
-class UserManager(BaseUserManager):
-    def create_user(self, email, username=None, password=None, is_active=True, is_staff=False, is_admin=False):
+class MyAccountManager(BaseUserManager):
+    def create_user(self, username, email, password=None):
         if not email:
-            raise ValueError("Users must have an email address")
-        if not password:
-            raise ValueError("Users must have a password")
-        user_obj = self.model(
-            email=self.normalize_email(email),
-            username=username
-        )
-        user_obj.set_password(password)  # change user password
-        user_obj.staff = is_staff
-        user_obj.admin = is_admin
-        user_obj.is_active = is_active
-        user_obj.save(using=self._db)
-        return user_obj
+            raise ValueError('Users must have an email address')
+        if not username:
+            raise ValueError('Users must have a username')
 
-    def create_staffuser(self, email, username=None, password=None):
+        user = self.model(
+            email=self.normalize_email(email),
+            username=username,
+        )
+
+        user.set_password(password)
+        user.save(using=self._db)
+        return user
+
+    def create_staffuser(self, email, password=None):
         user = self.create_user(
             email,
-            username=username,
             password=password,
             is_staff=True
         )
         return user
 
-    def create_superuser(self, email, username=None, password=None):
+    def create_superuser(self, username, email, password):
         user = self.create_user(
-            email,
-            username=username,
+            email=self.normalize_email(email),
             password=password,
-            is_staff=True,
-            is_admin=True
+            username=username,
         )
+
+        user.is_admin = True
+        user.is_staff = True
+        user.is_superuser = True
+        user.save(using=self._db)
         return user
 
 
@@ -61,7 +63,7 @@ class Account(AbstractBaseUser):
     USERNAME_FIELD = 'username'
     REQUIRED_FIELDS = ['email']
 
-    objects = UserManager()
+    objects = MyAccountManager()
 
     def __str__(self):
         return self.email
@@ -72,54 +74,6 @@ class Account(AbstractBaseUser):
     def has_module_perms(self, app_label):
         return True
 
-# class User(AbstractBaseUser):
-#     email = models.EmailField(max_length=255, unique=True)
-#     username = models.CharField(max_length=255, blank=True, null=True)
-#     is_active = models.BooleanField(default=True)  # can login
-#     staff = models.BooleanField(default=False)  # staff user non superuser
-#     admin = models.BooleanField(default=False)  # superuser
-#     timestamp = models.DateTimeField(auto_now_add=True)
-#     # confirm     = models.BooleanField(default=False)
-#     # confirmed_date     = models.DateTimeField(default=False)
-
-#     USERNAME_FIELD = 'email'  # username
-#     # USERNAME_FIELD and password are required by default
-#     # ['username'] #python manage.py createsuperuser
-#     REQUIRED_FIELDS = []
-
-#     objects = UserManager()
-
-#     def __str__(self):
-#         return self.email
-
-#     def get_username(self):
-#         if self.username:
-#             return self.username
-#         return self.email
-
-#     def get_short_name(self):
-#         return self.email
-
-#     def has_perm(self, perm, obj=None):
-#         return True
-
-#     def has_module_perms(self, app_label):
-#         return True
-
-#     @property
-#     def is_staff(self):
-#         if self.is_admin:
-#             return True
-#         return self.staff
-
-#     @property
-#     def is_admin(self):
-#         return self.admin
-
-    # @property
-    # def is_active(self):
-    #     return self.active
-
 
 # class Profile(models.Model):
 #     user = models.OneToOneField(User, on_delete=models.CASCADE)
@@ -129,3 +83,14 @@ class Account(AbstractBaseUser):
 
 #     def __str__(self):
 #         return self.user.username
+
+class Profile(models.Model):
+    user = models.ForeignKey(Account, on_delete=models.CASCADE)
+    id_user = models.IntegerField()
+    bio = models.TextField(blank=True)
+    profile_image = models.ImageField(
+        upload_to='profile_images', default="")
+    location = models.CharField(max_length=100, blank=True)
+
+    def __str__(self):
+        return self.user.username

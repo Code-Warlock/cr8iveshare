@@ -2,23 +2,25 @@
 <footer id="haru-footer-main" class="footer-2">
   <div class="container clearfix">
 <div data-vc-full-width="true" data-vc-full-width-init="false" data-vc-stretch-content="true" class="vc_row wpb_row vc_row-fluid vc_custom_1588822220987 vc_row-has-fill"><div class="wpb_column vc_column_container vc_col-sm-12"><div class="vc_column-inner"><div class="wpb_wrapper"><div class="vc_row wpb_row vc_inner vc_row-fluid vc_custom_1588823344939"><div class="haru-col-sm-6 wpb_column vc_column_container vc_col-sm-4"><div class="vc_column-inner"><div class="wpb_wrapper">
-<div  class="wpb_single_image wpb_content_element vc_align_left  vc_custom_1594781268997  footer-logo">
-
-<figure class="wpb_wrapper vc_figure">
-<div class="vc_single_image-wrapper   vc_box_border_grey"><img width="99" height="24" src="{% static 'wp-content/uploads/2019/08/logo-white.png' %}" class="vc_single_image-img attachment-full" alt="" loading="lazy" /></div>
-</figure>
-</div>
 
 <div  class="wpb_single_image wpb_content_element vc_align_left  vc_custom_1594781291249  footer-logo-retina">
 
 <figure class="wpb_wrapper vc_figure">
-<div class="vc_single_image-wrapper   vc_box_border_grey"><img width="198" height="48" src="{% static 'wp-content/uploads/2019/08/logo-white%402x.png' %}" class="vc_single_image-img attachment-full" alt="" loading="lazy" /></div>
+  {% if page_contents.footer_logo %}
+<div class="vc_single_image-wrapper   vc_box_border_grey"><img width="198" height="48" src="{{ page_contents.footer_logo.url }}" class="vc_single_image-img attachment-full" alt="" loading="lazy" /></div>
+{% else %}
+<div class="vc_single_image-wrapper   vc_box_border_grey"><img width="198" height="48" src="https://dummyimage.com/99x24" class="vc_single_image-img attachment-full" alt="" loading="lazy" /></div>
+{% endif %}
 </figure>
 </div>
 
 <div class="wpb_text_column wpb_content_element  vc_custom_1588664682869 cl-secondary" >
 <div class="wpb_wrapper">
-<p>Creativity can provide all that which is required to make your advertising an attractive and effective one. Getting your product endorsed with an increase in its popularity</p>
+  {% if page_contents.footer_description %}
+  <p>{{page_contents.footer_description}}</p>
+  {% else %}
+  <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Iure animi omnis nam molestias tenetur et, ipsum ratione molestiae, repudiandae qui sunt nihil non deleniti sint repellendus iusto. Fuga, dolorum minus.</p>
+{% endif %} 
 
 </div>
 </div>
@@ -26,9 +28,27 @@
 <div class="footer-contact-shortcode-wrap style_1 ">
 <div class="footer-contact-content">
 <ul class="contact-information">
+<<<<<<< HEAD
               <li><span class="contact-icon fab fa-accessible-icon"></span><span class="contact-label">Address</span>100 Brooke Mission Suite 443</li>
               <li><span class="contact-icon fab fa-accessible-icon"></span><span class="contact-label">Phone</span>760-617-8882</li>
               <li><span class="contact-icon fab fa-accessible-icon"></span><span class="contact-label">Email</span>contact@cr8iveshare.com</li>
+=======
+  {% if page_contents.footer_address %}
+  <li><span class="contact-icon fab fa-accessible-icon"></span><span class="contact-label">Address</span>{{page_contents.footer_address}}</li>
+  {% else %}
+  <li><span class="contact-icon fab fa-accessible-icon"></span><span class="contact-label">Address</span>Lorem ipsum dolor sit, amet consectetur </li>
+  {% endif %} 
+              {% if page_contents.footer_phone %}
+              <li><span class="contact-icon fab fa-accessible-icon"></span><span class="contact-label">Phone</span><a href="telto:{{page_contents.footer_phone}}">{{page_contents.footer_phone}}</a></li>
+              {% else %}
+              <li><span class="contact-icon fab fa-accessible-icon"></span><span class="contact-label">Phone</span><a href="telto:760-617-8882">760-617-8882</a></li>
+              {% endif %} 
+              {% if page_contents.footer_email %}
+              <li><span class="contact-icon fab fa-accessible-icon"></span><span class="contact-label">Email</span><a href="mailto:{{page_contents.footer_email}}">{{page_contents.footer_email}}</a></li>
+              {% else %}
+              <li><span class="contact-icon fab fa-accessible-icon"></span><span class="contact-label">Email</span><a href="mailto:contact@vidio.com">contact@vidio.com</a></li>
+              {% endif %} 
+>>>>>>> 6677d8eaaaa8d34f68c7bf94881616d70026e5cb
   </ul>
 </div>
 </div>            </div>
@@ -36,21 +56,42 @@
 <div class="footer-social-shortcode-wrap style_1 ">
 <div class="footer-social-content">
 <ul class="social-list align-left">
-                                  <li>
+  {% if page_contents.footer_social_icon_1 %}
+  <li>
+    <a href="#" target="_self" style="background-color: #3b5998"><i class="fab fa-{{page_contents.footer_social_icon_1}}"></i>{{page_contents.footer_social_icon_1}}</a>
+</li>
+  {% else %}
+   <li>
       <a href="#" target="_self" style="background-color: #3b5998"><i class="fab fa-facebook-f"></i>Facebook</a>
   </li>
-                                                      <li>
-      <a href="#" target="_self" style="background-color: #00acee"><i class="fab fa-twitter"></i>Twitter</a>
+  {% endif %} 
+  {% if page_contents.footer_social_icon_2 %}
+   <li>
+      <a href="#" target="_self" style="background-color: #00acee"><i class="fab fa-{{page_contents.footer_social_icon_2}}"></i>{{page_contents.footer_social_icon_2}}</a>
   </li>
-                                                      <li>
-      <a href="#" target="_self" style="background-color: #6a453b"><i class="fab fa-instagram"></i>Instagram</a>
+  {% else %}
+  <li>
+    <a href="#" target="_self" style="background-color: #00acee"><i class="fab fa-twitter"></i>Twitter</a>
+</li>
+{% endif %} 
+{% if page_contents.footer_social_icon_3 %}
+    <li>
+      <a href="#" target="_self" style="background-color: #6a453b"><i class="fab fa-{{page_contents.footer_social_icon_2}}"></i>{{page_contents.footer_social_icon_3}}</a>
   </li>
-                                                      <li>
+  {% else %}
+  <li>
+    <a href="#" target="_self" style="background-color: #6a453b"><i class="fab fa-instagram"></i>Instagram</a>
+</li>
+{% endif %} 
+{% if page_contents.footer_social_icon_4 %}
+     <li>
+    <a href="#" target="_self" style="background-color: #c4302b"><i class="fab fa-{{page_contents.footer_social_icon_4}}"></i>{{page_contents.footer_social_icon_4}}</a>
+  </li>
+  {% else %}
+     <li>
       <a href="#" target="_self" style="background-color: #c4302b"><i class="fab fa-youtube"></i>Youtube</a>
   </li>
-                                                      <li>
-      <a href="#" target="_self" style="background-color: #86c9ef"><i class="fab fa-vimeo-v"></i>Vimeo</a>
-  </li>
+  {% endif %}
                       </ul>
 </div>
 </div>            </div>
@@ -293,6 +334,7 @@ data-author_order_by="post_count"
               <article class="grid-item author-item default">
   <div class="author-item__thumbnail">
       <a href="../members/admin/index.html">
+          <img alt='' src='{% static "wp-content/uploads/avatars/1/5f1645ee06ea5-bpfull.png" %}' srcset='https://demo.harutheme.com/vidio/wp-content/uploads/avatars/1/5f1645ee06ea5-bpfull.png 2x' class='avatar avatar-96 photo' height='96' width='96' loading='lazy'/>                        </a>
           <img alt='' src="{% static 'wp-content/uploads/avatars/1/5f1645ee06ea5-bpfull.png' %}" srcset='https://demo.harutheme.com/vidio/wp-content/uploads/avatars/1/5f1645ee06ea5-bpfull.png 2x' class='avatar avatar-96 photo' height='96' width='96' loading='lazy'/>                        </a>
   </div>
   <div class="author-item__content">
@@ -311,6 +353,7 @@ data-author_order_by="post_count"
               <article class="grid-item author-item default">
   <div class="author-item__thumbnail">
       <a href="../members/2440301117/index.html">
+          <img alt='' src='{% static "wp-content/plugins/buddypress/bp-core/images/mystery-man.jpg" %}' srcset='https://demo.harutheme.com/vidio/wp-content/plugins/buddypress/bp-core/images/mystery-man.jpg 2x' class='avatar avatar-96 photo' height='96' width='96' loading='lazy'/>                        </a>
           <img alt='' src="{% static 'wp-content/plugins/buddypress/bp-core/images/mystery-man.jpg' %}" srcset='https://demo.harutheme.com/vidio/wp-content/plugins/buddypress/bp-core/images/mystery-man.jpg 2x' class='avatar avatar-96 photo' height='96' width='96' loading='lazy'/>                        </a>
   </div>
   <div class="author-item__content">
@@ -329,6 +372,7 @@ data-author_order_by="post_count"
               <article class="grid-item author-item default">
   <div class="author-item__thumbnail">
       <a href="../members/oussama/index.html">
+          <img alt='' src='{% static "wp-content/plugins/buddypress/bp-core/images/mystery-man.jpg" %}' srcset='https://demo.harutheme.com/vidio/wp-content/plugins/buddypress/bp-core/images/mystery-man.jpg 2x' class='avatar avatar-96 photo' height='96' width='96' loading='lazy'/>                        </a>
           <img alt='' src="{% static 'wp-content/plugins/buddypress/bp-core/images/mystery-man.jpg' %}" srcset='https://demo.harutheme.com/vidio/wp-content/plugins/buddypress/bp-core/images/mystery-man.jpg 2x' class='avatar avatar-96 photo' height='96' width='96' loading='lazy'/>                        </a>
   </div>
   <div class="author-item__content">
@@ -356,7 +400,7 @@ data-author_order_by="post_count"
 </div></div></div></div></div><div class="vc_row wpb_row vc_inner vc_row-fluid"><div class="wpb_column vc_column_container vc_col-sm-12"><div class="vc_column-inner"><div class="wpb_wrapper">
 <div class="wpb_text_column wpb_content_element  vc_custom_1604162226354 secondary-font cl-secondary" >
 <div class="wpb_wrapper">
-<p style="text-align: center;">© 2021 Vidio by HaruTheme. All Right Reserved.</p>
+<p style="text-align: center;">© {% now "Y" %} SplitUnity by Wald. All Right Reserved.</p>
 
 </div>
 </div>
