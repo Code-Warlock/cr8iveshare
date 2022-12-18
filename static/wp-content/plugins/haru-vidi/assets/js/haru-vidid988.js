@@ -879,11 +879,11 @@
                     var login           = $(this).attr('data-login');
                     var login_url       = $(this).attr('data-login_url');
 
-                    if ( typeof(login) === 'undefined' || login === 'no' ) {
-                        window.location.href = login_url; // Go to sign up link
+                    // if ( typeof(login) === 'undefined' || login === 'no' ) {
+                    //     window.location.href = login_url; // Go to sign up link
 
-                        return false;
-                    }
+                    //     return false;
+                    // }
 
                     // Process click multitimes before ajax process
                     if ( is_clicked === true ) {

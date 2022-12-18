@@ -111,21 +111,19 @@
                                             <div
                                               class="channel-item__subscribe-2"
                                             >
+                                            {% if user.is_authenticated %}
+                                            {% if subscribed == False %}
                                               <a
-                                                href="javascript:;"
+                                                href="{% url 'core:channel_subscribe' c_id=channel.id %}"
                                                 class="channel-subscribe button-background button-background--small"
-                                                data-channel_id="366"
-                                                data-login="no"
-                                                data-login_url="../login/index.html"
-                                                data-text_subscribe="Subscribe"
-                                                data-text_subscribed="Unsubscribe"
+                                                
                                               >
                                                 <span class="status-subscribe"
                                                   ><i
                                                     class="haru-icon haru-user-plus"
                                                   ></i
                                                 ></span>
-                                                <span class="status-subscribed"
+                                                <span class=""
                                                   ><i
                                                     class="haru-icon haru-user-times"
                                                   ></i
@@ -133,10 +131,29 @@
                                                 <span class="text-subscribe"
                                                   >Subscribe</span
                                                 >
-                                                <span class="count-subscribed"
-                                                  >67</span
+                                              </a>
+                                              {% else %}
+                                              <a
+                                                href="{% url 'core:channel_unsubscribe' c_id=channel.id %}"
+                                                class="channel-subscribe button-background button-background--small"
+                                                
+                                              >
+                                                <!-- <span class="status-subscribe"
+                                                  ><i
+                                                    class="haru-icon haru-user-plus"
+                                                  ></i
+                                                ></span> -->
+                                                <span class=""
+                                                  ><i
+                                                    class="haru-icon haru-user-times"
+                                                  ></i
+                                                ></span>
+                                                <span class="text-subscribe"
+                                                  >UnSubscribe</span
                                                 >
                                               </a>
+                                              {% endif %}
+                                              {% endif %}
                                             </div>
                                           </article>
                                           {% endfor %}
@@ -1360,7 +1377,7 @@
                                                     <i class="fa fa-user"></i>
                                                     <a
                                                       href="../members/demo/index.html"
-                                                      >{{ video.user }} </a
+                                                      >{{ video.user.username }} </a
                                                     >
                                                   </div>
                                                   <div class="video-item__date">

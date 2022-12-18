@@ -8,12 +8,15 @@ def post_renderer(request):
     page_contents = PageContents.objects.latest(
         'updated') if PageContents.objects.all().count() > 0 else None
     category = Category.objects.all()
+    channel = Channel.objects.all().count()
     counts = []
     for c in category:
         category_count = Video.objects.filter(category=c).count()
         counts.append(category_count)
 
     category_count = zip(category, counts)
+    most_recent_videos = Video.objects.order_by('-datetime')[:8]
+
     # post = get_object_or_404(Post, slug=slug)
     # category = Category.objects.all()
     # counts = []
@@ -28,5 +31,7 @@ def post_renderer(request):
     return {
         'page_contents': page_contents,
         'category_count': category_count,
+        'channel_count': channel,
+        'most_recent_videos': most_recent_videos,
         # 'posts': post,
     }

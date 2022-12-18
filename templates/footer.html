@@ -28,11 +28,9 @@
 <div class="footer-contact-shortcode-wrap style_1 ">
 <div class="footer-contact-content">
 <ul class="contact-information">
-<<<<<<< HEAD
-              <li><span class="contact-icon fab fa-accessible-icon"></span><span class="contact-label">Address</span>100 Brooke Mission Suite 443</li>
-              <li><span class="contact-icon fab fa-accessible-icon"></span><span class="contact-label">Phone</span>760-617-8882</li>
-              <li><span class="contact-icon fab fa-accessible-icon"></span><span class="contact-label">Email</span>contact@cr8iveshare.com</li>
-=======
+<li><span class="contact-icon fab fa-accessible-icon"></span><span class="contact-label">Address</span>100 Brooke Mission Suite 443</li>
+<li><span class="contact-icon fab fa-accessible-icon"></span><span class="contact-label">Phone</span>760-617-8882</li>
+<li><span class="contact-icon fab fa-accessible-icon"></span><span class="contact-label">Email</span>contact@cr8iveshare.com</li>
   {% if page_contents.footer_address %}
   <li><span class="contact-icon fab fa-accessible-icon"></span><span class="contact-label">Address</span>{{page_contents.footer_address}}</li>
   {% else %}
@@ -48,7 +46,6 @@
               {% else %}
               <li><span class="contact-icon fab fa-accessible-icon"></span><span class="contact-label">Email</span><a href="mailto:contact@vidio.com">contact@vidio.com</a></li>
               {% endif %} 
->>>>>>> 6677d8eaaaa8d34f68c7bf94881616d70026e5cb
   </ul>
 </div>
 </div>            </div>
@@ -108,24 +105,25 @@ data-video_order_by="date"
 <div class="ajax-loading-icon"><div class="loading-bar"></div></div>
 <div class="video-top-content">
 
-
+  {% if most_recent_videos %}
+  {% for video in most_recent_videos %}
 <article class="grid-item video-item video-1019 vidio  default">
 <div class="video-item__thumbnail" >
-<a href="../video/video-created-by-vidio/index.html">
+<a href="/video/{{ video.id }}/{{ 1 }}/">
 
   <div class="video-thumbnail image default" data-speed="1000">
-<img src="{% static 'wp-content/uploads/2020/01/technology-17.jpg' %}" alt="Video Created by Vidio">
+<img src="{% static 'wp-content/uploads/2020/01/technology-17.jpg' %}" alt="{{ video.title }}">
   </div>
       </a>
 <div class="video-item__icon">
-      <a href="../video/video-created-by-vidio/index.html" class="video-item-player-direct">
+      <a href="/video/{{ video.id }}/{{ 1 }}/" class="video-item-player-direct">
 <i class="haru-icon haru-play"></i>
 </a>
   </div>
 <div class="toolbar-action toolbar-action--background video-watch-later "
 data-id="1019"
-data-title="Video Created by Vidio"
-data-permalink="../video/video-created-by-vidio/index.html"
+data-title="{{ video.title }}"
+data-permalink="/video/{{ video.id }}/{{ 1 }}/"
 data-thumb="{% static 'wp-content/uploads/2020/01/technology-17.jpg' %}"
 >
 <i class="haru-icon haru-clock"></i>
@@ -134,13 +132,13 @@ Watch Later</div>
 <div class="video-item__duration">9:15</div>
 </div>
 <div class="video-item__content">
-<div class="video-item__category"><a href="../video-category/vidio/index.html" rel="tag">Cr8iveShare</a></div>
-<h6 class="video-item__title"><a href="../video/video-created-by-vidio/index.html">Video Created by Cr8iveShare</a></h6>
+<div class="video-item__category"><a href="../video-category/vidio/index.html" rel="tag">Vidio</a></div>
+<h6 class="video-item__title"><a href="/video/{{ video.id }}/{{ 1 }}/">{{ video.title }}</a></h6>
 <div class="video-item__meta">
 <div class="video-item__author">
 <i class="fa fa-user"></i>
-<a href="../members/demo/index.html">Marc Campbell</a>            </div>
-<div class="video-item__date"><i class="fa fa-calendar"></i>April 21, 2020</div>
+<a href="../members/demo/index.html">{{ video.user.username }}</a>            </div>
+<div class="video-item__date"><i class="fa fa-calendar"></i>{{ video.datetime }}</div>
 <div class="video-item__like">        <div class="post-like">
 <span class="post-vote-label">like</span>
 <i class="haru-icon haru-like"></i>
@@ -167,122 +165,10 @@ Watch Later</div>
 Nullam imperdiet, sem at fringilla lobortis, sem nibh fringilla nibh, id gravidrus sit amet erat. Aenean nec nisi quis nisi...        </div>
 </div>
 </article>
-<article class="grid-item video-item video-509 game vidio  default">
-<div class="video-item__thumbnail" >
-<a href="../video/a-record-breaking-world-championship/index.html">
-
-  <div class="video-thumbnail image default" data-speed="1000">
-<img src="{% static 'wp-content/uploads/2020/01/technology-1.jpg' %}" alt="A Record Breaking World Championship">
-  </div>
-      </a>
-<div class="video-item__icon">
-      <a href="../video/a-record-breaking-world-championship/index.html" class="video-item-player-direct">
-<i class="haru-icon haru-play"></i>
-</a>
-  </div>
-<div class="toolbar-action toolbar-action--background video-watch-later "
-data-id="509"
-data-title="A Record Breaking World Championship"
-data-permalink="../video/a-record-breaking-world-championship/index.html"
-data-thumb="{% static 'wp-content/uploads/2020/01/technology-1.jpg' %}"
->
-<i class="haru-icon haru-clock"></i>
-Watch Later</div>
-
-<div class="video-item__duration">9:15</div>
-</div>
-<div class="video-item__content">
-<div class="video-item__category"><a href="../video-category/game/index.html" rel="tag">Game</a>, <a href="../video-category/vidio/index.html" rel="tag">Vidio</a></div>
-<h6 class="video-item__title"><a href="../video/a-record-breaking-world-championship/index.html">A Record Breaking World Championship</a></h6>
-<div class="video-item__meta">
-<div class="video-item__author">
-<i class="fa fa-user"></i>
-<a href="../members/admin/index.html">admin</a>            </div>
-<div class="video-item__date"><i class="fa fa-calendar"></i>January 14, 2020</div>
-<div class="video-item__like">        <div class="post-like">
-<span class="post-vote-label">like</span>
-<i class="haru-icon haru-like"></i>
-<span class="post-like-count">2.153K</span>
-<span class="post-like-unit"> likes</span>
-</div>
-</div>
-<div class="video-item__dislike">        <div class="post-dislike">
-<span class="post-vote-label">dislike</span>
-<i class="haru-icon haru-dislike"></i>
-<span class="post-dislike-count">151</span>
-<span class="post-dislike-unit"> dislikes</span>
-</div>
-</div>
-      <div class="video-item__view">        <div class="post-views-count">
-<span class="post-views-label">views</span>
-<i class="fa fa-eye"></i>
-<span class="post-view-count">1.373M</span>
-<span class="post-view-unit"> views</span>
-</div>
-</div>
-  </div>
-<div class="video-item__desc">
-Nullam imperdiet, sem at fringilla lobortis, sem nibh fringilla nibh, id gravidrus sit amet erat. Aenean nec nisi quis nisi...        </div>
-</div>
-</article>
-<article class="grid-item video-item video-508 game vidio  default">
-<div class="video-item__thumbnail" >
-<a href="../video/academy-rush-week-1-lcs-academy-spring-split/index.html">
-
-  <div class="video-thumbnail image default" data-speed="1000">
-<img src="{% static 'wp-content/uploads/2020/01/technology-10.jpg' %}" alt="Academy Rush Week 1 &#8211; LCS Academy Spring Split">
-  </div>
-      </a>
-<div class="video-item__icon">
-      <a href="../video/academy-rush-week-1-lcs-academy-spring-split/index.html" class="video-item-player-direct">
-<i class="haru-icon haru-play"></i>
-</a>
-  </div>
-<div class="toolbar-action toolbar-action--background video-watch-later "
-data-id="508"
-data-title="Academy Rush Week 1 &#8211; LCS Academy Spring Split"
-data-permalink="../video/academy-rush-week-1-lcs-academy-spring-split/index.html"
-data-thumb="{% static 'wp-content/uploads/2020/01/technology-10.jpg' %}"
->
-<i class="haru-icon haru-clock"></i>
-Watch Later</div>
-
-<div class="video-item__duration">9:15</div>
-</div>
-<div class="video-item__content">
-<div class="video-item__category"><a href="../video-category/game/index.html" rel="tag">Game</a>, <a href="../video-category/vidio/index.html" rel="tag">Vidio</a></div>
-<h6 class="video-item__title"><a href="../video/academy-rush-week-1-lcs-academy-spring-split/index.html">Academy Rush Week 1 &#8211; LCS Academy Spring Split</a></h6>
-<div class="video-item__meta">
-<div class="video-item__author">
-<i class="fa fa-user"></i>
-<a href="../members/admin/index.html">admin</a>            </div>
-<div class="video-item__date"><i class="fa fa-calendar"></i>January 14, 2020</div>
-<div class="video-item__like">        <div class="post-like">
-<span class="post-vote-label">like</span>
-<i class="haru-icon haru-like"></i>
-<span class="post-like-count">2.150K</span>
-<span class="post-like-unit"> likes</span>
-</div>
-</div>
-<div class="video-item__dislike">        <div class="post-dislike">
-<span class="post-vote-label">dislike</span>
-<i class="haru-icon haru-dislike"></i>
-<span class="post-dislike-count">151</span>
-<span class="post-dislike-unit"> dislikes</span>
-</div>
-</div>
-      <div class="video-item__view">        <div class="post-views-count">
-<span class="post-views-label">views</span>
-<i class="fa fa-eye"></i>
-<span class="post-view-count">1.371M</span>
-<span class="post-view-unit"> views</span>
-</div>
-</div>
-  </div>
-<div class="video-item__desc">
-Nullam imperdiet, sem at fringilla lobortis, sem nibh fringilla nibh, id gravidrus sit amet erat. Aenean nec nisi quis nisi...        </div>
-</div>
-</article>
+{% endfor %}
+                                            {% else %}
+                                            <p >No Videos for now</p>
+                                            {% endif %}
           </div>
 </div>
 
@@ -296,22 +182,22 @@ Nullam imperdiet, sem at fringilla lobortis, sem nibh fringilla nibh, id gravidr
 <div class="footer-link-content">
 <ul class="link-list">
                                   <li>
-      <a href="#" target="_self">About us</a>
+      <a href="{% url 'core:about' %}" target="_self">About us</a>
   </li>
-                                                      <li>
+                                                      <!-- <li>
       <a href="#" target="_self">FAQs</a>
-  </li>
-                                                      <li>
+  </li> -->
+                                                      <!-- <li>
       <a href="#" target="_self">How it works</a>
-  </li>
-                                                      <li>
+  </li> -->
+                                                      <!-- <li>
       <a href="#" target="_self">Report videos</a>
-  </li>
-                                                      <li>
+  </li> -->
+                                                      <!-- <li>
       <a href="#" target="_self">Popular posts</a>
-  </li>
+  </li> -->
                                                       <li>
-      <a href="#" target="_self">Terms of Payment</a>
+      <a href="{% url 'core:contact' %}" target="_self">Contact us</a>
   </li>
                                                       <li>
       <a href="#" target="_self">Privacy Policy</a>

@@ -26,6 +26,7 @@ INSTALLED_APPS = [
     'core',
     'accounts',
     'widget_tweaks',
+    'crispy_forms',
 ]
 EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
 
@@ -100,3 +101,4 @@ if ENVIRONMENT == 'production':
     SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+CRISPY_TEMPLATE_PACK = 'bootstrap4'

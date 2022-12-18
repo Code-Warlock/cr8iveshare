@@ -67,12 +67,8 @@ def login_view(request):
     return render(request, template_name, context)
 
 
-@login_required(login_url='account/login')
-def logout(request):
-    logout(request)
-    return redirect('account/login')
-
-
+def forgot_password(request):
+    return render(request, 'accounts/forgot_password.html')
 # @login_required(login_url='accounts/login')
 # def profile_view(request):
 #     template_name='accounts/profile.html'
@@ -82,7 +78,7 @@ def logout(request):
 #         'booking_history':booking_history,
 #     }
 #     return render(request,template_name,context)
-
+@login_required(login_url='account/login')
 def logout_view(request):
     logoutUser(request)
     return redirect('/')

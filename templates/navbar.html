@@ -789,7 +789,7 @@
                   id="menu-item-131"
                   class="haru-menu menu_style_dropdown menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children level-0"
                 >
-                  <a href="#">Features</a>
+                  <a href="{% url 'core:channels_list' %}">Channels</a>
                 </li>
                 <li
                   id="menu-item-159"
@@ -818,21 +818,32 @@
                 {% if user.is_authenticated %}
                  {% if channel %}
                 <li
-                  id="menu-item-2489"
+                  id="menu-item-1152"
                   class="haru-menu menu_style_dropdown menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children level-0"
                 >
                   <a
-                    href="/{{ user }}/channel"
-                    style="font-size: larger; font-weight: 800"
-                    >Welcome {{ user }}</a
+                    href="/{{ user.username }}/channel"
+                    style="font-size: larger; font-weight: 400"
+                    >Welcome {{ user.username }}</a
                   >
+                </li>
                   {% else %}
+                  <li
+                  id="menu-item-1152"
+                  class="haru-menu menu_style_dropdown menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children level-0"
+                >
+                  <a
+                    href="/{{ user.username }}/settings"
+                    
+                    >Welcome {{ user.username }}</a
+                  >
+                </li>
                    {% endif %} 
                    {% endif %}
-                </li>
               </ul>
             </div>
           </div>
+          
           {% if user.is_authenticated %}
            {% if channel %}
           <div class="header-elements d-flex align-self-center">

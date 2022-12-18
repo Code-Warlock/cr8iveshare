@@ -1,0 +1,366 @@
+{% extends 'base.html' %} 
+{% load static %} 
+{% block title %}SplitUnity | All Channels{% endblock title %} 
+{% block content %}
+
+<div id="haru-content-main" class="clearfix">
+  <div class="haru-archive-breadcrumbs">
+    <div class="haru-container">
+      <ul
+        class="haru-breadcrumb"
+        itemscope
+        itemtype="http://schema.org/BreadcrumbList"
+      >
+        <li
+          itemprop="itemListElement"
+          itemscope
+          itemtype="http://schema.org/ListItem"
+        >
+          <a itemprop="item" href="{% url 'core:index' %}"
+            ><span itemprop="name">Home</span></a
+          ><meta itemprop="position" content="0" />
+        </li>
+        <span class="delimiter"> &raquo; </span>
+        <li
+          itemprop="itemListElement"
+          itemscope
+          itemtype="http://schema.org/ListItem"
+        >
+          <span itemprop="name" class="current">Channels</span
+          ><meta itemprop="position" content="2" />
+        </li>
+      </ul>
+      <!-- .breadcrumbs -->
+    </div>
+  </div>
+  <div class="haru-archive-channel haru-container">
+    <!-- Content -->
+    <div class="archive-content has-right-sidebar">
+      <div class="haru-archive-top">
+        <div class="haru-archive-top-left">
+          <h6 class="archive-channel__title">
+            {% if channel_count < 0 %}
+            No Channels
+            {% elif channel_count == 1  %}
+            Has total of
+            <span class="archive-channel__total-count">{{channel_count}} channel</span>
+            {% else %}
+            Has total of
+              <span class="archive-channel__total-count">{{channel_count}} channels</span>
+            {% endif %}
+            
+          </h6>
+        </div>
+        <div class="haru-archive-top-right">
+          <div class="haru-archive-layout-toggle">
+            <a
+              href="javascript:;"
+              class="toggle-layout active"
+              data-layout="grid"
+              >Grid<i class="haru-icon haru-grid"></i
+            ></a>
+            <a href="javascript:;" class="toggle-layout" data-layout="list"
+              >List<i class="haru-icon haru-list-small"></i
+            ></a>
+            <a href="javascript:;" class="toggle-layout" data-layout="list-2"
+              >List 2<i class="haru-icon haru-list-small"></i
+            ></a>
+          </div>
+          <div class="haru-archive-order">
+            <div class="order-item-current">date</div>
+            <ul class="order-items">
+              <li class="order-item selected">
+                <a
+                  href="indexaccc.html?post_type=haru_channel&amp;paged=1&amp;orderby=date"
+                  >Date</a
+                >
+              </li>
+              <li class="order-item">
+                <a
+                  href="index2f29.html?post_type=haru_channel&amp;paged=1&amp;orderby=title"
+                  >Title</a
+                >
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <div
+        class="archive-channel-list layout-wrap style-grid grid-columns grid-columns__2"
+      >
+      {% if channels %}
+        
+      
+      {% for channel in channels %}
+        <article class="grid-item channel-item default">
+          <div class="channel-item__thumbnail">
+            <a href="sport-channel/index.html">
+              <img
+                width="1600"
+                height="900"
+                src="{% static 'wp-content/uploads/2020/01/travel-19.jpg' %}"
+                class="attachment-post-thumbnail size-post-thumbnail wp-post-image"
+                alt=""
+                loading="lazy"
+                srcset="
+                  https://demo.harutheme.com/vidio/wp-content/uploads/2020/01/travel-19.jpg          1600w,
+                  https://demo.harutheme.com/vidio/wp-content/uploads/2020/01/travel-19-300x169.jpg   300w,
+                  https://demo.harutheme.com/vidio/wp-content/uploads/2020/01/travel-19-1024x576.jpg 1024w,
+                  https://demo.harutheme.com/vidio/wp-content/uploads/2020/01/travel-19-768x432.jpg   768w,
+                  https://demo.harutheme.com/vidio/wp-content/uploads/2020/01/travel-19-1536x864.jpg 1536w
+                "
+                sizes="(max-width: 1600px) 100vw, 1600px"
+              />
+            </a>
+            <div class="channel-item__icon">
+              <a
+                href="sport-channel/index.html"
+                class="channel-player-direct"
+              ></a>
+            </div>
+
+            <div class="channel-item__subscribe">
+              {% if user.is_authenticated %}
+                {% if subscribed == False %}
+              <a
+                href="{% url 'core:channel_subscribe' c_id=channel.id %}"
+                class="channel-subscribe button-background button-background--small "
+              >
+                <span class="status-subscribe"
+                  ><i class="haru-icon haru-user-plus"></i
+                ></span>
+               
+                <span class="text-subscribe">Subscribe</span>
+                <!-- <span class="count-subscribed">{{ channel.subscribers }}</span> -->
+              </a>
+              {% else %}
+              <a
+              href="{% url 'core:channel_unsubscribe' c_id=channel.id %}"
+              class="channel-subscribe button-background button-background--small "
+            >
+              <span class="status-subscribe"
+                ><i class="haru-icon haru-user-times"></i
+              ></span>
+              <span class="text-subscribe">UnSubscribe</span>
+              <!-- <span class="count-subscribed">{{ channel.subscribers }}</span> -->
+            </a>
+            {% endif %}
+            {% endif %}
+            </div>
+          </div>
+          <div class="channel-item__content">
+            <h6 class="channel-item__title">
+              <a href="/{{ channel.user.username }}/channel">{{ channel.channel_name }}</a>
+            </h6>
+            <!-- <div class="channel-item__category">
+              <a href="../channel-category/harutheme/index.html" rel="tag"
+                >HaruTheme</a
+              >
+            </div> -->
+            <div class="channel-item__meta">
+              <div class="channel-item__author">
+                <i class="fa fa-user"></i>
+                <a href="/{{ channel.user.username }}/channel">{{ channel.user.username }}</a>
+              </div>
+              <div class="channel-item__date">
+                <i class="fa fa-calendar"></i>January 14, 2020
+              </div>
+              <div class="channel-item__view">
+                <div class="post-views-count">
+                  <span class="post-views-label">views</span>
+                  <i class="fa fa-eye"></i>
+                  <span class="post-view-count">0</span>
+                  <span class="post-view-unit"> view</span>
+                </div>
+              </div>
+              <div class="channel-item__videos-count">
+                10<span> videos</span>
+              </div>
+              <div class="channel-item__count-subscribed">
+                <span class="count-subscribed">{{ channel.subscribers }}</span
+                >
+                {% if channel.subscribers == 1 %}
+                <span class="count-subscribed-unit"> subscriber</span>
+                {% else %}
+                <span class="count-subscribed-unit"> subscribers</span>
+                {% endif %}
+                
+              </div>
+            </div>
+          </div>
+        </article>
+        {% endfor %}
+        {% else %}
+        <h4>No Channels Created</h4>
+        {% endif %}
+      </div>
+
+      <div class="archive-pagination">
+        <nav
+          id="infinite_scroll_button"
+          data-max-page="2"
+          data-msgText="Loading..."
+          data-finishedMsg="All items loaded."
+        >
+          <a href="page/2/index.html"></a>
+        </nav>
+        <div
+          id="infinite_scroll_loading"
+          class="align-center infinite-scroll-loading"
+        ></div>
+      </div>
+    </div>
+    <!-- Sidebar -->
+    <div class="archive-sidebar right-sidebar">
+      <aside id="haru_widget_video_search-3" class="widget widget-video-search">
+        <h4 class="widget-title"><span>Video search</span></h4>
+        <form
+          role="search"
+          method="get"
+          class="haru-video-search search-form default"
+          action="https://demo.harutheme.com/vidio/"
+        >
+          <label for="haru-video-search-field-3">
+            <span class="screen-reader-text">Search for:</span>
+            <input
+              type="search"
+              id="haru-video-search-field-3"
+              class="search-field"
+              placeholder="Search videos&hellip;"
+              value=""
+              name="s"
+            />
+          </label>
+          <button type="submit" class="search-submit" value="Search">
+            <span>Search</span>
+          </button>
+          <input type="hidden" name="post_type" value="haru_video" />
+        </form>
+      </aside>
+      <aside
+        id="haru_widget_video_categories-3"
+        class="widget widget-video-categories"
+      >
+        <h4 class="widget-title"><span>Video Categories</span></h4>
+        <ul class="video-categories default">
+          <li class="cat-item cat-item-61">
+            <a href="../video-category/fashion/index.html">Fashion</a>
+            <span class="count"><span class="list-count">10</span></span>
+          </li>
+          <li class="cat-item cat-item-60">
+            <a href="../video-category/game/index.html">Game</a>
+            <span class="count"><span class="list-count">10</span></span>
+          </li>
+          <li class="cat-item cat-item-33 cat-parent">
+            <a href="../video-category/harutheme/index.html">HaruTheme</a>
+            <span class="count"><span class="list-count">17</span></span>
+          </li>
+          <li class="cat-item cat-item-64">
+            <a href="../video-category/sports/index.html">Sports</a>
+            <span class="count"><span class="list-count">10</span></span>
+          </li>
+          <li class="cat-item cat-item-59">
+            <a href="../video-category/technology/index.html">Technology</a>
+            <span class="count"><span class="list-count">10</span></span>
+          </li>
+          <li class="cat-item cat-item-47">
+            <a href="../video-category/travel/index.html">Travel</a>
+            <span class="count"><span class="list-count">11</span></span>
+          </li>
+        </ul>
+      </aside>
+      <aside id="haru_widget_video_videos-5" class="widget widget-video-videos">
+        <h4 class="widget-title"><span>Latest Videos</span></h4>
+        <ul class="videos-list default">
+          {% if most_recent_videos %}
+            {% for video in most_recent_videos %}
+          <li class="video-item clearfix">
+            <div class="video-item__thumbnail">
+              <a href="/video/{{ video.id }}/{{ 1 }}/"
+                ><img
+                  width="150"
+                  height="150"
+                  src="{% static 'wp-content/uploads/2019/11/fashion-19-150x150.jpg' %}"
+                  class="attachment-thumbnail size-thumbnail wp-post-image"
+                  alt=""
+                  loading="lazy"
+                  title="{{ video.title }}"
+              /></a>
+              <div class="video-item__duration">9:56</div>
+            </div>
+            <div class="video-item__content">
+              <h6 class="video-item__title">
+                <a
+                  href="../video/haru-video-wordpress-theme/index.html"
+                  title="{{ video.title }}"
+                  >{{ video.title }}</a
+                >
+              </h6>
+              <div class="video-item__meta">
+                <div class="video-item__author">
+                  <i class="fa fa-user"></i
+                  ><a href="../members/admin/index.html">{{ video.user.username }}</a>
+                </div>
+                <div class="video-item__view">
+                  <div class="post-views-count">
+                    <span class="post-views-label">views</span>
+                    <i class="fa fa-eye"></i>
+                    <span class="post-view-count">{{ video.number_of_views }}</span>
+                    <span class="post-view-unit"> views</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </li>
+          {% endfor %}
+          {% else %}
+          <p style="text-align: center;">No Videos for now</p>
+          {% endif %}
+        </ul>
+      </aside>
+      <aside id="haru_widget_video_tags-4" class="widget widget-video-tags">
+        <h4 class="widget-title"><span>Video tags</span></h4>
+        <div class="tagcloud default">
+          <a
+            href="../video-tag/filmmaker/index.html"
+            class="tag-cloud-link tag-link-43 tag-link-position-1"
+            style="font-size: 19.666666666667pt"
+            aria-label="filmmaker (35 videos)"
+            >filmmaker</a
+          >
+          <a
+            href="../video-tag/movie/index.html"
+            class="tag-cloud-link tag-link-44 tag-link-position-2"
+            style="font-size: 15pt"
+            aria-label="movie (34 videos)"
+            >movie</a
+          >
+          <a
+            href="../video-tag/theme/index.html"
+            class="tag-cloud-link tag-link-42 tag-link-position-3"
+            style="font-size: 22pt"
+            aria-label="theme (36 videos)"
+            >theme</a
+          >
+          <a
+            href="../video-tag/video/index.html"
+            class="tag-cloud-link tag-link-40 tag-link-position-4"
+            style="font-size: 8pt"
+            aria-label="video (31 videos)"
+            >video</a
+          >
+          <a
+            href="../video-tag/wordpress/index.html"
+            class="tag-cloud-link tag-link-41 tag-link-position-5"
+            style="font-size: 8pt"
+            aria-label="wordpress (31 videos)"
+            >wordpress</a
+          >
+        </div>
+      </aside>
+    </div>
+  </div>
+</div>
+
+{% endblock content %}

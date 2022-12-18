@@ -1,0 +1,120 @@
+{% extends 'base.html' %} 
+{% load static %} 
+{% load crispy_forms_tags %}
+{% load widget_tweaks %} 
+{% block title %}SplitUnity | Channel{% endblock title %} 
+{% block content %}
+
+
+<div id="haru-content-main" class="clearfix">
+    <div
+      class="haru-page-title-section"
+      style="
+        background-image: url(/static/wp-content/themes/cr8iveshare/framework/admin-assets/images/theme-options/bg-page-title.jpg);
+      "
+    >
+      <section class="haru-page-title-wrapper page-title-wrapper-bg">
+        <div class="container">
+          <div class="page-title-inner">
+            <div class="block-center-inner">
+              <h2>Create Channel!</h2>
+            </div>
+          </div>
+        </div>
+      </section>
+      <div class="haru-breadcrumb-wrapper">
+        <div class="container">
+          <ul class="breadcrumbs">
+            <li><a href="../index.html" class="home">Home</a></li>
+            <li><span>Create Channel!</span></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <main class="haru-page">
+      <div class="container clearfix">
+        <div class="row clearfix">
+          <div class="page-content col-md-12 col-sm-12 col-xs-12">
+            <div class="page-wrapper">
+              <div class="page-inner clearfix">
+                <div
+                  id="post-683"
+                  class="post-683 page type-page status-publish hentry pmpro-has-access clearfix"
+                >
+                  <div class="entry-content">
+                    <div class="youzify-membership-login-shortcode">
+                      <div
+                        class="youzify-membership-form youzify-membership-login-page form-with-header form-with-labels form-no-icons form-full-border form-border-flat"
+                      >
+                        <header class="youzify-membership-form-header">
+                          <div
+                            class="youzify-membership-form-cover youzify-membership-default-cover"
+                            style="
+                              background-image: url(/static/wp-content/plugins/youzer/includes/public/assets/images/geopattern.png);
+                            "
+                          >
+                            <h2 class="form-cover-title">Create your channel</h2>
+                          </div>
+                        </header>
+  
+                        <form
+                          id="youzify-membership-form"
+                          class="youzify-membership-login-form"
+                          method="POST"
+                          action=""
+                        >
+                          {% csrf_token %}
+                          <!-- After Form Buttons -->
+                          <!-- {{form}} -->
+                          <!-- {% for error in profile_form.non_field_errors %}
+                          <label>{{ error|escape }} </label>
+                          {% endfor %} -->
+                          <div class="youzify-membership-form-item">
+                            <div class="youzify-membership-item-content">
+                              <label for="user_login">Channel Name</label>
+                              <div class="youzify-membership-field-content">
+                                {{form.channel_name|attr:"type:text"|attr:"placeholder:Your channel name"}}
+                              </div>
+                            </div>
+                          </div>
+                          <div
+                            class="youzify-membership-form-actions form-fullwidth-button form-border-radius"
+                          >
+                            <div
+                              class="youzify-membership-action-item youzify-membership-submit-item"
+                            >
+                              <div class="youzify-membership-item-inner">
+                                <button
+                                  type="submit"
+                                  value="submit"
+                                  name="signin_submit"
+                                >
+                                  <span class="youzify-membership-button-title"
+                                    >Create</span
+                                  >
+                                </button>
+                              </div>
+                            </div>
+                          </div>
+                          
+                          <!-- After Form Buttons -->
+  
+                          <input
+                            type="hidden"
+                            name="youzify-membership-form"
+                            value="1"
+                          />
+                        </form>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
+  </div>
+
+{% endblock content %}

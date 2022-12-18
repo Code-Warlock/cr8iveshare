@@ -60,6 +60,27 @@ class PageContents(models.Model):
     updated = models.DateTimeField(auto_now=True)
 
 
+class Category(models.Model):
+    name = models.CharField(max_length=50)
+    slug = models.SlugField(max_length=100, unique=True, blank=True)
+    datetime = models.DateTimeField(auto_now_add=True)
+
+    class Meta:
+        verbose_name = ("Category")
+        verbose_name_plural = ("Categories")
+
+    def __str__(self):
+        return self.name
+
+    def save(self, *args, **kwargs):
+        slug = self.name
+        self.slug = slugify(slug, allow_unicode=True)
+        super().save(*args, **kwargs)
+
+    def get_absolute_url(self):
+        return reverse("category_detail", kwargs={"pk": self.pk})
+
+
 class Video(models.Model):
     title = models.CharField(max_length=30)
     description = models.TextField(max_length=300)
@@ -68,19 +89,14 @@ class Video(models.Model):
                                     blank=False, null=False)
     user = models.ForeignKey(Account, on_delete=models.CASCADE)
     number_of_views = models.IntegerField(blank=True, default=0)
+    category = models.ForeignKey(Category, on_delete=models.CASCADE)
 
     class Meta:
         verbose_name = ("Video")
         verbose_name_plural = ("Videos")
 
     def __str__(self):
-        return self.user
-
-    def save(self, *args, **kwargs):
-        slug = self.description
-        if not self.slug:
-            self.slug = slugify(slug, allow_unicode=True)
-        super().save(*args, **kwargs)
+        return self.title
 
     def get_absolute_url(self):
         return reverse("Video_detail", kwargs={"pk": self.pk})
@@ -89,6 +105,7 @@ class Video(models.Model):
 class Like(models.Model):
     user = models.ForeignKey(Account, on_delete=models.CASCADE)
     video = models.ForeignKey(Video, on_delete=models.CASCADE)
+    datetime = models.DateTimeField(auto_now_add=True)
 
     def __str__(self):
         return self.user
@@ -97,6 +114,7 @@ class Like(models.Model):
 class Dislike(models.Model):
     user = models.ForeignKey(Account, on_delete=models.CASCADE)
     video = models.ForeignKey(Video, on_delete=models.CASCADE)
+    datetime = models.DateTimeField(auto_now_add=True)
 
     def __str__(self):
         return self.user
@@ -105,6 +123,7 @@ class Dislike(models.Model):
 class FollowersCount(models.Model):
     followers = models.CharField(max_length=100)
     user = models.CharField(max_length=100)
+    datetime = models.DateTimeField(auto_now_add=True)
 
     def __str__(self):
         return self.user
@@ -131,6 +150,7 @@ class Channel(models.Model):
     channel_name = models.CharField(max_length=50, blank=False, null=False)
     subscribers = models.IntegerField(default=0, blank=False, null=False)
     user = models.ForeignKey(Account, on_delete=models.CASCADE)
+    datetime = models.DateTimeField(auto_now_add=True)
 
 
 class Video_View(models.Model):
@@ -142,23 +162,4 @@ class Video_View(models.Model):
 class Channel_Subscription(models.Model):
     user = models.ForeignKey(Account, on_delete=models.CASCADE)
     channel = models.ForeignKey(Channel, on_delete=models.CASCADE)
-
-
-class Category(models.Model):
-    name = models.CharField(max_length=50)
-    slug = models.SlugField(max_length=100, unique=True, blank=True)
-
-    class Meta:
-        verbose_name = ("Category")
-        verbose_name_plural = ("Categories")
-
-    def __str__(self):
-        return self.name
-
-    def save(self, *args, **kwargs):
-        slug = self.name
-        self.slug = slugify(slug, allow_unicode=True)
-        super().save(*args, **kwargs)
-
-    def get_absolute_url(self):
-        return reverse("category_detail", kwargs={"pk": self.pk})
+    datetime = models.DateTimeField(auto_now_add=True)
