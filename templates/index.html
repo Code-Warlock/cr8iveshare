@@ -52,7 +52,7 @@
                                         </div>
                                         <div class="channel-top-content">
                                           {% if most_recent_channels %}
-                                          {% for channels in most_recent_channels %}
+                                          {% for channel in most_recent_channels %}
                                           <article
                                             class="grid-item channel-item channel-style-7"
                                           >
@@ -84,7 +84,7 @@
                                               <h6 class="channel-item__title">
                                                 <a
                                                   href="/{{ channels.user.username }}/channel"
-                                                  >{{ channels.channel_name }}</a
+                                                  >{{ channel.channel_name }}</a
                                                 >
                                               </h6>
                                               <div class="channel-item__meta">
@@ -99,8 +99,7 @@
                                                   class="channel-item__count-subscribed"
                                                 >
                                                   <span class="count-subscribed"
-                                                    >67</span
-                                                  ><span
+                                                    >{{channel.subscribers}}<span
                                                     class="count-subscribed-unit"
                                                   >
                                                     subscribers</span

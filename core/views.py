@@ -89,7 +89,7 @@ class HomeView(View):
 
     def get(self, request):
         most_recent_videos = Video.objects.order_by('-datetime')[:8]
-        most_recent_channels = Channel.objects.filter()
+        most_recent_channels = Channel.objects.all().filter(subscribers=8)
 
         channel = False
         print(request.user.username)
