@@ -89,11 +89,13 @@ class HomeView(LoginRequiredMixin, View):
     template_name = 'index.html'
     login_url = '/account/login/'
     redirect_field_name = 'redirect_to'
+    
 
     def get(self, request):
         most_recent_videos = Video.objects.order_by('-datetime')[:8]
         most_recent_channels = Channel.objects.exclude(user=request.user)
-
+        context = {}
+        context['channel'] = channel
         channel = False
         print(request.user.username)
         if request.user.username != "":
@@ -102,7 +104,7 @@ class HomeView(LoginRequiredMixin, View):
                 channel = Channel.objects.filter(user=request.user)
                 print(channel)
                 print("Yo")
-                channel = channel.get()
+                channel = channel.all()
             except Channel.DoesNotExist:
                 channel = False
             # if channel:
@@ -469,8 +471,7 @@ def subscriptions(request):
         context['videos'] = videos
 
     try:
-        channel = Channel.objects.filter(
-            user=request.user).get().channel_name != ""
+        channel = Channel.objects.filter(user=request.user)
         print(channel)
         context['channel'] = channel
     except Channel.DoesNotExist:
@@ -481,12 +482,13 @@ def subscriptions(request):
 
 def channels_list(request):
     context = {}
-    channels = Channel.objects.all()
+    channels = Channel.objects.exclude(user=request.user)
+    # channel = Channel.objects.exclude(user=request.user)
     context['channels'] = channels
 
     try:
         channel = Channel.objects.filter(
-            user=request.user).get().channel_name != ""
+            user=request.user)
         print(channel)
         context['channel'] = channel
     except Channel.DoesNotExist:
