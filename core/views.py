@@ -95,8 +95,8 @@ class HomeView(LoginRequiredMixin, View):
         most_recent_videos = Video.objects.order_by('-datetime')[:8]
         most_recent_channels = Channel.objects.exclude(user=request.user)
         context = {}
-        context['channel'] = channel
         channel = False
+        context['channel'] = channel
         print(request.user.username)
         if request.user.username != "":
             # print("YEs")
