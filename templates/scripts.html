@@ -1,406 +1,182 @@
-{% load static %}
-
 <script type="text/html" id="wpb-modifications"></script>
 <script type="text/javascript">
-  (function () {
-    var c = document.body.className;
-    c = c.replace(/woocommerce-no-js/, 'woocommerce-js');
-    document.body.className = c;
-  })();
+    (function () {
+        var c = document.body.className;
+        c = c.replace(/woocommerce-no-js/, 'woocommerce-js');
+        document.body.className = c;
+    })();
 </script>
-<link
-  rel="stylesheet"
-  id="vc_google_fonts_abril_fatfaceregular-css"
-  href="http://fonts.googleapis.com/css?family=Abril+Fatface%3Aregular&amp;subset=latin&amp;ver=5.7.8"
-  type="text/css"
-  media="all"
-/>
-<script
-  type="text/javascript"
-  src="{% static 'wp-content/plugins/haru-vidi/assets/libraries/screenfull/screenfulld988.js' %}"
-  id="screenfull-js"
-></script>
-<script
-  type="text/javascript"
-  src="{% static 'wp-content/plugins/haru-vidi/assets/libraries/cookie/js-cookie.mind988.js' %}"
-  id="js-cookie-js"
-></script>
-<script
-  type="text/javascript"
-  src="{% static 'wp-content/plugins/haru-vidi/assets/libraries/magnificPopup/jquery.magnific-popup.mind988.js' %}"
-  id="jquery-magnific-popup-js"
-></script>
-<script
-  type="text/javascript"
-  src="{% static 'wp-content/plugins/haru-vidi/assets/libraries/infinitescroll/jquery.infinitescroll.mind988.js' %}"
-  id="infinitescroll-js"
-></script>
-<script type="text/javascript" id="haru-vidi-js-before">
-  var haru_vidi_ajax_url =
-    '{% static "wp-admin/admin-ajax591f.html?activate-multi=true" %}';
-  var haru_vidi_plugin_url = '{% static "wp-content/plugins/haru-vidi/index.html" %}';
+<link rel='stylesheet' id='mCustomScrollbar-css'
+    href='/static/wp-content/plugins/haru-vidi/assets/libraries/mCustomScrollbar/jquery.mCustomScrollbar.min68b3.css?ver=1'
+    type='text/css' media='all' />
+<link rel='stylesheet' id='js_composer_front-css'
+    href='/static/wp-content/plugins/js_composer/assets/css/js_composer.minbdeb.css?ver=6.7.0' type='text/css'
+    media='all' />
+<link rel='stylesheet' id='vc_google_fonts_abril_fatfaceregular-css'
+    href='http://fonts.googleapis.com/css?family=Abril+Fatface%3Aregular&amp;subset=latin&amp;ver=5.7.8'
+    type='text/css' media='all' />
+<script type='text/javascript'
+    src='/static/wp-content/plugins/haru-vidi/assets/libraries/mediaelement/mediaelement-and-player.mind988.js?ver=5.7.8'
+    id='mediaelement-js'></script>
+<script type='text/javascript'
+    src='/static/wp-content/plugins/haru-vidi/assets/libraries/screenfull/screenfulld988.js?ver=5.7.8'
+    id='screenfull-js'></script>
+<script type='text/javascript'
+    src='/static/wp-content/plugins/haru-vidi/assets/libraries/cookie/js-cookie.mind988.js?ver=5.7.8'
+    id='js-cookie-js'></script>
+<script type='text/javascript'
+    src='/static/wp-content/plugins/haru-vidi/assets/libraries/magnificPopup/jquery.magnific-popup.mind988.js?ver=5.7.8'
+    id='jquery-magnific-popup-js'></script>
+<script type='text/javascript'
+    src='/static/wp-content/plugins/haru-vidi/assets/libraries/infinitescroll/jquery.infinitescroll.mind988.js?ver=5.7.8'
+    id='infinitescroll-js'></script>
+<script type='text/javascript' id='haru-vidi-js-before'>
+    var haru_vidi_ajax_url = "/static/wp-admin/admin-ajax591f.html?activate-multi=true"
+    var haru_vidi_plugin_url = "/static/wp-content/plugins/haru-vidi/index.html"
 </script>
-<script
-  type="text/javascript"
-  src="{% static 'wp-content/plugins/haru-vidi/assets/js/haru-vidid988.js' %}"
-  id="haru-vidi-js"
-></script>
-<script
-  type="text/javascript"
-  src="{% static 'wp-content/plugins/yith-woocommerce-wishlist/assets/js/jquery.selectBox.min7359.js' %}"
-  id="jquery-selectBox-js"
-></script>
-<script
-  type="text/javascript"
-  src="{% static 'wp-content/plugins/woocommerce/assets/js/prettyPhoto/jquery.prettyPhoto.min005e.js' %}"
-  id="prettyPhoto-js"
-></script>
-<script type="text/javascript" id="jquery-yith-wcwl-js-extra">
-  /* <![CDATA[ */
-  var yith_wcwl_l10n = {
-    ajax_url: '\/cr8iveshare\/wp-admin\/admin-ajax.php',
-    redirect_to_cart: 'no',
-    multi_wishlist: '',
-    hide_add_button: '1',
-    enable_ajax_loading: '',
-    ajax_loader_url:
-      'https:\/\/demo.harutheme.com\/cr8iveshare\/wp-content\/plugins\/yith-woocommerce-wishlist\/assets\/images\/ajax-loader-alt.svg',
-    remove_from_wishlist_after_add_to_cart: '1',
-    is_wishlist_responsive: '1',
-    time_to_close_prettyphoto: '3000',
-    fragments_index_glue: '.',
-    reload_on_found_variation: '1',
-    mobile_media_query: '768',
-    labels: {
-      cookie_disabled:
-        'We are sorry, but this feature is available only if cookies on your browser are enabled.',
-      added_to_cart_message:
-        '<div class="woocommerce-notices-wrapper"><div class="woocommerce-message" role="alert">Product added to cart successfully<\/div><\/div>',
-    },
-    actions: {
-      add_to_wishlist_action: 'add_to_wishlist',
-      remove_from_wishlist_action: 'remove_from_wishlist',
-      reload_wishlist_and_adding_elem_action: 'reload_wishlist_and_adding_elem',
-      load_mobile_action: 'load_mobile',
-      delete_item_action: 'delete_item',
-      save_title_action: 'save_title',
-      save_privacy_action: 'save_privacy',
-      load_fragments: 'load_fragments',
-    },
-  };
-  /* ]]> */
+<script type='text/javascript' src='/static/wp-content/plugins/haru-vidi/assets/js/haru-vidid988.js?ver=5.7.8'
+    id='haru-vidi-js'></script>
+<script type='text/javascript'
+    src='/static/wp-content/plugins/yith-woocommerce-wishlist/assets/js/jquery.selectBox.min7359.js?ver=1.2.0'
+    id='jquery-selectBox-js'></script>
+<script type='text/javascript'
+    src='/static/wp-content/plugins/woocommerce/assets/js/prettyPhoto/jquery.prettyPhoto.min005e.js?ver=3.1.6'
+    id='prettyPhoto-js'></script>
+<script type='text/javascript' id='jquery-yith-wcwl-js-extra'>
+    /* <![CDATA[ */
+    var yith_wcwl_l10n = { "ajax_url": "\/vidio\/wp-admin\/admin-ajax.php", "redirect_to_cart": "no", "multi_wishlist": "", "hide_add_button": "1", "enable_ajax_loading": "", "ajax_loader_url": "https:\/\/demo.harutheme.com\/vidio\/wp-content\/plugins\/yith-woocommerce-wishlist\/assets\/images\/ajax-loader-alt.svg", "remove_from_wishlist_after_add_to_cart": "1", "is_wishlist_responsive": "1", "time_to_close_prettyphoto": "3000", "fragments_index_glue": ".", "reload_on_found_variation": "1", "mobile_media_query": "768", "labels": { "cookie_disabled": "We are sorry, but this feature is available only if cookies on your browser are enabled.", "added_to_cart_message": "<div class=\"woocommerce-notices-wrapper\"><div class=\"woocommerce-message\" role=\"alert\">Product added to cart successfully<\/div><\/div>" }, "actions": { "add_to_wishlist_action": "add_to_wishlist", "remove_from_wishlist_action": "remove_from_wishlist", "reload_wishlist_and_adding_elem_action": "reload_wishlist_and_adding_elem", "load_mobile_action": "load_mobile", "delete_item_action": "delete_item", "save_title_action": "save_title", "save_privacy_action": "save_privacy", "load_fragments": "load_fragments" } };
+/* ]]> */
 </script>
-<script
-  type="text/javascript"
-  src="{% static 'wp-content/plugins/yith-woocommerce-wishlist/assets/js/jquery.yith-wcwl.min7ee6.js' %}"
-  id="jquery-yith-wcwl-js"
-></script>
-<script
-  type="text/javascript"
-  src="{% static 'wp-includes/js/comment-reply.mind988.js' %}"
-  id="comment-reply-js"
-></script>
-<script
-  type="text/javascript"
-  src="{% static 'wp-includes/js/dist/vendor/wp-polyfill.min89b1.js' %}"
-  id="wp-polyfill-js"
-></script>
-<script type="text/javascript" id="wp-polyfill-js-after">
-  'fetch' in window ||
-    document.write(
-      '<script src="{% static "wp-includes/js/dist/vendor/wp-polyfill-fetch.min6e0e.js" %}"></scr' +
-        'ipt>'
-    );
-  document.contains ||
-    document.write(
-      '<script src="{% static "wp-includes/js/dist/vendor/wp-polyfill-node-contains.min2e00.js" %}"></scr' +
-        'ipt>'
-    );
-  window.DOMRect ||
-    document.write(
-      '<script src="{% static "wp-includes/js/dist/vendor/wp-polyfill-dom-rect.min2e00.js" %}"></scr' +
-        'ipt>'
-    );
-  (window.URL && window.URL.prototype && window.URLSearchParams) ||
-    document.write(
-      '<script src="{% static "wp-includes/js/dist/vendor/wp-polyfill-url.min5aed.js" %}"></scr' +
-        'ipt>'
-    );
-  (window.FormData && window.FormData.prototype.keys) ||
-    document.write(
-      '<script src="{% static "wp-includes/js/dist/vendor/wp-polyfill-formdata.mine9bd.js" %}"></scr' +
-        'ipt>'
-    );
-  (Element.prototype.matches && Element.prototype.closest) ||
-    document.write(
-      '<script src="{% static "wp-includes/js/dist/vendor/wp-polyfill-element-closest.min4c56.js" %}"></scr' +
-        'ipt>'
-    );
-  'objectFit' in document.documentElement.style ||
-    document.write(
-      '<script src="{% static "wp-includes/js/dist/vendor/wp-polyfill-object-fit.min531b.js" %}"></scr' +
-        'ipt>'
-    );
+<script type='text/javascript'
+    src='/static/wp-content/plugins/yith-woocommerce-wishlist/assets/js/jquery.yith-wcwl.min7ee6.js?ver=3.0.23'
+    id='jquery-yith-wcwl-js'></script>
+<script type='text/javascript' src='/static/wp-includes/js/comment-reply.mind988.js?ver=5.7.8'
+    id='comment-reply-js'></script>
+<script type='text/javascript' src='/static/wp-includes/js/dist/vendor/wp-polyfill.min89b1.js?ver=7.4.4'
+    id='wp-polyfill-js'></script>
+<script type='text/javascript' id='wp-polyfill-js-after'>
+    ('fetch' in window) || document.write('<script src="/static/wp-includes/js/dist/vendor/wp-polyfill-fetch.min6e0e.js?ver=3.0.0"></scr' + 'ipt>'); (document.contains) || document.write('<script src="/static/wp-includes/js/dist/vendor/wp-polyfill-node-contains.min2e00.js?ver=3.42.0"></scr' + 'ipt>'); (window.DOMRect) || document.write('<script src="/static/wp-includes/js/dist/vendor/wp-polyfill-dom-rect.min2e00.js?ver=3.42.0"></scr' + 'ipt>'); (window.URL && window.URL.prototype && window.URLSearchParams) || document.write('<script src="/static/wp-includes/js/dist/vendor/wp-polyfill-url.min5aed.js?ver=3.6.4"></scr' + 'ipt>'); (window.FormData && window.FormData.prototype.keys) || document.write('<script src="/static/wp-includes/js/dist/vendor/wp-polyfill-formdata.mine9bd.js?ver=3.0.12"></scr' + 'ipt>'); (Element.prototype.matches && Element.prototype.closest) || document.write('<script src="/static/wp-includes/js/dist/vendor/wp-polyfill-element-closest.min4c56.js?ver=2.0.2"></scr' + 'ipt>'); ('objectFit' in document.documentElement.style) || document.write('<script src="/static/wp-includes/js/dist/vendor/wp-polyfill-object-fit.min531b.js?ver=2.3.4"></scr' + 'ipt>');
 </script>
-<script type="text/javascript" id="contact-form-7-js-extra">
-  /* <![CDATA[ */
-  var wpcf7 = {
-    api: {
-      root: 'https:\/\/demo.harutheme.com\/cr8iveshare\/wp-json\/',
-      namespace: 'contact-form-7\/v1',
-    },
-  };
-  /* ]]> */
+<script type='text/javascript' id='contact-form-7-js-extra'>
+    /* <![CDATA[ */
+    var wpcf7 = { "api": { "root": "https:\/\/demo.harutheme.com\/vidio\/wp-json\/", "namespace": "contact-form-7\/v1" } };
+/* ]]> */
 </script>
-<script
-  type="text/javascript"
-  src="{% static 'wp-content/plugins/contact-form-7/includes/js/indexc225.js' %}"
-  id="contact-form-7-js"
-></script>
-<script type="text/javascript" id="woocommerce-js-extra">
-  /* <![CDATA[ */
-  var woocommerce_params = {
-    ajax_url: '\/cr8iveshare\/wp-admin\/admin-ajax.php',
-    wc_ajax_url: '\/cr8iveshare\/?wc-ajax=%%endpoint%%',
-  };
-  /* ]]> */
+<script type='text/javascript' src='/static/wp-content/plugins/contact-form-7/includes/js/indexc225.js?ver=5.4.1'
+    id='contact-form-7-js'></script>
+<script type='text/javascript' id='woocommerce-js-extra'>
+    /* <![CDATA[ */
+    var woocommerce_params = { "ajax_url": "\/vidio\/wp-admin\/admin-ajax.php", "wc_ajax_url": "\/vidio\/?wc-ajax=%%endpoint%%" };
+/* ]]> */
 </script>
-<script
-  type="text/javascript"
-  src="{% static 'wp-content/plugins/woocommerce/assets/js/frontend/woocommerce.min7263.js' %}"
-  id="woocommerce-js"
-></script>
-<script type="text/javascript" id="wc-cart-fragments-js-extra">
-  /* <![CDATA[ */
-  var wc_cart_fragments_params = {
-    ajax_url: '\/cr8iveshare\/wp-admin\/admin-ajax.php',
-    wc_ajax_url: '\/cr8iveshare\/?wc-ajax=%%endpoint%%',
-    cart_hash_key: 'wc_cart_hash_570329481f309f351327c3192d43524b',
-    fragment_name: 'wc_fragments_570329481f309f351327c3192d43524b',
-    request_timeout: '5000',
-  };
-  /* ]]> */
+<script type='text/javascript'
+    src='/static/wp-content/plugins/woocommerce/assets/js/frontend/woocommerce.min7263.js?ver=5.4.4'
+    id='woocommerce-js'></script>
+<script type='text/javascript' id='wc-cart-fragments-js-extra'>
+    /* <![CDATA[ */
+    var wc_cart_fragments_params = { "ajax_url": "\/vidio\/wp-admin\/admin-ajax.php", "wc_ajax_url": "\/vidio\/?wc-ajax=%%endpoint%%", "cart_hash_key": "wc_cart_hash_570329481f309f351327c3192d43524b", "fragment_name": "wc_fragments_570329481f309f351327c3192d43524b", "request_timeout": "5000" };
+/* ]]> */
 </script>
-<script
-  type="text/javascript"
-  src="{% static 'wp-content/plugins/woocommerce/assets/js/frontend/cart-fragments.min7263.js' %}"
-  id="wc-cart-fragments-js"
-></script>
-<script
-  type="text/javascript"
-  src="{% static 'wp-includes/js/dist/hooks.minc5c2.js' %}"
-  id="wp-hooks-js"
-></script>
-<script
-  type="text/javascript"
-  src="{% static 'wp-includes/js/dist/i18n.min802d.js' %}"
-  id="wp-i18n-js"
-></script>
-<script type="text/javascript" id="wp-i18n-js-after">
-  wp.i18n.setLocaleData({ 'text direction\u0004ltr': ['ltr'] });
+<script type='text/javascript'
+    src='/static/wp-content/plugins/woocommerce/assets/js/frontend/cart-fragments.min7263.js?ver=5.4.4'
+    id='wc-cart-fragments-js'></script>
+<script type='text/javascript' src='/static/wp-includes/js/dist/hooks.minc5c2.js?ver=d0188aa6c336f8bb426fe5318b7f5b72'
+    id='wp-hooks-js'></script>
+<script type='text/javascript' src='/static/wp-includes/js/dist/i18n.min802d.js?ver=6ae7d829c963a7d8856558f3f9b32b43'
+    id='wp-i18n-js'></script>
+<script type='text/javascript' id='wp-i18n-js-after'>
+    wp.i18n.setLocaleData({ 'text direction\u0004ltr': ['ltr'] });
 </script>
-<script type="text/javascript" id="youzify-js-extra">
-  /* <![CDATA[ */
-  var Youzify = {
-    unknown_error: 'An unknown error occurred. Please try again later.',
-    slideshow_auto: '1',
-    slides_height_type: 'fixed',
-    activity_autoloader: 'on',
-    authenticating: 'Authenticating...',
-    security_nonce: '6e5bcdd120',
-    displayed_user_id: '0',
-    ajax_url: 'https:\/\/demo.harutheme.com\/cr8iveshare\/wp-admin\/admin-ajax.php',
-    save_changes: 'Save Changes',
-    thanks: 'OK! Thanks',
-    confirm: 'Confirm',
-    cancel: 'Cancel',
-    menu_title: 'Menu',
-    gotit: 'Got it!',
-    done: 'Done!',
-    ops: 'Oops!',
-    slideshow_speed: '5',
-    assets:
-      'https:\/\/demo.harutheme.com\/cr8iveshare\/wp-content\/plugins\/youzer\/includes\/public\/assets\/',
-    youzify_url:
-      'https:\/\/demo.harutheme.com\/cr8iveshare\/wp-content\/plugins\/youzer\/',
-    live_notifications: 'on',
-    last_notification: '0',
-    sound_file:
-      'https:\/\/demo.harutheme.com\/cr8iveshare\/wp-content\/plugins\/youzer\/includes\/public\/assets\/youzify-notification-sound',
-    timeout: '10',
-    notifications_interval: '30',
-  };
-  /* ]]> */
+<script type='text/javascript' id='youzify-js-extra'>
+    /* <![CDATA[ */
+    var Youzify = { "unknown_error": "An unknown error occurred. Please try again later.", "slideshow_auto": "1", "slides_height_type": "fixed", "activity_autoloader": "on", "authenticating": "Authenticating...", "security_nonce": "6e5bcdd120", "displayed_user_id": "0", "ajax_url": "https:\/\/demo.harutheme.com\/vidio\/wp-admin\/admin-ajax.php", "save_changes": "Save Changes", "thanks": "OK! Thanks", "confirm": "Confirm", "cancel": "Cancel", "menu_title": "Menu", "gotit": "Got it!", "done": "Done!", "ops": "Oops!", "slideshow_speed": "5", "assets": "https:\/\/demo.harutheme.com\/vidio\/wp-content\/plugins\/youzer\/includes\/public\/assets\/", "youzify_url": "https:\/\/demo.harutheme.com\/vidio\/wp-content\/plugins\/youzer\/", "live_notifications": "on", "last_notification": "0", "sound_file": "https:\/\/demo.harutheme.com\/vidio\/wp-content\/plugins\/youzer\/includes\/public\/assets\/youzify-notification-sound", "timeout": "10", "notifications_interval": "30" };
+/* ]]> */
 </script>
-<script
-  type="text/javascript"
-  src="{% static 'wp-content/plugins/youzer/includes/public/assets/js/youzify.min005e.js' %}"
-  id="youzify-js"
-></script>
-<script type="text/javascript" id="yith-woocompare-main-js-extra">
-  /* <![CDATA[ */
-  var yith_woocompare = {
-    ajaxurl: '\/cr8iveshare\/?wc-ajax=%%endpoint%%',
-    actionadd: 'yith-woocompare-add-product',
-    actionremove: 'yith-woocompare-remove-product',
-    actionview: 'yith-woocompare-view-table',
-    actionreload: 'yith-woocompare-reload-product',
-    added_label: 'Added',
-    table_title: 'Product Comparison',
-    auto_open: 'yes',
-    loader:
-      'https:\/\/demo.harutheme.com\/cr8iveshare\/wp-content\/plugins\/yith-woocommerce-compare\/assets\/images\/loader.gif',
-    button_text: 'Compare',
-    cookie_name: 'yith_woocompare_list',
-    close_label: 'Close',
-  };
-  /* ]]> */
+<script type='text/javascript'
+    src='/static/wp-content/plugins/youzer/includes/public/assets/js/youzify.min005e.js?ver=3.1.6'
+    id='youzify-js'></script>
+<script type='text/javascript' id='yith-woocompare-main-js-extra'>
+    /* <![CDATA[ */
+    var yith_woocompare = { "ajaxurl": "\/vidio\/?wc-ajax=%%endpoint%%", "actionadd": "yith-woocompare-add-product", "actionremove": "yith-woocompare-remove-product", "actionview": "yith-woocompare-view-table", "actionreload": "yith-woocompare-reload-product", "added_label": "Added", "table_title": "Product Comparison", "auto_open": "yes", "loader": "https:\/\/demo.harutheme.com\/vidio\/wp-content\/plugins\/yith-woocommerce-compare\/assets\/images\/loader.gif", "button_text": "Compare", "cookie_name": "yith_woocompare_list", "close_label": "Close" };
+/* ]]> */
 </script>
-<script
-  type="text/javascript"
-  src="{% static 'wp-content/plugins/yith-woocommerce-compare/assets/js/woocompare.min16b9.js' %}"
-  id="yith-woocompare-main-js"
-></script>
-<script
-  type="text/javascript"
-  src="{% static 'wp-content/plugins/yith-woocommerce-compare/assets/js/jquery.colorbox-min13ac.js' %}"
-  id="jquery-colorbox-js"
-></script>
-<script
-  type="text/javascript"
-  src="{% static 'wp-content/themes/cr8iveshare/assets/libraries/bootstrap/js/bootstrap.mind988.js' %}"
-  id="bootstrap-js"
-></script>
-<script
-  type="text/javascript"
-  src="{% static 'wp-content/themes/cr8iveshare/assets/libraries/jPlayer/jquery.jplayer.mind988.js' %}"
-  id="jquery-jplayer-js"
-></script>
-<script
-  type="text/javascript"
-  src="{% static 'wp-content/themes/cr8iveshare/assets/libraries/owl-carousel/owl.carousel.mind988.js' %}"
-  id="owl-carousel-js"
-></script>
-<script
-  type="text/javascript"
-  src="{% static 'wp-content/themes/cr8iveshare/assets/libraries/slick/slick.mind988.js' %}"
-  id="slick-js"
-></script>
-<script
-  type="text/javascript"
-  src="{% static 'wp-includes/js/imagesloaded.mineda1.js' %}"
-  id="imagesloaded-js"
-></script>
-<script
-  type="text/javascript"
-  src="{% static 'wp-content/themes/cr8iveshare/assets/libraries/infinitescroll/jquery.infinitescroll.mind988.js' %}"
-  id="jquery-infinitescroll-js"
-></script>
-<script
-  type="text/javascript"
-  src="{% static 'wp-content/plugins/js_composer/assets/lib/bower/isotope/dist/isotope.pkgd.minbdeb.js' %}"
-  id="isotope-js"
-></script>
-<script
-  type="text/javascript"
-  src="{% static 'wp-content/themes/cr8iveshare/assets/libraries/stellar/jquery.stellar.mind988.js' %}"
-  id="jquery-stellar-js"
-></script>
-<script
-  type="text/javascript"
-  src="{% static 'wp-content/plugins/woocommerce/assets/js/jquery-cookie/jquery.cookie.min330a.js' %}"
-  id="jquery-cookie-js"
-></script>
-<script
-  type="text/javascript"
-  src="{% static 'wp-content/themes/cr8iveshare/framework/core/megamenu/assets/js/megamenud988.js' %}"
-  id="haru-megamenu-js-js"
-></script>
-<script
-  type="text/javascript"
-  src="{% static 'wp-includes/js/underscore.min4511.js' %}"
-  id="underscore-js"
-></script>
-<script type="text/javascript" id="wp-util-js-extra">
-  /* <![CDATA[ */
-  var _wpUtilSettings = { ajax: { url: '\/cr8iveshare\/wp-admin\/admin-ajax.php' } };
-  /* ]]> */
+<script type='text/javascript'
+    src='/static/wp-content/plugins/yith-woocommerce-compare/assets/js/woocompare.min16b9.js?ver=2.5.2'
+    id='yith-woocompare-main-js'></script>
+<script type='text/javascript'
+    src='/static/wp-content/plugins/yith-woocommerce-compare/assets/js/jquery.colorbox-min13ac.js?ver=1.4.21'
+    id='jquery-colorbox-js'></script>
+<script type='text/javascript'
+    src='/static/wp-content/themes/cr8iveshare/assets/libraries/bootstrap/js/bootstrap.mind988.js?ver=5.7.8'
+    id='bootstrap-js'></script>
+<script type='text/javascript'
+    src='/static/wp-content/themes/cr8iveshare/assets/libraries/jPlayer/jquery.jplayer.mind988.js?ver=5.7.8'
+    id='jquery-jplayer-js'></script>
+<script type='text/javascript'
+    src='/static/wp-content/themes/cr8iveshare/assets/libraries/owl-carousel/owl.carousel.mind988.js?ver=5.7.8'
+    id='owl-carousel-js'></script>
+<script type='text/javascript' src='/static/wp-content/themes/cr8iveshare/assets/libraries/slick/slick.mind988.js?ver=5.7.8'
+    id='slick-js'></script>
+<script type='text/javascript' src='/static/wp-includes/js/imagesloaded.mineda1.js?ver=4.1.4'
+    id='imagesloaded-js'></script>
+<script type='text/javascript'
+    src='/static/wp-content/themes/cr8iveshare/assets/libraries/infinitescroll/jquery.infinitescroll.mind988.js?ver=5.7.8'
+    id='jquery-infinitescroll-js'></script>
+<script type='text/javascript'
+    src='/static/wp-content/plugins/js_composer/assets/lib/bower/isotope/dist/isotope.pkgd.minbdeb.js?ver=6.7.0'
+    id='isotope-js'></script>
+<script type='text/javascript'
+    src='/static/wp-content/themes/cr8iveshare/assets/libraries/stellar/jquery.stellar.mind988.js?ver=5.7.8'
+    id='jquery-stellar-js'></script>
+<script type='text/javascript'
+    src='/static/wp-content/plugins/woocommerce/assets/js/jquery-cookie/jquery.cookie.min330a.js?ver=1.4.1'
+    id='jquery-cookie-js'></script>
+<script type='text/javascript'
+    src='/static/wp-content/themes/cr8iveshare/framework/core/megamenu/assets/js/megamenud988.js?ver=5.7.8'
+    id='haru-megamenu-js-js'></script>
+<script type='text/javascript' src='/static/wp-includes/js/underscore.min4511.js?ver=1.8.3'
+    id='underscore-js'></script>
+
+<script type='text/javascript' src='/static/wp-includes/js/wp-util.mind988.js?ver=5.7.8' id='wp-util-js'></script>
+<script type='text/javascript' id='wc-add-to-cart-variation-js-extra'>
+    /* <![CDATA[ */
+    var wc_add_to_cart_variation_params = { "wc_ajax_url": "\/vidio\/?wc-ajax=%%endpoint%%", "i18n_no_matching_variations_text": "Sorry, no products matched your selection. Please choose a different combination.", "i18n_make_a_selection_text": "Please select some product options before adding this product to your cart.", "i18n_unavailable_text": "Sorry, this product is unavailable. Please choose a different combination." };
+/* ]]> */
 </script>
-<script
-  type="text/javascript"
-  src="{% static 'wp-includes/js/wp-util.mind988.js' %}"
-  id="wp-util-js"
-></script>
-<script type="text/javascript" id="wc-add-to-cart-variation-js-extra">
-  /* <![CDATA[ */
-  var wc_add_to_cart_variation_params = {
-    wc_ajax_url: '\/cr8iveshare\/?wc-ajax=%%endpoint%%',
-    i18n_no_matching_variations_text:
-      'Sorry, no products matched your selection. Please choose a different combination.',
-    i18n_make_a_selection_text:
-      'Please select some product options before adding this product to your cart.',
-    i18n_unavailable_text:
-      'Sorry, this product is unavailable. Please choose a different combination.',
-  };
-  /* ]]> */
+<script type='text/javascript'
+    src='/static/wp-content/plugins/woocommerce/assets/js/frontend/add-to-cart-variation.min7263.js?ver=5.4.4'
+    id='wc-add-to-cart-variation-js'></script>
+<script type='text/javascript'
+    src='/static/wp-content/themes/cr8iveshare/assets/libraries/sticky-sidebar/sticky-sidebar.mind988.js?ver=5.7.8'
+    id='sticky-sidebar-js'></script>
+<script type='text/javascript' id='haru-theme-script-js-before'>
+    var haru_framework_ajax_url = "/static/wp-admin/admin-ajax591f.html?activate-multi=true"
+    var searchUrl = "../../index1919.html?s="
+    var haru_framework_constant = { "product_compare": "Compare", "product_viewcart": "View Cart" }
+    var haru_framework_theme_url = "/static/wp-content/themes/cr8iveshare/index.html"
 </script>
-<script
-  type="text/javascript"
-  src="{% static 'wp-content/plugins/woocommerce/assets/js/frontend/add-to-cart-variation.min7263.js' %}"
-  id="wc-add-to-cart-variation-js"
-></script>
-<script
-  type="text/javascript"
-  src="{% static 'wp-content/themes/cr8iveshare/assets/libraries/sticky-sidebar/sticky-sidebar.mind988.js' %}"
-  id="sticky-sidebar-js"
-></script>
-<script type="text/javascript" id="haru-theme-script-js-before">
-  var haru_framework_ajax_url =
-    '{% static "wp-admin/admin-ajax591f.html?activate-multi=true" %}';
-  var searchUrl = '{% static "index1919.html?s=" %}';
-  var haru_framework_constant = {
-    product_compare: 'Compare',
-    product_viewcart: 'View Cart',
-  };
-  var haru_framework_theme_url = '{% static "wp-content/themes/cr8iveshare/index.html" %}';
+<script type='text/javascript' src='/static/wp-content/themes/cr8iveshare/assets/js/haru-maind988.js?ver=5.7.8'
+    id='haru-theme-script-js'></script>
+<script type='text/javascript' src='/static/wp-content/themes/cr8iveshare/assets/js/haru-shopd988.js?ver=5.7.8'
+    id='haru-shop-js'></script>
+<script type='text/javascript' src='/static/wp-content/themes/cr8iveshare/assets/js/haru-shop-ajaxd988.js?ver=5.7.8'
+    id='haru-shop-ajax-js'></script>
+<script type='text/javascript' src='/static/wp-content/themes/cr8iveshare/assets/js/haru-vidiod988.js?ver=5.7.8'
+    id='haru-vidio-script-js'></script>
+
+<script type='text/javascript' src='/static/wp-includes/js/heartbeat.mind988.js?ver=5.7.8' id='heartbeat-js'></script>
+<script type='text/javascript' src='/static/wp-includes/js/wp-embed.mind988.js?ver=5.7.8' id='wp-embed-js'></script>
+<script type='text/javascript'
+    src='/static/wp-content/plugins/haru-vidi/assets/libraries/mCustomScrollbar/jquery.mCustomScrollbar68b3.js?ver=1'
+    id='mCustomScrollbar-js'></script>
+<script type='text/javascript'
+    src='/static/wp-content/plugins/js_composer/assets/js/dist/js_composer_front.minbdeb.js?ver=6.7.0'
+    id='wpb_composer_front_js-js'></script>
+<script type='text/javascript' id='mycred-sell-this-js-extra'>
+    /* <![CDATA[ */
+    var myCREDBuyContent = { "ajaxurl": "https:\/\/demo.harutheme.com\/vidio\/video\/self-hosted-video-wordpress-theme\/", "token": "43577679a9", "working": "Processing ...", "reload": "0", "sweeterror": "Error" };
+/* ]]> */
 </script>
-<script
-  type="text/javascript"
-  src="{% static 'wp-content/themes/cr8iveshare/assets/js/haru-maind988.js' %}"
-  id="haru-theme-script-js"
-></script>
-<script
-  type="text/javascript"
-  src="{% static 'wp-content/themes/cr8iveshare/assets/js/haru-shopd988.js' %}"
-  id="haru-shop-js"
-></script>
-<script
-  type="text/javascript"
-  src="{% static 'wp-content/themes/cr8iveshare/assets/js/haru-shop-ajaxd988.js' %}"
-  id="haru-shop-ajax-js"
-></script>
-<script
-  type="text/javascript"
-  src="{% static 'wp-content/themes/cr8iveshare/assets/js/haru-vidiod988.js' %}"
-  id="haru-cr8iveshare-script-js"
-></script>
-<script type="text/javascript" id="heartbeat-js-extra">
-  /* <![CDATA[ */
-  var heartbeatSettings = { ajaxurl: '\/cr8iveshare\/wp-admin\/admin-ajax.php' };
-  /* ]]> */
-</script>
-<script
-  type="text/javascript"
-  src="{% static 'wp-includes/js/heartbeat.mind988.js' %}"
-  id="heartbeat-js"
-></script>
-<script
-  type="text/javascript"
-  src="{% static 'wp-includes/js/wp-embed.mind988.js' %}"
-  id="wp-embed-js"
-></script>
-<script
-  type="text/javascript"
-  src="{% static 'wp-content/plugins/js_composer/assets/js/dist/js_composer_front.minbdeb.js' %}"
-  id="wpb_composer_front_js-js"
-></script>
+<script type='text/javascript'
+    src='/static/wp-content/plugins/mycred/addons/sell-content/assets/js/buy-content7406.js?ver=2.0.1'
+    id='mycred-sell-this-js'></script>

@@ -84,7 +84,9 @@ class Category(models.Model):
 class Video(models.Model):
     title = models.CharField(max_length=30)
     description = models.TextField(max_length=300)
-    path = models.CharField(max_length=60)
+    banner = models.ImageField(
+        upload_to='video_banner', default='/static/1600x900.png')
+    path = models.FileField(upload_to='videos/')
     datetime = models.DateTimeField(auto_now_add=True,
                                     blank=False, null=False)
     user = models.ForeignKey(Account, on_delete=models.CASCADE)

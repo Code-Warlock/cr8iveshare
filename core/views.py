@@ -47,7 +47,7 @@ class CreateChannelView(View):
                 if Channel.objects.filter(user__username=request.user).get().channel_name != "":
                     return HttpResponseRedirect('/')
             except Channel.DoesNotExist:
-                form = ChannelForm()
+                form = ChannelForm(request.POST or None, request.FILES or None)
                 channel = False
                 return render(request, self.template_name, {'form': form, 'channel': channel})
 
@@ -157,7 +157,7 @@ class HomeView(LoginRequiredMixin, View):
 
 # @login_required(login_url='account/login')
 class VideoView(View):
-    template_name = 'video.html'
+    template_name = 'single_video.html'
 
     def get(self, request, id, new):
 
@@ -169,10 +169,10 @@ class VideoView(View):
             video_by_id.save()
 
         video_by_id = Video.objects.get(id=id)
-        BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-        video_by_id.path = 'http://localhost:8000/get_video/' + video_by_id.path
-        print(video_by_id)
-        print(video_by_id.path)
+        # BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+        # video_by_id.path = 'http://localhost:8000/get_video/' + video_by_id.path
+        # print(video_by_id)
+        # print(video_by_id.path)
 
         context = {'video': video_by_id}
 
@@ -312,20 +312,20 @@ class NewVideo(View):
             # create a new Video Entry
             title = form.cleaned_data['title']
             description = form.cleaned_data['description']
-            file = form.cleaned_data['file']
+            path = form.cleaned_data['file']
 
-            random_char = ''.join(random.choices(
-                string.ascii_uppercase + string.digits, k=10))
-            path = random_char + file.name
-            print("TTTTTTT     ", path)
-            fs = FileSystemStorage(location=os.path.dirname(
-                os.path.dirname(os.path.abspath(__file__))))
-            filename = fs.save("youtube/static/videos/" + path, file)
-            file_url = fs.url(filename)
+            # random_char = ''.join(random.choices(
+            #     string.ascii_uppercase + string.digits, k=10))
+            # path = random_char + file.name
+            # print("TTTTTTT     ", path)
+            # fs = FileSystemStorage(location=os.path.dirname(
+            #     os.path.dirname(os.path.abspath(__file__))))
+            # filename = fs.save("youtube/static/videos/" + path, file)
+            # file_url = fs.url(filename)
 
-            print(fs)
-            print(filename)
-            print(file_url)
+            # print(fs)
+            # print(filename)
+            # print(file_url)
 
             new_video = Video(title=title,
                               description=description,
