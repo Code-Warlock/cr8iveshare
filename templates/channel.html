@@ -62,6 +62,7 @@
                           class="youzify-membership-login-form"
                           method="POST"
                           action=""
+                          enctype= 'multipart/form-data'
                         >
                           {% csrf_token %}
                           <!-- After Form Buttons -->
@@ -74,6 +75,14 @@
                               <label for="user_login">Channel Name</label>
                               <div class="youzify-membership-field-content">
                                 {{form.channel_name|attr:"type:text"|attr:"placeholder:Your channel name"}}
+                              </div>
+                            </div>
+                          </div>
+                          <div class="youzify-membership-form-item">
+                            <div class="youzify-membership-item-content">
+                              <label for="user_login">Channel Image</label>
+                              <div class="youzify-membership-field-content">
+                                {{form.channel_image|attr:"type:file"|attr:"placeholder:Your channel image"}}
                               </div>
                             </div>
                           </div>

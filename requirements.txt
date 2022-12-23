@@ -15,3 +15,4 @@ tzdata==2022.1
 urllib3==1.26.9
 virtualenv==20.14.1
 django-widget-tweaks==1.4.12
+# moviepy

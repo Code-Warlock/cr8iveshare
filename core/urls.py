@@ -1,5 +1,6 @@
 from django.urls import path
 from .views import (
+    CategoryView,
     HomeView,
     about,
     contact,
@@ -21,6 +22,7 @@ urlpatterns = [
     path('about', about, name='about'),
     path('contact', contact, name='contact'),
     path('profile/<str:pk>', profile, name='profile'),
+    path('video_category/<str:slug>', CategoryView, name='Video'),
     path('new_video', NewVideo.as_view()),
     path('video/<int:id>/<int:new>/', VideoView.as_view()),
     path('comment', CommentView.as_view()),

@@ -1,5 +1,6 @@
 from .models import *
 from django.db.models import Q
+# from moviepy.editor import VideoClipFile
 
 from django.shortcuts import redirect, render, get_object_or_404
 
@@ -9,6 +10,7 @@ def post_renderer(request):
         'updated') if PageContents.objects.all().count() > 0 else None
     category = Category.objects.all()
     channel = Channel.objects.all().count()
+    # video_file = request.FILES.get('video')
     counts = []
     for c in category:
         category_count = Video.objects.filter(category=c).count()
@@ -30,7 +32,7 @@ def post_renderer(request):
 
     return {
         'page_contents': page_contents,
-        'category_count': category_count,
+        'cat_count': category_count,
         'channel_count': channel,
         'most_recent_videos': most_recent_videos,
         # 'posts': post,

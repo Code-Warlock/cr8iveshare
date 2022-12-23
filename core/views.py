@@ -3,7 +3,7 @@ from django.utils import timezone
 from django.shortcuts import render, redirect, get_object_or_404
 from accounts.models import Account, Profile
 from django.views.generic.base import View, HttpResponseRedirect, HttpResponse
-from core.models import Comment, Dislike, FollowersCount, Like, Video, Channel, Channel_Subscription, Video_View
+from core.models import Category, Comment, Dislike, FollowersCount, Like, Video, Channel, Channel_Subscription, Video_View
 from django.contrib.auth.decorators import login_required
 import random
 from itertools import chain
@@ -58,13 +58,14 @@ class CreateChannelView(View):
             # create a User account
             print(form.cleaned_data['channel_name'])
             channel_name = form.cleaned_data['channel_name']
+            channel_image = form.cleaned_data['channel_image']
             user = request.user
             subscribers = 0
-            new_channel = Channel(channel_name=channel_name,
+            new_channel = Channel(channel_name=channel_name, channel_image=channel_image,
                                   user=user, subscribers=subscribers)
             new_channel.save()
             return HttpResponseRedirect('/')
-        return HttpResponse('This is Register view. POST Request.')
+        return HttpResponseRedirect('channelview.html')
 
 
 # @login_required(login_url='account/login')
@@ -158,6 +159,19 @@ class HomeView(LoginRequiredMixin, View):
 #     return render(request, template_name, context)
 
 # @login_required(login_url='account/login')
+
+
+def CategoryView(request, slug):
+    template_name = 'video_category.html'
+    category = get_object_or_404(Category, slug=slug)
+    videos = Video.objects.filter(category__slug=slug)
+    context = {
+        'videos': videos,
+        'cat': category,
+    }
+    return render(request, template_name, context)
+
+
 class VideoView(View):
     template_name = 'single_video.html'
 
@@ -242,7 +256,7 @@ class CommentView(View):
 
             new_comment = Comment(text=text, user=request.user, video=video)
             new_comment.save()
-            return HttpResponseRedirect('/video/{}/{}/'.format(str(video_id), str(0)))
+            # return HttpResponseRedirect('/video/{}/{}/'.format(str(video_id), str(0)))
         return HttpResponse('This is Register view. POST Request.')
 
 

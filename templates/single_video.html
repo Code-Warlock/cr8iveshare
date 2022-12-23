@@ -1,4 +1,6 @@
 {% load static %}
+{% load crispy_forms_tags %}
+{% load widget_tweaks %} 
 <!DOCTYPE html>
 <!-- Open HTML -->
 <html lang="en-US">
@@ -8,15 +10,13 @@
     <!-- /Added by HTTrack -->
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <link rel="profile" href="http://gmpg.org/xfn/11" />
     <script>
       document.documentElement.className =
         document.documentElement.className + ' yes-js js_active js';
     </script>
     <title>
-      {{ video.title }}
+        SplitUnity |  {{ video.title }}
     </title>
-    <meta name="robots" content="max-image-preview:large" />
     {% include "links.html" %}
   </head>
 
@@ -67,8 +67,8 @@
                                         <div class="video-player">
                                             <div class="haru-video-player">
                                                 <div class="video-player-data" data-id="96" data-server="selfhost"
-                                                    data-thumb-url="/static/wp-content/uploads/2019/11/fashion-13.jpg"
-                                                    data-autoplay="true" data-hide-autonext="false">
+                                                    data-thumb-url="{{video.banner.url}}"
+                                                    data-autoplay="true" data-hide-autonext="true">
                                                 </div>
 
 
@@ -89,7 +89,7 @@
                                                         <div class="player-wrapper">
                                                             <div class="video-player">
                                                                 <div class="media-wrapper ratio-169"
-                                                                    style="background-image: url(/static/wp-content/uploads/2019/11/fashion-13.jpg); ">
+                                                                    style="background-image: url({{video.banner.url}}); ">
 
                                                                     <!-- Use Meberships -->
                                                                     <div class="video-mediaelement-unmute"><i
@@ -101,10 +101,10 @@
                                                                         preload="none" controls playsinline
                                                                         webkit-playsinline>
                                                                         <source
-                                                                            src="{{MEDIA_URL}}{{video.path}}"
+                                                                            src="{{video.path.url}}"
                                                                             type="video/mp4">
                                                                         <source
-                                                                            src="{{MEDIA_URL}}{{video.path}}"
+                                                                            src="{{video.path.url}}"
                                                                             type="video/webm">
                                                                     </video>
 
@@ -116,7 +116,7 @@
 
 
 
-                                                <div class="video-auto-next-wrap"
+                                                <!-- <div class="video-auto-next-wrap"
                                                     data-next-url="https://demo.harutheme.com/vidio/video/facebook-embed-video-wordpress-theme/"
                                                     style="background-image: url(/static/wp-content/uploads/2019/11/fashion-14.jpg);">
                                                     <div class="video-auto-next-content">
@@ -134,7 +134,7 @@
 
                                                         <a href="javascript:;" class="video-next-cancel">Cancel</a>
                                                     </div>
-                                                </div>
+                                                </div> -->
                                             </div>
                                         </div>
                                     </div>
@@ -151,19 +151,16 @@
                                         <div class="post-rating__action">
                                             <div class="toolbar-action toolbar-action--background action-rating post-like "
                                                 data-id="96" data-action="like" data-vote-status=""
-                                                data-login="false" data-login-required="yes"><i
+                                                ><i
                                                     class="haru-icon haru-like"></i><span class="post-like-count">32
                                                 </span><span class="rating-label">Like</span>
-                                                <span class="haru-tooltip like-tooltip">Please login to vote</span>
                                             </div>
                                             <div class="toolbar-action toolbar-action--background action-rating post-dislike "
                                                 data-id="96" data-action="dislike" data-vote-status=""
-                                                data-login="false" data-login-required="yes"><i
+                                                ><i
                                                     class="haru-icon haru-dislike"></i><span
                                                     class="post-dislike-count">11 </span><span
                                                     class="rating-label">Dislike</span>
-                                                <span class="haru-tooltip dislike-tooltip">Please login to
-                                                    vote</span>
                                             </div>
                                         </div>
 
@@ -171,14 +168,9 @@
                                     <div class="toolbar-action toolbar-action--background video-watch-later "
                                         data-id="96" data-title="{{ video.title }}"
                                         data-permalink="index.html"
-                                        data-thumb="/static/wp-content/uploads/2019/11/fashion-13.jpg">
+                                        data-thumb="{{video.banner.url}}">
                                         <i class="haru-icon haru-clock"></i>
                                         Watch Later
-                                    </div>
-
-                                    <div class="toolbar-action toolbar-action--background video-report-action action-show"
-                                        data-group="video-report-group">
-                                        <i class="haru-icon haru-flag"></i>Report
                                     </div>
 
 
@@ -187,30 +179,16 @@
 
                                     <div class="toolbar-action toolbar-action--background single-video-download">
                                         <i class="haru-icon haru-download"></i>Download <div class="video-download">
-                                            <a href="/static/wp-content/uploads/2019/06/big_buck_bunny.mp4"
+                                            <a href="{{video.path.url}}"
                                                 download>MP4</a>
-                                            <a href="/static/wp-content/uploads/2019/06/big_buck_bunny.webm"
+                                            <a href="{{video.path.url}}"
                                                 download>WebM</a>
                                         </div>
                                     </div>
-                                    <div class="toolbar-action toolbar-action--border video-prev">
-                                        <a href="../google-video-wordpress-theme/index.html"><i
-                                                class="haru-icon haru-fast-backward"></i>Prev</a>
-                                    </div>
-                                    <div class="toolbar-action toolbar-action--border video-next">
-                                        <a href="../facebook-embed-video-wordpress-theme/index.html">Next<i
-                                                class="haru-icon haru-fast-forward"></i></a>
-                                    </div>
-
-                                    <div class="toolbar-action toolbar-action--border action-show video-more"
-                                        data-group="video-more-group">More<i class="haru-icon haru-dots"></i></div>
+                                    
 
 
-                                    <div class="toolbar-action toolbar-action--none video-auto-next">Auto Next <div
-                                            class="button-auto-next">
-                                            <div class="button-switch"></div>
-                                        </div>
-                                    </div>
+                                    
 
                                 </div>
 
@@ -289,7 +267,7 @@
                                                             <div class="post-views-count">
                                                                 <span class="post-views-label">views</span>
                                                                 <i class="fa fa-eye"></i>
-                                                                <span class="post-view-count">3.042K</span>
+                                                                <span class="post-view-count">{{video.number_of_views}}</span>
                                                                 <span class="post-view-unit"> views</span>
                                                             </div>
                                                         </div>
@@ -711,11 +689,11 @@
                                 <div class="post-views-count">
                                     <span class="post-views-label">views</span>
                                     <i class="fa fa-eye"></i>
-                                    <span class="post-view-count">3.706K</span>
+                                    <span class="post-view-count">{{video.number_of_views}}</span>
                                     <span class="post-view-unit"> views</span>
                                 </div>
                             </div>
-                            <div class="single-video-date"><i class="fa fa-calendar"></i>June 26, 2019</div>
+                            <div class="single-video-date"><i class="fa fa-calendar"></i>{{video.datetime}}</div>
                         </div>
                         <div class="single-video-meta-right">
                             <div class="single-video-rating">
@@ -733,112 +711,15 @@
                                         <span class="post-dislike-unit"> dislikes</span>
                                     </div>
                                 </div>
-                                <div class="post-rating-bar">
+                                <!-- <div class="post-rating-bar">
                                     <div class="post-rating-percentage" style="width: 74.418605%;"></div>
-                                </div>
+                                </div> -->
                             </div>
 
                             <!-- Screenshot -->
 
                             <!-- More actions -->
-                            <div class="toolbar-action toolbar-action--background single-video-share">
-                                <i class="haru-icon haru-share"></i>Share <div class="video-social-share">
-                                    <div class="post-social-share">
-                                        <div class="social-share-wrap">
-                                            <ul class="social-share">
-                                                <li class="social-share__label">
-                                                    Share: </li>
-
-                                                <li class="social-share__facebook">
-                                                    <a onclick="window.open('https://www.facebook.com/sharer.php?u=https%3A%2F%2Fdemo.harutheme.com%2Fvidio%2Fvideo%2Fself-hosted-video-wordpress-theme%2F','sharer', 'toolbar=0,status=0,width=620,height=280');"
-                                                        href="javascript:;">
-                                                        <i class="fa fa-facebook-f"></i>
-                                                    </a>
-                                                </li>
-
-
-
-
-
-
-
-                                                <li class="social-share__twitter">
-                                                    <a onclick="popUp=window.open('http://twitter.com/share?text=Self+Hosted+Video+WordPress+theme&amp;url=https%3A%2F%2Fdemo.harutheme.com%2Fvidio%2Fvideo%2Fself-hosted-video-wordpress-theme%2F','sharer','scrollbars=yes,width=800,height=400');popUp.focus();return false;"
-                                                        href="javascript:;">
-                                                        <i class="fa fa-twitter"></i>
-                                                    </a>
-                                                </li>
-
-
-
-
-
-
-
-                                                <li class="social-share__google">
-                                                    <a href="javascript:;"
-                                                        onclick="popUp=window.open('https://plus.google.com/share?url=https%3A%2F%2Fdemo.harutheme.com%2Fvidio%2Fvideo%2Fself-hosted-video-wordpress-theme%2F','sharer','scrollbars=yes,width=800,height=400');popUp.focus();return false;">
-                                                        <i class="fa fa-google-plus"></i>
-                                                    </a>
-                                                </li>
-
-
-
-
-
-
-
-                                                <li class="social-share__linkedin">
-                                                    <a onclick="popUp=window.open('https://linkedin.com/shareArticle?mini=true&amp;url=https%3A%2F%2Fdemo.harutheme.com%2Fvidio%2Fvideo%2Fself-hosted-video-wordpress-theme%2F&amp;title=Self+Hosted+Video+WordPress+theme','sharer','scrollbars=yes,width=800,height=400');popUp.focus();return false;"
-                                                        href="javascript:;">
-                                                        <i class="fa fa-linkedin"></i>
-                                                    </a>
-                                                </li>
-
-
-
-
-
-
-
-                                                <li class="social-share__tumblr">
-                                                    <a onclick="popUp=window.open('https://www.tumblr.com/share/link?url=https%3A%2F%2Fdemo.harutheme.com%2Fvidio%2Fvideo%2Fself-hosted-video-wordpress-theme%2F&amp;name=Self+Hosted+Video+WordPress+theme&amp;description=Premium+ContentLogin+to+buy+access+to+this+content.','sharer','scrollbars=yes,width=800,height=400');popUp.focus();return false;"
-                                                        href="javascript:;">
-                                                        <i class="fa fa-tumblr"></i>
-                                                    </a>
-                                                </li>
-
-
-
-
-
-
-
-
-                                                <li class="social-share__pinterest">
-                                                    <a onclick="popUp=window.open('https://pinterest.com/pin/create/button/?url=https%3A%2F%2Fdemo.harutheme.com%2Fvidio%2Fvideo%2Fself-hosted-video-wordpress-theme%2F&amp;description=Self+Hosted+Video+WordPress+theme&amp;media=https://demo.harutheme.com/vidio/wp-content/uploads/2019/11/fashion-13.jpg','sharer','scrollbars=yes,width=800,height=400');popUp.focus();return false;"
-                                                        href="javascript:;">
-                                                        <i class="fa fa-pinterest"></i>
-                                                    </a>
-                                                </li>
-
-
-
-
-
-
-
-                                                <li class="social-share__vk">
-                                                    <a onclick="popUp=window.open('http://vk.com/share.php?url=https%3A%2F%2Fdemo.harutheme.com%2Fvidio%2Fvideo%2Fself-hosted-video-wordpress-theme%2F&amp;description=Self+Hosted+Video+WordPress+theme&amp;image=https://demo.harutheme.com/vidio/wp-content/uploads/2019/11/fashion-13.jpg','sharer','scrollbars=yes,toolbar=0,status=0,width=800,height=400');popUp.focus();return false;"
-                                                        href="javascript:;">
-                                                        <i class="fa fa-vk"></i>
-                                                    </a>
-                                                </li>
-                                            </ul>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
+                            
                         </div>
                     </div>
                 </div>
@@ -1245,7 +1126,7 @@
                                 <div class="single-video-meta-right">
                                     <div class="single-video-author">
                                         <h6>
-                                            <a href="../../members/admin/index.html">admin</a>
+                                            <a href="../../members/admin/index.html">{{video.user.username}}</a>
                                         </h6>
                                     </div>
 
@@ -1261,185 +1142,15 @@
                             </div>
 
                             <div class="single-video-content">
-                                <div id="mycred-buy-content96"
-                                    class="mycred-sell-this-wrapper mycred-sell-entire-content mycred-sell-visitor"
-                                    data-pid="96">
-                                    <div class="text-center">
-                                        <h3>Premium Content</h3>
-                                        <p>Login to buy access to this content.</p>
-                                    </div>
-                                </div>
+                                <p>{{video.description}}</p>
                             </div>
 
-                            <div class="single-video-content-toggle">
-                                <a href="javascript:;" class="single-video-content-btn" data-show-more="Show more"
-                                    data-show-less="Show less">Show more</a>
-                            </div>
+                            
 
                             <div class="single-video-tag"><i class="haru-icon haru-tags"></i>#<a
                                     href="../../video-tag/filmmaker/index.html" rel="tag">filmmaker</a> #<a
                                     href="../../video-tag/video/index.html" rel="tag">video</a></div>
 
-                            <div class="single-video-actor">
-                                <h5>Actor</h5>
-                                <div class="single-video-actor-list">
-                                    <div class="single-video-actor-item">
-                                        <div class="single-video-actor-item-avatar"
-                                            style="background-image: url('/static/wp-content/uploads/2020/01/single-actor-4.jpg');">
-                                        </div>
-                                        <div class="single-video-actor-item-meta">
-                                            <h6><a href="../../actor/gary-sinises/index.html">Gary Sinises</a></h6>
-                                            <div class="single-video-actor-item-meta-videos">20<span> videos</span>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="single-video-actor-item">
-                                        <div class="single-video-actor-item-avatar"
-                                            style="background-image: url('/static/wp-content/uploads/2020/01/single-actor-5.jpg');">
-                                        </div>
-                                        <div class="single-video-actor-item-meta">
-                                            <h6><a href="../../actor/james-xpander/index.html">James XPander</a>
-                                            </h6>
-                                            <div class="single-video-actor-item-meta-videos">26<span> videos</span>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="single-video-actor-item">
-                                        <div class="single-video-actor-item-avatar"
-                                            style="background-image: url('/static/wp-content/uploads/2019/09/single-actor.jpg');">
-                                        </div>
-                                        <div class="single-video-actor-item-meta">
-                                            <h6><a href="../../actor/octavia-capenter/index.html">Octavia
-                                                    Capenter</a></h6>
-                                            <div class="single-video-actor-item-meta-videos">27<span> videos</span>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="single-video-actor-item">
-                                        <div class="single-video-actor-item-avatar"
-                                            style="background-image: url('/static/wp-content/uploads/2020/01/single-actor-4.jpg');">
-                                        </div>
-                                        <div class="single-video-actor-item-meta">
-                                            <h6><a href="../../actor/ammy-poehler/index.html">Ammy Poehler</a></h6>
-                                            <div class="single-video-actor-item-meta-videos">22<span> videos</span>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="single-video-actor-item">
-                                        <div class="single-video-actor-item-avatar"
-                                            style="background-image: url('/static/wp-content/uploads/2020/01/single-actor-2.jpg');">
-                                        </div>
-                                        <div class="single-video-actor-item-meta">
-                                            <h6><a href="../../actor/meryl-streeper/index.html">Meryl Streeper</a>
-                                            </h6>
-                                            <div class="single-video-actor-item-meta-videos">25<span> videos</span>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div class="single-video-director">
-                                <h5>Director</h5>
-                                <div class="single-video-director-list">
-                                    <div class="single-video-director-item">
-                                        <div class="single-video-director-item-avatar"
-                                            style="background-image: url('/static/wp-content/uploads/2020/01/single-actor-2.jpg');">
-                                        </div>
-                                        <div class="single-video-director-item-meta">
-                                            <h6><a href="../../director/kevin-jackson/index.html">Kevin Jackson</a>
-                                            </h6>
-                                            <div class="single-video-director-item-meta-videos">28<span>
-                                                    videos</span></div>
-                                        </div>
-                                    </div>
-                                    <div class="single-video-director-item">
-                                        <div class="single-video-director-item-avatar"
-                                            style="background-image: url('/static/wp-content/uploads/2020/01/single-actor-4.jpg');">
-                                        </div>
-                                        <div class="single-video-director-item-meta">
-                                            <h6><a href="../../director/leonardo-guardiola/index.html">Leonardo
-                                                    Guardiola</a></h6>
-                                            <div class="single-video-director-item-meta-videos">21<span>
-                                                    videos</span></div>
-                                        </div>
-                                    </div>
-                                    <div class="single-video-director-item">
-                                        <div class="single-video-director-item-avatar"
-                                            style="background-image: url('/static/wp-content/uploads/2020/01/single-actor-5.jpg');">
-                                        </div>
-                                        <div class="single-video-director-item-meta">
-                                            <h6><a href="../../director/maguire-robbie/index.html">Maguire
-                                                    Robbie</a></h6>
-                                            <div class="single-video-director-item-meta-videos">25<span>
-                                                    videos</span></div>
-                                        </div>
-                                    </div>
-                                    <div class="single-video-director-item">
-                                        <div class="single-video-director-item-avatar"
-                                            style="background-image: url('/static/wp-content/uploads/2020/01/single-actor-3.jpg');">
-                                        </div>
-                                        <div class="single-video-director-item-meta">
-                                            <h6><a href="../../director/james-washington/index.html">James
-                                                    Washington</a></h6>
-                                            <div class="single-video-director-item-meta-videos">17<span>
-                                                    videos</span></div>
-                                        </div>
-                                    </div>
-                                    <div class="single-video-director-item">
-                                        <div class="single-video-director-item-avatar"
-                                            style="background-image: url('/static/wp-content/uploads/2020/01/single-actor-3.jpg');">
-                                        </div>
-                                        <div class="single-video-director-item-meta">
-                                            <h6><a href="../../director/tina-feyna/index.html">Tina Feyna</a></h6>
-                                            <div class="single-video-director-item-meta-videos">26<span>
-                                                    videos</span></div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div class="single-video-nav">
-                                <div class="single-video-prev">
-                                    <a href="../google-video-wordpress-theme/index.html" class="video-nav-link"></a>
-                                    <div class="single-video-nav-content">
-                                        <div class="video-nav-thumb video-prev-thumb">
-                                            <img src="/static/wp-content/uploads/2019/11/fashion-20.jpg" alt="">
-                                            <div class="video-nav-duration">1:00</div>
-                                        </div>
-                                        <div class="video-nav-meta">
-                                            <div class="video-nav-label">Prev</div>
-                                            <h6 class="video-nav-title">Google Video WordPress theme</h6>
-                                            <div class="video-nav-info">
-                                                <div class="video-nav-author">
-                                                    <a href="../../members/admin/index.html">admin</a>
-                                                </div>
-                                                <div class="video-nav-date">June 26, 2019</div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="single-video-next">
-                                    <a href="../facebook-embed-video-wordpress-theme/index.html"
-                                        class="video-nav-link"></a>
-                                    <div class="single-video-nav-content">
-                                        <div class="video-nav-meta">
-                                            <div class="video-nav-label">Next</div>
-                                            <h6 class="video-nav-title">Facebook Embed Video WordPress theme</h6>
-                                            <div class="video-nav-info">
-                                                <div class="video-nav-author">
-                                                    <a href="../../members/admin/index.html">admin</a>
-                                                </div>
-                                                <div class="video-nav-date">June 26, 2019</div>
-                                            </div>
-                                        </div>
-                                        <div class="video-nav-thumb video-next-thumb">
-                                            <img src="/static/wp-content/uploads/2019/11/fashion-14.jpg" alt="">
-                                            <div class="video-nav-duration">9:15</div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
 
                             <div class="single-related-video">
                                 <h6 class="related-title">You may also like this</h6>
@@ -1875,6 +1586,77 @@
                             </div>
 
                             <div id="video-comments">
+                                <div id="comments" class="post-comments">
+
+                                    <div class="post-comments-form">
+                                        <div id="respond-wrapper">
+                                            <div id="respond" class="comment-respond">
+                                                <h3 id="reply-title" class="comment-reply-title"><span>Leave us
+                                                    </span>a comment <small><a rel="nofollow"
+                                                            id="cancel-comment-reply-link" href="index.html#respond"
+                                                            style="display:none;">Cancel Reply</a></small></h3>
+                                                            <form action="" method="POST" class="youzify-membership-login-form" >
+                                                                {% csrf_token %}
+                                                                <div class="youzify-membership-form-item">
+                                                                    <div class="youzify-membership-item-content">
+                                                                      <div class="youzify-membership-field-content">
+                                                                        {{form.text|attr:"type:text"|attr:"placeholder:Enter your comment here"}}
+                                                                      </div>
+                                                                    </div>
+                                                                  </div>
+                                                                <input type='hidden' name='video' value='{{ video.id }}'>
+                                                                <br>
+                                                                <button type="submit" class="btn btn-primary">Post Comment!</button>
+                                                            </form>
+                                                           
+                                            </div><!-- #respond -->
+                                        </div>
+
+                                        <div class="post-comments-list">
+                                            {% if comments %}
+                                            <ol class="comment-list clearfix">
+                                                {% for comment in comments %}
+                                                <li class="comment byuser comment-author-admin bypostauthor even thread-even depth-1"
+                                                    id="li-comment-672">
+                                                    <div id="comment-672" class="comment-body clearfix">
+                                                        <div class="author-avatar">
+                                                            <img alt=''
+                                                                src='../wp-content/uploads/avatars/1/5f1645ee06ea5-bpfull.png'
+                                                                srcset='https://demo.harutheme.com/vidio/wp-content/uploads/avatars/1/5f1645ee06ea5-bpfull.png 2x'
+                                                                class='avatar avatar-70 photo' height='70' width='70'
+                                                                loading='lazy' />
+                                                        </div>
+                                                        <div class="comment-text">
+                                                            <div class="author">
+                                                                <div class="author-name"><a
+                                                                        href='../members/admin/index.html'
+                                                                        rel='external nofollow ugc' class='url'>{{ comment.user }}</a>
+                                                                </div>
+                                                            </div>
+                                                            <div class="text">
+                                                                <p>{{ comment.text }}</p>
+                                                            </div>
+                                                            <div class="comment-meta">
+                                                                <div class="comment-meta-date">
+                                                                    <span class="time">
+                                                                        {{ comment.datetime }} </span>
+                                                                </div>
+                                                                
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </li><!-- #comment-## -->
+                                                {% endfor %}
+                                            </ol>
+                                            {% else %}
+                                              <p style="text-align: center;">No Comments Available for this video</p>
+                                            {% endif %}
+                                            
+                                           
+                                        </div>
+
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>
