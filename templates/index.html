@@ -83,7 +83,7 @@
                                             <div class="channel-item__content">
                                               <h6 class="channel-item__title">
                                                 <a
-                                                  href="/{{ channels.user.username }}/channel"
+                                                  href="/{{ channel.user.username }}"
                                                   >{{ channel.channel_name }}</a
                                                 >
                                               </h6>
@@ -114,7 +114,7 @@
                                             {% if user.is_authenticated %}
                                             {% if subscribed == False %}
                                               <a
-                                                href="{% url 'core:channel_subscribe' c_id=channel.id %}"
+                                                href="/{{ channel.user.username }}/channel"
                                                 class="channel-subscribe button-background button-background--small"
                                                 
                                               >
@@ -129,12 +129,12 @@
                                                   ></i
                                                 ></span>
                                                 <span class="text-subscribe"
-                                                  >Subscribe</span
+                                                  >View</span
                                                 >
                                               </a>
                                               {% else %}
                                               <a
-                                                href="{% url 'core:channel_unsubscribe' c_id=channel.id %}"
+                                                href="/{{ channel.user.username }}/channel"
                                                 class="channel-subscribe button-background button-background--small"
                                                 
                                               >
@@ -149,7 +149,7 @@
                                                   ></i
                                                 ></span>
                                                 <span class="text-subscribe"
-                                                  >UnSubscribe</span
+                                                  >View</span
                                                 >
                                               </a>
                                               {% endif %}
